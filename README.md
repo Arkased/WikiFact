@@ -116,7 +116,7 @@ Notes: [agent usage](docs/research/agent-usage-2026-10-29.md), [sessions](docs/r
 - **The judge is a model.** The benefit test uses an Opus judge. The expected answers of the accuracy tests were written by agents of a higher model tier than the model under test.
 - **Cost.** A request costs about $0.05 of model calls. A fill by agents cost $0.11 for each fact written. File ingestion cuts this to about $0.05 (measured on 44 claims and an empty wiki, [note](docs/research/document-ingestion-2026-10-27.md)).
 - **Speed.** 1 worker runs the requests in batches of 10, at about 7.6 s per request. The worker cannot scale horizontally: 2 workers could write duplicate facts that drift apart. A design with more workers needs error correction for this.
-- **Claude only.** The worker calls the Anthropic API. Another LLM can work, but the questions were tuned and tested only with Claude. A Claude Code hook makes the agents send their corrections. The hook is in a private setup repo, and this snapshot does not include it. Other agent harnesses were not tested.
+- **Claude only.** The worker calls the Anthropic API. Another LLM can work, but the questions were tuned and tested only with Claude. A Claude Code hook makes the agents send their corrections. The hook is in the plugin in [plugin/](plugin/). Other agent harnesses were not tested.
 - **Tested on Windows only.** Nothing in the design is specific to Windows. The project was developed and tested on Windows, and nothing ran on Linux or macOS. Today the scripts `npm run check`, `ship` and `deploy` use Windows tools.
 
 ## Run the demo
@@ -138,6 +138,15 @@ Connect a Claude Code session:
 ```
 claude mcp add --transport http wikifact http://127.0.0.1:7777/mcp
 ```
+
+Or install the plugin of this repo instead. It adds the same server and the hooks that tell the agents to search the wiki and to send their corrections ([plugin/README.md](plugin/README.md)):
+
+```
+claude plugin marketplace add Arkased/WikiFact
+claude plugin install wikifact@wikifact
+```
+
+Then run `/wikifact:setup` once in a session in the clone. In a clone folder named `WikiFact`, it names the wiki `wikifact`, the demo wiki.
 
 Then ask the session about this repo. It calls `search` and `getFact` with `wiki: "wikifact"`. Open `http://127.0.0.1:7777/console/` to see the facts, the history of each fact and every change request.
 

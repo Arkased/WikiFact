@@ -23,7 +23,7 @@ The hooks read the wiki name from `wiki.name` in `.claude/setup.config.json` of 
 Run `/wikifact:setup [subject]` in the project. It:
 
 1. adds the permission rule `mcp__plugin_wikifact_wikifact` to `permissions.allow` in `.claude/settings.json`;
-2. writes `wiki.name` to `.claude/setup.config.json` when the key is absent (the name of the project folder in lower case, each run of other characters as `-`), keeping every other key;
+2. writes `wiki.name` to `.claude/setup.config.json` when the key is absent (the name of the project folder in lower case, each run of other characters as `-`, cut to 40 characters, with no `-` at the start or end, or `wiki` when nothing is left), keeping every other key;
 3. creates the wiki with that name and your subject when the service does not list it yet.
 
 Each file prints `written` or `unchanged`; a second run changes nothing.
