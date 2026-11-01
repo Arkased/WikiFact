@@ -1,0 +1,285 @@
+{
+  "startedAt": "2026-10-21T05:19:56.340Z",
+  "complete": true,
+  "source": "game.sqlite",
+  "requests": 5,
+  "queuedInSource": 1747,
+  "startSeq": 2533,
+  "batchSize": 100,
+  "concurrency": 4,
+  "stub": false,
+  "sequential": {
+    "path": "sequential",
+    "complete": true,
+    "startedAtMs": 1792559996914,
+    "wallMs": 126314,
+    "snapshotMs": 47,
+    "usage": {
+      "calls": 12,
+      "tokens": {
+        "input": 24,
+        "output": 10161,
+        "cacheRead": 145350,
+        "cacheWrite": 7112
+      },
+      "usd": 0.19765805000000003,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q5": 1,
+        "Q1": 3,
+        "Q4": 3,
+        "Q7": 5
+      }
+    },
+    "outcomes": {
+      "accepted": 1,
+      "rejected": 4
+    },
+    "steps": 5,
+    "batches": [],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "First version observed status",
+            "content": "A fact version is observed when its justification is not blank and, unless it is the first, its content or is_deleted changed."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PMJEPJ07DF4PEE6NTK",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change joins two attributes (the dependent gets a new version without the reference; no model writes it) that could be true or false independently, and the justification only cites a document without saying the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PNYSN08J2WHPQ6VS1Y",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change joins a routing rule (a failing dependent goes to a draft question) with a separate claim about the rewrite's empty justification, and either could be false alone. The justification only cites a document and does not say the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 1,
+      "candidatePairs": 3,
+      "pairs": [],
+      "judge": {
+        "calls": 1,
+        "tokens": {
+          "input": 2,
+          "output": 221,
+          "cacheRead": 1014,
+          "cacheWrite": 2005
+        }
+      }
+    }
+  },
+  "batch": {
+    "path": "batch",
+    "complete": true,
+    "startedAtMs": 1792560123276,
+    "wallMs": 62373,
+    "snapshotMs": 29,
+    "usage": {
+      "calls": 7,
+      "tokens": {
+        "input": 16,
+        "output": 5775,
+        "cacheRead": 89432,
+        "cacheWrite": 33348
+      },
+      "usd": 0.05920581999999999,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q5B": 3,
+        "Q7B": 2,
+        "Q15": 2
+      }
+    },
+    "outcomes": {
+      "split": 1,
+      "child accepted": 1,
+      "child duplicate": 1,
+      "accepted": 2,
+      "rejected": 2
+    },
+    "steps": 2,
+    "batches": [
+      {
+        "batchId": "01M5EEHKCEAPH9GQSHAW3ZECZ0",
+        "status": "done",
+        "size": 5
+      },
+      {
+        "batchId": "01M5EEJXS8F1S3SJCRM5EVGXME",
+        "status": "done",
+        "size": 2
+      }
+    ],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5EEJ2D0YCJKT1QNBGZXRHEH",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "facts": [
+              {
+                "header": "Observed status of later fact versions",
+                "content": "A fact version that is not the first is observed when its justification is not blank and its content or is_deleted differs from the prior version."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5EEJ2D0YCJKT1QNBGZXRHEJ",
+            "status": "done",
+            "outcome": "duplicate",
+            "attempts": 0,
+            "facts": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Console read flags",
+            "content": "The console flags a read when its 0-read search share exceeds 0.5, its 3-plus-read share exceeds 0.3, or its no-search session share exceeds 0.3."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "SQLite access library",
+            "content": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PMJEPJ07DF4PEE6NTK",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes, what the new version contains and who writes it, could each be true or false on their own; the submitter cites the document lines they read.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PNYSN08J2WHPQ6VS1Y",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes, where the dependent goes and the justification of its rewrite, could each be true or false on their own; the submitter cites the document lines they read.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 3,
+      "candidatePairs": 9,
+      "pairs": [],
+      "judge": {
+        "calls": 3,
+        "tokens": {
+          "input": 6,
+          "output": 922,
+          "cacheRead": 4459,
+          "cacheWrite": 4639
+        }
+      }
+    }
+  },
+  "differences": {
+    "outcomes": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "change": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the version before it; the first version is observed w",
+        "sequential": "accepted",
+        "batch": "split[accepted,duplicate]"
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "change": "The console flags a read when the share of searches with 0 reads is over 0.5 (NO_READ_SHARE), the share with 3 or more reads is over 0.3 (MANY_READS_SHARE), or ",
+        "sequential": "rejected",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "change": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3.",
+        "sequential": "rejected",
+        "batch": "accepted"
+      }
+    ],
+    "onlySequential": [
+      {
+        "header": "First version observed status",
+        "content": "A fact version is observed when its justification is not blank and, unless it is the first, its content or is_deleted changed."
+      }
+    ],
+    "onlyBatch": [
+      {
+        "header": "Console read flags",
+        "content": "The console flags a read when its 0-read search share exceeds 0.5, its 3-plus-read share exceeds 0.3, or its no-search session share exceeds 0.3."
+      },
+      {
+        "header": "SQLite access library",
+        "content": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3."
+      },
+      {
+        "header": "Observed status of later fact versions",
+        "content": "A fact version that is not the first is observed when its justification is not blank and its content or is_deleted differs from the prior version."
+      }
+    ],
+    "sameHeader": 0,
+    "sameContent": 0
+  }
+}

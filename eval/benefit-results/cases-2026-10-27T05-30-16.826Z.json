@@ -1,0 +1,232 @@
+{
+  "commit": "676f17393496084a8bfc07a36155fae5010c4aa4",
+  "questions": [
+    {
+      "id": "q-held-locate-simple",
+      "missing": []
+    },
+    {
+      "id": "q-held-locate-complex",
+      "missing": []
+    },
+    {
+      "id": "q-held-explain-simple",
+      "missing": []
+    },
+    {
+      "id": "q-held-explain-complex",
+      "missing": []
+    },
+    {
+      "id": "q-held-rationale-simple",
+      "missing": []
+    },
+    {
+      "id": "q-held-rationale-complex",
+      "missing": []
+    },
+    {
+      "id": "q-held-behavior-simple",
+      "missing": []
+    },
+    {
+      "id": "q-held-behavior-complex",
+      "missing": []
+    },
+    {
+      "id": "q-gap-locate-simple",
+      "missing": []
+    },
+    {
+      "id": "q-gap-locate-complex",
+      "missing": []
+    },
+    {
+      "id": "q-gap-explain-simple",
+      "missing": []
+    },
+    {
+      "id": "q-gap-explain-complex",
+      "missing": []
+    },
+    {
+      "id": "q-gap-rationale-simple",
+      "missing": []
+    },
+    {
+      "id": "q-gap-rationale-complex",
+      "missing": []
+    },
+    {
+      "id": "q-gap-behavior-simple",
+      "missing": []
+    },
+    {
+      "id": "q-gap-behavior-complex",
+      "missing": []
+    },
+    {
+      "id": "q-stale-locate-simple",
+      "missing": []
+    },
+    {
+      "id": "q-stale-locate-complex",
+      "missing": []
+    },
+    {
+      "id": "q-stale-explain-simple",
+      "missing": []
+    },
+    {
+      "id": "q-stale-explain-complex",
+      "missing": []
+    },
+    {
+      "id": "q-stale-rationale-simple",
+      "missing": []
+    },
+    {
+      "id": "q-stale-rationale-complex",
+      "missing": []
+    },
+    {
+      "id": "q-stale-behavior-simple",
+      "missing": []
+    },
+    {
+      "id": "q-stale-behavior-complex",
+      "missing": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t-held-bugfix-lock-release",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": true,
+        "testsExit": 1,
+        "typecheckExit": 0
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    },
+    {
+      "id": "t-held-bugfix-wiki-twin",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": true,
+        "testsExit": 1,
+        "typecheckExit": 0
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    },
+    {
+      "id": "t-held-bugfix-queue-position",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": true,
+        "testsExit": 1,
+        "typecheckExit": 0
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    },
+    {
+      "id": "t-held-bugfix-cosine-blob",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": true,
+        "testsExit": 1,
+        "typecheckExit": 0
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    },
+    {
+      "id": "t-held-feature-lock-pid",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": false,
+        "testsExit": 1,
+        "typecheckExit": 1
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    },
+    {
+      "id": "t-stale-feature-errno-cause",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": true,
+        "testsExit": 1,
+        "typecheckExit": 0
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    },
+    {
+      "id": "t-held-codeanddoc-wiki-name-limit",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": true,
+        "testsExit": 1,
+        "typecheckExit": 0
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    },
+    {
+      "id": "t-stale-codeanddoc-poll-interval",
+      "before": {
+        "testsPass": false,
+        "typecheckPass": true,
+        "testsExit": 1,
+        "typecheckExit": 0
+      },
+      "after": {
+        "testsPass": true,
+        "typecheckPass": true,
+        "testsExit": 0,
+        "typecheckExit": 0
+      },
+      "ok": true
+    }
+  ],
+  "ok": true
+}

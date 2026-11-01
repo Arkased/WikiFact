@@ -1,0 +1,30 @@
+{
+  "exclude": [
+    "CLAUDE.md",
+    ".claude/",
+    ".github/ISSUE_TEMPLATE/",
+    ".worktreeinclude",
+    "reports/",
+    "publication/",
+    "README.md",
+    "wikis/demo/",
+    "docs/decisions/"
+  ],
+  "binaryAllow": [],
+  "resultFolders": [
+    "eval/questions/results",
+    "eval/bulk/results",
+    "eval/benefit-results",
+    "eval/replay-results",
+    "eval/corrections/results",
+    "eval/relevance-results",
+    "eval/rebuild-results",
+    "eval/reads-per-search-results",
+    "eval/results",
+    "eval/speed-results"
+  ],
+  "demo": {
+    "source": "~/wikifact/wikis/wikifact/game.sqlite",
+    "config": { "mode": "deployed" }
+  }
+}

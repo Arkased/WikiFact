@@ -1,0 +1,22 @@
+[
+  { "id": "t01", "wrong": "creeper-fuse", "question": "How many seconds do I have to get away after a creeper starts to hiss?", "observation": "You timed a creeper in your world: it exploded 3 seconds after the hiss began.", "answerContains": "3" },
+  { "id": "t02", "wrong": "creeper-fuse", "question": "I am building a trap that must cancel a creeper's fuse. How long is the window after the hiss starts?", "observation": "In your test world a creeper took 3 seconds from the hiss to the explosion.", "answerContains": "3" },
+  { "id": "t03", "wrong": "zombie-damage", "question": "How many hits can an unarmored player take from a zombie before dying, at full health?", "observation": "You were hit by a zombie once and lost 5 health.", "answerContains": "4" },
+  { "id": "t04", "wrong": "zombie-damage", "question": "How much damage does one zombie hit do to an unarmored player?", "observation": "Your health bar dropped by 5 after one zombie hit.", "answerContains": "5" },
+  { "id": "t05", "wrong": "torch-recipe", "question": "How many torches do I get from one coal and one stick, and how much coal do I need for 8 torches?", "observation": "You crafted a torch at the table and got 2 torches.", "answerContains": "4" },
+  { "id": "t06", "wrong": "torch-recipe", "question": "I need 10 torches. How many coal and sticks must I bring?", "observation": "The crafting table gave you 2 torches for 1 coal and 1 stick.", "answerContains": "5" },
+  { "id": "t07", "wrong": "bed-recipe", "question": "What do I need to craft one bed?", "observation": "The crafting grid accepted 3 wool and 3 planks for a bed. It would not craft with only 2 planks.", "answerContains": "3 planks" },
+  { "id": "t08", "wrong": "bed-recipe", "question": "I have 3 wool and 2 planks. Can I craft a bed?", "observation": "You tried with 3 wool and 2 planks and the bed did not appear. It crafted with 3 wool and 3 planks.", "answerContains": "no" },
+  { "id": "t09", "wrong": "wood-pick", "question": "How many blocks can I mine with a wooden pickaxe before it breaks?", "observation": "You mined 120 blocks with one wooden pickaxe before it broke.", "answerContains": "120" },
+  { "id": "t10", "wrong": "wood-pick", "question": "I need to mine 100 blocks. Is one wooden pickaxe enough?", "observation": "A wooden pickaxe in your world lasted exactly 120 uses.", "answerContains": "yes" },
+  { "id": "t11", "wrong": "skeleton-arrow", "question": "How much health do I lose from one skeleton arrow, unarmored?", "observation": "A skeleton arrow took 4 health from you.", "answerContains": "4" },
+  { "id": "t12", "wrong": "skeleton-arrow", "question": "At full health, how many arrows from a skeleton can I survive, unarmored?", "observation": "Each skeleton arrow that hit you did 4 damage.", "answerContains": "4" },
+  { "id": "t13", "wrong": "bread-food", "question": "How many hunger points does one piece of bread restore?", "observation": "You ate bread and your hunger bar rose by 5 points.", "answerContains": "5" },
+  { "id": "t14", "wrong": "bread-food", "question": "My hunger is 10 below full. How many pieces of bread do I need to fill it?", "observation": "One bread raised your hunger bar by 5.", "answerContains": "2" },
+  { "id": "t15", "wrong": "wheat-growth", "question": "How long must I wait before I can harvest wheat that I plant now?", "observation": "Your wheat was ripe 20 minutes after planting, not earlier.", "answerContains": "20" },
+  { "id": "t16", "wrong": "wheat-growth", "question": "I plant wheat now and want bread in 10 minutes. Will the wheat be ready?", "observation": "In your world wheat took 20 minutes to ripen.", "answerContains": "no" },
+  { "id": "t17", "wrong": "furnace-time", "question": "How long does a furnace take to smelt 5 iron ore?", "observation": "You smelted one iron ore and it took 10 seconds.", "answerContains": "50" },
+  { "id": "t18", "wrong": "furnace-time", "question": "How many seconds does one item take in a furnace?", "observation": "You timed the furnace: 10 seconds per item.", "answerContains": "10" },
+  { "id": "t19", "wrong": "golem-health", "question": "How much damage must I deal to kill an iron golem?", "observation": "An iron golem took 100 damage in your world before it died.", "answerContains": "100" },
+  { "id": "t20", "wrong": "golem-health", "question": "How many iron sword hits (6 damage each) kill an iron golem?", "observation": "The golem you fought had 100 health.", "answerContains": "17" }
+]

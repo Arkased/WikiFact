@@ -1,0 +1,59 @@
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { afterEach, describe, expect, it } from "vitest";
+import { LockError, acquireLock } from "../lock.js";
+
+const dirs: string[] = [];
+afterEach(() => {
+  for (const d of dirs.splice(0)) rmSync(d, { recursive: true, force: true });
+});
+
+function dbPath(): string {
+  const dir = mkdtempSync(join(tmpdir(), "wikifact-lock-pid-"));
+  dirs.push(dir);
+  return join(dir, "game.sqlite");
+}
+
+function lockErrorOf(db: string): LockError {
+  try {
+    acquireLock(db);
+  } catch (e) {
+    if (e instanceof LockError) return e;
+    throw e;
+  }
+  throw new Error("expected a LockError");
+}
+
+describe("LockError", () => {
+  it("names the pid of the live process that holds the lock", () => {
+    const db = dbPath();
+    const release = acquireLock(db);
+    try {
+      const e = lockErrorOf(db);
+      expect(e.pid).toBe(process.pid);
+      expect(e.message).toContain(String(process.pid));
+    } finally {
+      release();
+    }
+  });
+
+  it("has no pid when the lock file does not hold one", () => {
+    const db = dbPath();
+    writeFileSync(`${db}.lock`, "not a pid");
+    const e = lockErrorOf(db);
+    expect(e.pid).toBeUndefined();
+  });
+
+  it("is still an Error that a caller can tell by its class", () => {
+    const db = dbPath();
+    const release = acquireLock(db);
+    try {
+      const e = lockErrorOf(db);
+      expect(e).toBeInstanceOf(Error);
+      expect(e).toBeInstanceOf(LockError);
+    } finally {
+      release();
+    }
+  });
+});

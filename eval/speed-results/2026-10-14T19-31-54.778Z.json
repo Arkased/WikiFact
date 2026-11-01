@@ -1,0 +1,22 @@
+{
+  "n": 100000,
+  "queryCount": 200,
+  "embedder": "Xenova/bge-small-en-v1.5",
+  "seedFake": false,
+  "reusedDatabase": false,
+  "p50_ms": 39.04,
+  "p95_ms": 52.2,
+  "max_ms": 63.28,
+  "meanResults": 10,
+  "barMs": 100,
+  "pass": true,
+  "profile": null,
+  "machine": {
+    "os": "win32 10.0.19045",
+    "cpu": "AMD Ryzen 5 5600X 6-Core Processor             ",
+    "logicalCores": 12,
+    "node": "v24.14.1"
+  },
+  "startedAt": "2026-10-14T19:23:24.049Z",
+  "finishedAt": "2026-10-14T19:31:54.778Z"
+}

@@ -1,0 +1,19 @@
+import { describe, expect, it } from "vitest";
+import { findTwin, normalForm } from "../names.js";
+
+describe("the near-twin rule for wiki names, with several hyphens", () => {
+  it("removes every hyphen of the name", () => {
+    expect(normalForm("big-red-wiki")).toBe("bigredwiki");
+    expect(normalForm("a-b-c-d")).toBe("abcd");
+  });
+
+  it("finds a twin that differs only in its hyphens", () => {
+    expect(findTwin("big-red-wiki", ["bigredwiki"])).toBe("bigredwiki");
+    expect(findTwin("bigredwiki", ["big-red-wiki"])).toBe("big-red-wiki");
+    expect(findTwin("big-red-wikis", ["bi-gr-ed-wiki"])).toBe("bi-gr-ed-wiki");
+  });
+
+  it("finds no twin for a different name with the same hyphen count", () => {
+    expect(findTwin("big-red-wiki", ["big-blue-wiki"])).toBeUndefined();
+  });
+});

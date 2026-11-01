@@ -1,0 +1,71 @@
+import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { McpToolName } from "../../domain/enums.js";
+import { createManagementServer } from "../../mcp/management.js";
+import { WIKI_NAME_PATTERN, WikiError, createWikiRegistry, type WikiRegistry } from "../registry.js";
+
+const LIMIT = 32;
+
+let dir: string;
+let registry: WikiRegistry;
+beforeEach(() => {
+  dir = mkdtempSync(join(tmpdir(), "wikifact-name-limit-"));
+  registry = createWikiRegistry({
+    wikisDir: dir,
+    host: "127.0.0.1",
+    withWorker: false,
+    log: () => undefined,
+    baseUrl: () => "http://127.0.0.1:7777",
+  });
+});
+afterEach(() => {
+  registry.stop();
+  rmSync(dir, { recursive: true, force: true });
+});
+
+describe("the length limit of a wiki name", () => {
+  it("takes a name of 32 characters and refuses one of 33", () => {
+    expect(WIKI_NAME_PATTERN.test("a".repeat(LIMIT))).toBe(true);
+    expect(WIKI_NAME_PATTERN.test("a".repeat(LIMIT + 1))).toBe(false);
+    expect(WIKI_NAME_PATTERN.test("")).toBe(false);
+  });
+
+  it("creates a wiki with a name of 32 characters", () => {
+    expect(registry.addWiki("a".repeat(LIMIT), "A subject.").created).toBe(true);
+  });
+
+  it("refuses a name of 33 characters and names the limit of 32 in the message", () => {
+    let thrown: unknown;
+    try {
+      registry.addWiki("a".repeat(LIMIT + 1), "A subject.");
+    } catch (e) {
+      thrown = e;
+    }
+    expect(thrown).toBeInstanceOf(WikiError);
+    expect((thrown as WikiError).message).toContain("32");
+    expect((thrown as WikiError).message).not.toContain("40");
+  });
+
+  it("states the limit of 32 in the createWiki tool and not the old limit", async () => {
+    const server = createManagementServer(registry, () => undefined);
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    const client = new Client({ name: "test", version: "0" });
+    await Promise.all([server.connect(a), client.connect(b)]);
+    const tool = (await client.listTools()).tools.find((t) => t.name === McpToolName.CreateWiki);
+    const text = JSON.stringify(tool);
+    expect(text).toContain("1 to 32");
+    expect(text).not.toContain("40");
+  });
+
+  it("states the limit of 32 in the technical doc of the createWiki tool", () => {
+    const doc = readFileSync(join(process.cwd(), "docs", "technical", "wikis.md"), "utf8");
+    const row = doc.split("\n").find((line) => line.startsWith("| `createWiki`"));
+    expect(row).toBeDefined();
+    expect(row).toContain("1 to 32");
+    expect(row).not.toContain("1 to 40");
+  });
+});

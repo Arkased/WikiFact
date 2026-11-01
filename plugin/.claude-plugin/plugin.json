@@ -1,0 +1,6 @@
+{
+  "name": "wikifact",
+  "version": "0.1.0",
+  "author": { "name": "Arkased" },
+  "description": "WikiFact wiki integration: the MCP server entry, the context hook, the submit hook and the setup."
+}

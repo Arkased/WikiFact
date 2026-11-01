@@ -1,0 +1,564 @@
+{
+  "startedAt": "2026-10-23T05:03:31.552Z",
+  "finishedAt": "2026-10-23T05:03:32.882Z",
+  "embedder": "Xenova/bge-small-en-v1.5",
+  "relevanceFloor": 0.31,
+  "readFacts": [
+    "Default embedding model",
+    "Update worker failed request requeue"
+  ],
+  "results": [
+    {
+      "id": "q01",
+      "query": "failed request retried 3 times then failed state",
+      "form": "terms",
+      "expectHeader": "Update worker failed request requeue",
+      "rank": 1,
+      "top3": [
+        "Update worker failed request requeue",
+        "Replay test failure criteria",
+        "Update worker request concurrency"
+      ],
+      "count": 3,
+      "pass": true,
+      "note": "probe 1 of the dogfood report: the 3-attempt rule; the fact has 2 events in the old ranking"
+    },
+    {
+      "id": "q02",
+      "query": "default embedding model bge-small",
+      "form": "terms",
+      "expectHeader": "Default embedding model",
+      "rank": 1,
+      "top3": [
+        "Default embedding model",
+        "Search query embedding prefix"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "probe 2: the fact the boost lifted from 2 to 1"
+    },
+    {
+      "id": "q03",
+      "query": "which model answers Q1",
+      "form": "question",
+      "expectHeader": "Standard quality preset model assignments",
+      "rank": 1,
+      "top3": [
+        "Standard quality preset model assignments"
+      ],
+      "count": 1,
+      "pass": true,
+      "note": "probe 3: a retrieval miss on the vectors (distance 0.41); only the OR tokens Q1 and model can bring it in; tolerance group, the question form"
+    },
+    {
+      "id": "q04",
+      "query": "replay test fails on duplicate or compound fact",
+      "form": "terms",
+      "expectHeader": "Replay test failure criteria",
+      "rank": 1,
+      "top3": [
+        "Replay test failure criteria",
+        "Update worker failed request requeue"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "probe 4"
+    },
+    {
+      "id": "q05",
+      "query": "standard preset Q1 sonnet Q4 model per question",
+      "form": "terms",
+      "expectHeader": "Standard quality preset model assignments",
+      "rank": 1,
+      "top3": [
+        "Standard quality preset model assignments",
+        "Budget quality preset model assignments",
+        "Update worker question Q4"
+      ],
+      "count": 4,
+      "pass": true,
+      "note": "probe 7: the long form of q03"
+    },
+    {
+      "id": "q06",
+      "query": "lock file pid takeover",
+      "form": "terms",
+      "expectHeader": "Update worker lock takeover",
+      "rank": 1,
+      "top3": [
+        "Update worker lock takeover",
+        "Update worker request concurrency"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "probe 8: the one query that had an AND hit"
+    },
+    {
+      "id": "q07",
+      "query": "where do the logs go",
+      "form": "question",
+      "expectHeader": "Log files",
+      "rank": 1,
+      "top3": [
+        "Log files"
+      ],
+      "count": 1,
+      "pass": true,
+      "note": "probe 6 of the dogfood report had no answer in the first wiki; this seed has the log fact; tolerance group, the question form"
+    },
+    {
+      "id": "n01",
+      "query": "tag deduplication rule",
+      "form": "terms",
+      "rank": null,
+      "top3": [],
+      "count": 0,
+      "pass": true,
+      "note": "probe 5: no fact states it; the old ranking returned the embedding-model fact first. Labeled 2026-10-14: returns nothing, so no allowNear"
+    },
+    {
+      "id": "n02",
+      "query": "xylophone quarterly invoice zebra",
+      "form": "terms",
+      "rank": null,
+      "top3": [],
+      "count": 0,
+      "pass": true,
+      "note": "nonsense: no token and no meaning in common with the seed. Labeled 2026-10-14: returns nothing, so no allowNear"
+    },
+    {
+      "id": "n03",
+      "query": "fact tag maximum count",
+      "form": "terms",
+      "rank": null,
+      "top3": [
+        "Fact confidence formula",
+        "getTag limit argument",
+        "Operator console tag deletion refusal"
+      ],
+      "count": 3,
+      "pass": false,
+      "note": "in the domain of the wiki, with no fact that answers it. Labeled 2026-10-14: getTag limit argument is allowed (a cap on a tag tool, close to a maximum); Fact confidence formula and Operator console tag deletion refusal only share the common words fact or tag, so they are not allowed and the case fails"
+    },
+    {
+      "id": "n04",
+      "query": "database backup schedule",
+      "form": "terms",
+      "rank": null,
+      "top3": [],
+      "count": 0,
+      "pass": true,
+      "note": "dogfood domain, no fact states a backup schedule. Labeled 2026-10-14: returns nothing, so no allowNear"
+    },
+    {
+      "id": "n05",
+      "query": "docker image size",
+      "form": "terms",
+      "rank": null,
+      "top3": [],
+      "count": 0,
+      "pass": true,
+      "note": "dogfood domain (deployment), no fact states it. Labeled 2026-10-14: returns nothing, so no allowNear"
+    },
+    {
+      "id": "n06",
+      "query": "billing price per seat",
+      "form": "terms",
+      "rank": null,
+      "top3": [],
+      "count": 0,
+      "pass": true,
+      "note": "nothing in the seed concerns money. Labeled 2026-10-14: returns nothing, so no allowNear"
+    },
+    {
+      "id": "q08",
+      "query": "search result cap 10 results per call",
+      "form": "terms",
+      "expectHeader": "Search result cap",
+      "rank": 1,
+      "top3": [
+        "Search result cap",
+        "History search result collapsing",
+        "Consumer search full-text floor"
+      ],
+      "count": 4,
+      "pass": true,
+      "note": "dogfood fact: searchCap"
+    },
+    {
+      "id": "q09",
+      "query": "relevance floor near misses includeHistory",
+      "form": "terms",
+      "expectHeader": "Search relevance floor",
+      "rank": 1,
+      "top3": [
+        "Search relevance floor",
+        "Consumer search full-text floor",
+        "History search result collapsing"
+      ],
+      "count": 3,
+      "pass": true,
+      "note": "dogfood fact: consumer search against agent search"
+    },
+    {
+      "id": "q10",
+      "query": "full-text row matches two distinct query terms",
+      "form": "terms",
+      "expectHeader": "Consumer search full-text floor",
+      "rank": 1,
+      "top3": [
+        "Consumer search full-text floor",
+        "Search query embedding prefix",
+        "Relevance eval pass criteria"
+      ],
+      "count": 3,
+      "pass": true,
+      "note": "dogfood fact: the keep rule of the floor"
+    },
+    {
+      "id": "q11",
+      "query": "confidence formula 30-day half-life weights",
+      "form": "terms",
+      "expectHeader": "Fact confidence formula",
+      "rank": 1,
+      "top3": [
+        "Fact confidence formula",
+        "Usefulness half-life"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q12",
+      "query": "usefulness half-life in search ranking",
+      "form": "terms",
+      "expectHeader": "Usefulness half-life",
+      "rank": 1,
+      "top3": [
+        "Usefulness half-life"
+      ],
+      "count": 1,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q13",
+      "query": "search query at most 512 tokens",
+      "form": "terms",
+      "expectHeader": "Search query token limit",
+      "rank": 1,
+      "top3": [
+        "Search query token limit",
+        "Search query embedding prefix",
+        "Search result cap"
+      ],
+      "count": 6,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q14",
+      "query": "query embedded without instruction prefix",
+      "form": "terms",
+      "expectHeader": "Search query embedding prefix",
+      "rank": 1,
+      "top3": [
+        "Search query embedding prefix",
+        "Relevance eval pass criteria"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q15",
+      "query": "worker polls request queue every 1000 milliseconds",
+      "form": "terms",
+      "expectHeader": "Update worker queue poll interval",
+      "rank": 1,
+      "top3": [
+        "Update worker queue poll interval",
+        "Update worker failed request requeue",
+        "Update worker request concurrency"
+      ],
+      "count": 3,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q16",
+      "query": "budget preset haiku low effort on every question",
+      "form": "terms",
+      "expectHeader": "Budget quality preset model assignments",
+      "rank": 1,
+      "top3": [
+        "Budget quality preset model assignments",
+        "Standard quality preset model assignments"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "dogfood fact; the standard preset fact is a competitor"
+    },
+    {
+      "id": "q17",
+      "query": "KNN 100 candidates from 1-bit vectors",
+      "form": "terms",
+      "expectHeader": "Vector KNN candidate count",
+      "rank": 1,
+      "top3": [
+        "Vector KNN candidate count"
+      ],
+      "count": 1,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q18",
+      "query": "relevance eval pass top 3 and 90 percent rank first",
+      "form": "terms",
+      "expectHeader": "Relevance eval pass criteria",
+      "rank": 1,
+      "top3": [
+        "Relevance eval pass criteria",
+        "Eval question runner pass bar"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q19",
+      "query": "one request at a time exclusive lock file",
+      "form": "terms",
+      "expectHeader": "Update worker request concurrency",
+      "rank": 1,
+      "top3": [
+        "Update worker request concurrency",
+        "Update worker lock takeover",
+        "Update worker failed request requeue"
+      ],
+      "count": 4,
+      "pass": true,
+      "note": "dogfood fact; the lock takeover fact is a competitor"
+    },
+    {
+      "id": "q20",
+      "query": "history search one entry per fact",
+      "form": "terms",
+      "expectHeader": "History search result collapsing",
+      "rank": 1,
+      "top3": [
+        "History search result collapsing",
+        "Search result cap",
+        "Consumer search full-text floor"
+      ],
+      "count": 3,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q21",
+      "query": "tag deletion refused when it has live facts, merge first",
+      "form": "terms",
+      "expectHeader": "Operator console tag deletion refusal",
+      "rank": 1,
+      "top3": [
+        "Operator console tag deletion refusal",
+        "Replay test failure criteria",
+        "Update worker lock takeover"
+      ],
+      "count": 4,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q22",
+      "query": "question runner pass bar mean 0.9 no run below 0.85",
+      "form": "terms",
+      "expectHeader": "Eval question runner pass bar",
+      "rank": 1,
+      "top3": [
+        "Eval question runner pass bar",
+        "Budget quality preset model assignments",
+        "Standard quality preset model assignments"
+      ],
+      "count": 5,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "q23",
+      "query": "getTag limit argument caps facts",
+      "form": "terms",
+      "expectHeader": "getTag limit argument",
+      "rank": 1,
+      "top3": [
+        "getTag limit argument",
+        "Search result cap"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "dogfood fact"
+    },
+    {
+      "id": "w01",
+      "query": "how many results does a search return",
+      "form": "question",
+      "expectHeader": "Search result cap",
+      "rank": 1,
+      "top3": [
+        "Search result cap",
+        "History search result collapsing",
+        "Consumer search full-text floor"
+      ],
+      "count": 6,
+      "pass": true,
+      "note": "question form of q08"
+    },
+    {
+      "id": "w02",
+      "query": "how is fact confidence computed",
+      "form": "question",
+      "expectHeader": "Fact confidence formula",
+      "rank": 1,
+      "top3": [
+        "Fact confidence formula"
+      ],
+      "count": 1,
+      "pass": true,
+      "note": "question form of q11"
+    },
+    {
+      "id": "w03",
+      "query": "how long can a search query be",
+      "form": "question",
+      "expectHeader": "Search query token limit",
+      "rank": 1,
+      "top3": [
+        "Search query token limit",
+        "Search query embedding prefix",
+        "Consumer search full-text floor"
+      ],
+      "count": 6,
+      "pass": true,
+      "note": "question form of q13"
+    },
+    {
+      "id": "w04",
+      "query": "how often does the worker poll the queue",
+      "form": "question",
+      "expectHeader": "Update worker queue poll interval",
+      "rank": 1,
+      "top3": [
+        "Update worker queue poll interval",
+        "Update worker failed request requeue"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "question form of q15"
+    },
+    {
+      "id": "w05",
+      "query": "what does question Q4 do in the update pipeline",
+      "form": "question",
+      "expectHeader": "Update worker question Q4",
+      "rank": 1,
+      "top3": [
+        "Update worker question Q4",
+        "Update worker question Q1 skipping",
+        "Standard quality preset model assignments"
+      ],
+      "count": 4,
+      "pass": true,
+      "note": "dogfood fact, question form"
+    },
+    {
+      "id": "w06",
+      "query": "which claims does Q1 match",
+      "form": "question",
+      "expectHeader": "Update worker question Q1 skipping",
+      "rank": 1,
+      "top3": [
+        "Update worker question Q1 skipping"
+      ],
+      "count": 1,
+      "pass": true,
+      "note": "dogfood fact, question form"
+    },
+    {
+      "id": "w07",
+      "query": "can I delete a tag that still has facts",
+      "form": "question",
+      "expectHeader": "Operator console tag deletion refusal",
+      "rank": 1,
+      "top3": [
+        "Operator console tag deletion refusal"
+      ],
+      "count": 1,
+      "pass": true,
+      "note": "question form of q21"
+    },
+    {
+      "id": "w08",
+      "query": "what is the pass bar of the question runner",
+      "form": "question",
+      "expectHeader": "Eval question runner pass bar",
+      "rank": 1,
+      "top3": [
+        "Eval question runner pass bar",
+        "Relevance eval pass criteria"
+      ],
+      "count": 2,
+      "pass": true,
+      "note": "question form of q22"
+    },
+    {
+      "id": "w09",
+      "query": "is an instruction prefix added when a query is embedded",
+      "form": "question",
+      "expectHeader": "Search query embedding prefix",
+      "rank": 1,
+      "top3": [
+        "Search query embedding prefix",
+        "Relevance eval pass criteria",
+        "Consumer search full-text floor"
+      ],
+      "count": 3,
+      "pass": true,
+      "note": "question form of q14"
+    },
+    {
+      "id": "w10",
+      "query": "which preset runs haiku on everything",
+      "form": "question",
+      "expectHeader": "Budget quality preset model assignments",
+      "rank": 1,
+      "top3": [
+        "Budget quality preset model assignments",
+        "Standard quality preset model assignments",
+        "Eval question runner pass bar"
+      ],
+      "count": 3,
+      "pass": true,
+      "note": "question form of q16"
+    }
+  ],
+  "answerable": {
+    "total": 21,
+    "top3": 21,
+    "rank1": 21
+  },
+  "tolerance": {
+    "total": 12,
+    "top3": 12
+  },
+  "unanswerable": {
+    "total": 6,
+    "ok": 5,
+    "failedIds": [
+      "n03"
+    ]
+  },
+  "pass": true
+}

@@ -1,0 +1,756 @@
+[
+  {
+    "id": "q-held-locate-simple",
+    "kind": "question",
+    "group": "held",
+    "type": "locate",
+    "complexity": "simple",
+    "question": "Which constant sets the default relevance floor for consumer search, and in which file is it defined?",
+    "answer": "DEFAULT_RELEVANCE_FLOOR, in src/store/types/config.ts, with the value 0.31.",
+    "answerContains": [
+      "DEFAULT_RELEVANCE_FLOOR",
+      "types/config.ts"
+    ],
+    "proof": [
+      {
+        "file": "src/store/types/config.ts",
+        "line": 57
+      }
+    ]
+  },
+  {
+    "id": "q-held-locate-complex",
+    "kind": "question",
+    "group": "held",
+    "type": "locate",
+    "complexity": "complex",
+    "question": "Which function decides whether the cleanup finder is due after a worker poll, and which function selects the candidates that become cleanupRepair requests? Name the file of each.",
+    "answer": "cleanupIfDue in src/updates/cleanup-run.ts decides whether the finder is due. cleanupCandidates in src/store/cleanup/candidates.ts selects the candidates, capped by CLEANUP_CAP in src/store/cleanup/limits.ts.",
+    "answerContains": [
+      "cleanupIfDue",
+      "cleanup-run.ts",
+      "cleanupCandidates",
+      "candidates.ts"
+    ],
+    "proof": [
+      {
+        "file": "src/updates/cleanup-run.ts",
+        "line": 108
+      },
+      {
+        "file": "src/store/cleanup/candidates.ts",
+        "line": 44
+      },
+      {
+        "file": "src/store/cleanup/limits.ts",
+        "line": 9
+      }
+    ]
+  },
+  {
+    "id": "q-held-explain-simple",
+    "kind": "question",
+    "group": "held",
+    "type": "explain",
+    "complexity": "simple",
+    "question": "How does a starting update worker decide that an existing lock file next to the database is stale?",
+    "answer": "It reads the pid written in the lock file and checks whether that process is still alive. A lock whose pid is dead is stale: it is removed once and taken over, and the takeover is logged. A live pid is not stale.",
+    "answerContains": [
+      "pid"
+    ],
+    "proof": [
+      {
+        "file": "src/updates/lock.ts",
+        "line": 10
+      },
+      {
+        "file": "src/updates/lock.ts",
+        "line": 13
+      },
+      {
+        "file": "src/updates/lock.ts",
+        "line": 55
+      }
+    ]
+  },
+  {
+    "id": "q-held-explain-complex",
+    "kind": "question",
+    "group": "held",
+    "type": "explain",
+    "complexity": "complex",
+    "question": "After a poll that finds no queued request, how does the update worker decide whether the cleanup finder runs, and how does the interval of the finder change after a run?",
+    "answer": "It reads meta.cleanup_seq, the highest change seq that each finder last saw; when the key is absent it records the current highest seq and runs nothing. A finder is due when the writes above its seq (accepted changes of submissions and operator edits, not cleanup repairs) number at least its interval in meta.cleanup_every, or when the cap cut its last run, that run wrote 3 repairs or more, and a write exists above its seq. At the next poll with no queued request, the interval of a finder that ran doubles for 0 repairs, halves for 3 or more, and stays for 1 or 2, within 10 to 2000 writes.",
+    "answerContains": [
+      "doubl",
+      "halv"
+    ],
+    "proof": [
+      {
+        "file": "src/updates/cleanup-run.ts",
+        "line": 108
+      },
+      {
+        "file": "src/updates/cleanup-run.ts",
+        "line": 118
+      },
+      {
+        "file": "src/updates/cleanup-run.ts",
+        "line": 76
+      },
+      {
+        "file": "src/store/cleanup/limits.ts",
+        "line": 40
+      }
+    ]
+  },
+  {
+    "id": "q-held-rationale-simple",
+    "kind": "question",
+    "group": "held",
+    "type": "rationale",
+    "complexity": "simple",
+    "question": "Why does the update pipeline end a request with a fault in its input as a rejection with a reason, and not as a failed attempt that is retried?",
+    "answer": "Because a retry of a fault in the input costs model calls and gives the same result.",
+    "answerContains": [
+      "model calls"
+    ],
+    "proof": [
+      {
+        "file": "docs/design/submit.md",
+        "line": 58
+      },
+      {
+        "file": "docs/design/README.md",
+        "line": 22
+      }
+    ]
+  },
+  {
+    "id": "q-held-rationale-complex",
+    "kind": "question",
+    "group": "held",
+    "type": "rationale",
+    "complexity": "complex",
+    "question": "Why must the model credential of a deployed WikiFact worker be an API key, and which credentials can the local kind use?",
+    "answer": "The terms of the Claude Code login bar its use by another product or service, and a deployed worker is another service, so it needs an ANTHROPIC_API_KEY. The local kind (one user, one account, one machine) can use either the Claude Code login or an API key.",
+    "answerContains": [
+      "api key",
+      "login"
+    ],
+    "proof": [
+      {
+        "file": "docs/design/deployment.md",
+        "line": 14
+      },
+      {
+        "file": "docs/requirements/deployment.md",
+        "line": 16
+      },
+      {
+        "file": "src/updates/questions/transport/select.ts",
+        "line": 57
+      }
+    ]
+  },
+  {
+    "id": "q-held-behavior-simple",
+    "kind": "question",
+    "group": "held",
+    "type": "behavior",
+    "complexity": "simple",
+    "question": "What happens to a change request when its processing fails with an ordinary error, not a rate limit?",
+    "answer": "The worker adds 1 to its attempts and puts it back to queued, then waits attempts times 10 seconds before it polls again. After 3 attempts the request becomes failed and keeps the error text.",
+    "answerContains": [
+      "failed"
+    ],
+    "proof": [
+      {
+        "file": "src/store/queue.ts",
+        "line": 420
+      },
+      {
+        "file": "src/updates/worker.ts",
+        "line": 209
+      },
+      {
+        "file": "src/store/types/queue.ts",
+        "line": 26
+      }
+    ]
+  },
+  {
+    "id": "q-held-behavior-complex",
+    "kind": "question",
+    "group": "held",
+    "type": "behavior",
+    "complexity": "complex",
+    "question": "What does the update worker do when a model call is rate limited, and what does that do to the attempts of the request and to the worker status?",
+    "answer": "The request goes back to queued with its attempt count unchanged: a rate limit is a wait, not a failed attempt. The worker takes no request until the pause ends. When the error text names a reset time (such as resets 4pm in a time zone) that parses, is in the future and is at most 8 days ahead, the pause lasts until that time plus a 2 minute margin. When it names none, or the time does not parse, is not in the future or is more than 8 days ahead, the pause is 5 minutes, doubling with each rate-limited call in a row up to 1 hour. Meanwhile its status holds the state paused with pausedUntil, and the heartbeat keeps lastPollAt fresh. After a request that made a model call succeeds, the next fallback pause starts at 5 minutes again.",
+    "answerContains": [
+      "pause",
+      "attempt"
+    ],
+    "proof": [
+      {
+        "file": "src/updates/settle-failure.ts",
+        "line": 27
+      },
+      {
+        "file": "src/store/queue.ts",
+        "line": 473
+      },
+      {
+        "file": "src/updates/worker.ts",
+        "line": 135
+      },
+      {
+        "file": "src/updates/worker.ts",
+        "line": 136
+      },
+      {
+        "file": "src/updates/worker-status.ts",
+        "line": 23
+      },
+      {
+        "file": "src/updates/worker-status.ts",
+        "line": 32
+      },
+      {
+        "file": "src/updates/worker-status.ts",
+        "line": 43
+      },
+      {
+        "file": "src/updates/worker-status.ts",
+        "line": 170
+      }
+    ]
+  },
+  {
+    "id": "q-gap-locate-simple",
+    "kind": "question",
+    "group": "gap",
+    "type": "locate",
+    "complexity": "simple",
+    "question": "Which function computes the percentiles, such as the p50 and p95 of the task wall times, in the evals, and in which file is it?",
+    "answer": "percentile in eval/lib/stats.ts, by the nearest rank.",
+    "answerContains": [
+      "percentile",
+      "stats.ts"
+    ],
+    "proof": [
+      {
+        "file": "eval/lib/stats.ts",
+        "line": 15
+      }
+    ]
+  },
+  {
+    "id": "q-gap-locate-complex",
+    "kind": "question",
+    "group": "gap",
+    "type": "locate",
+    "complexity": "complex",
+    "question": "Which two files hold the command line parser that the eval entry points share and the check of whether a module is the entry point of the process?",
+    "answer": "eval/lib/args.ts holds parseCommandLine, the parser built on node:util parseArgs. eval/lib/main.ts holds isMain.",
+    "answerContains": [
+      "args.ts",
+      "main.ts"
+    ],
+    "proof": [
+      {
+        "file": "eval/lib/args.ts",
+        "line": 33
+      },
+      {
+        "file": "eval/lib/main.ts",
+        "line": 48
+      }
+    ]
+  },
+  {
+    "id": "q-gap-explain-simple",
+    "kind": "question",
+    "group": "gap",
+    "type": "explain",
+    "complexity": "simple",
+    "question": "How does the scripted stub consumer of the correction test decide whether to send a correction?",
+    "answer": "For each task it searches the wiki with the task question and reads the first 5 fact hits with getFact. If one of them is the wrong fact of the task, it draws a seeded random number: below the diligence (0.5, or 0.9 with the hook) it calls requestChange with the true reality of the fact, and names the fact by id in half of the cases.",
+    "answerContains": [
+      "diligence"
+    ],
+    "proof": [
+      {
+        "file": "fakes/stub-consumer.ts",
+        "line": 23
+      },
+      {
+        "file": "fakes/stub-consumer.ts",
+        "line": 74
+      },
+      {
+        "file": "fakes/stub-consumer.ts",
+        "line": 108
+      }
+    ]
+  },
+  {
+    "id": "q-gap-explain-complex",
+    "kind": "question",
+    "group": "gap",
+    "type": "explain",
+    "complexity": "complex",
+    "question": "In the correction test, how do the new change requests get assigned to the tasks when the consumer reports no request ids?",
+    "answer": "assignRows gives each new submission row to a task that ran at that time: the run window of a task starts 50 ms before its start and ends 1000 ms after its end, and the arrival time of the row must fall in it. When no window holds the row, it goes to the open task that started last before it. When several tasks fit, the row goes to one whose wrong fact it names (the header, or the subject and a term), and then to the task with the fewest rows. A consumer that reports its request ids owns those rows.",
+    "answerContains": [
+      "window",
+      "fewest"
+    ],
+    "proof": [
+      {
+        "file": "eval/corrections/assign-rows.ts",
+        "line": 6
+      },
+      {
+        "file": "eval/corrections/assign-rows.ts",
+        "line": 8
+      },
+      {
+        "file": "eval/corrections/assign-rows.ts",
+        "line": 40
+      },
+      {
+        "file": "eval/corrections/assign-rows.ts",
+        "line": 65
+      }
+    ]
+  },
+  {
+    "id": "q-gap-rationale-simple",
+    "kind": "question",
+    "group": "gap",
+    "type": "rationale",
+    "complexity": "simple",
+    "question": "Why does the Claude Code consumer of the correction test send its prompt on stdin and not as an argument?",
+    "answer": "Because --mcp-config and --allowedTools take several values, so a prompt placed after them on the command line would be read as one more of their values.",
+    "answerContains": [
+      "allowedTools"
+    ],
+    "proof": [
+      {
+        "file": "eval/corrections/consumers/claude.ts",
+        "line": 98
+      }
+    ]
+  },
+  {
+    "id": "q-gap-rationale-complex",
+    "kind": "question",
+    "group": "gap",
+    "type": "rationale",
+    "complexity": "complex",
+    "question": "Why does the eval concurrency pool halve its limit after a rate limit but not after a transient error?",
+    "answer": "A RateLimitError means the account is at its limit, so every call in flight would meet it: the pool halves its limit (never below 2) and waits with a doubling pause up to 30 s. A TransientError is a failure that a retry fixes and that says nothing about the limit of the account, such as a corrupted config file read by a racing child, so the pool waits a short time and retries with no halving.",
+    "answerContains": [
+      "halv"
+    ],
+    "proof": [
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 124
+      },
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 128
+      },
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 137
+      },
+      {
+        "file": "src/updates/questions/errors.ts",
+        "line": 8
+      },
+      {
+        "file": "src/updates/questions/errors.ts",
+        "line": 27
+      }
+    ]
+  },
+  {
+    "id": "q-gap-behavior-simple",
+    "kind": "question",
+    "group": "gap",
+    "type": "behavior",
+    "complexity": "simple",
+    "question": "When does drainQueue of the correction test stop, and what does it return?",
+    "answer": "It runs the queued requests one by one with runOnce until the queue is idle or it has made 500 runs (DEFAULT_DRAIN_LIMIT). It returns how many requests finished (done) and how many failed.",
+    "answerContains": [
+      "500"
+    ],
+    "proof": [
+      {
+        "file": "eval/corrections/worker.ts",
+        "line": 6
+      },
+      {
+        "file": "eval/corrections/worker.ts",
+        "line": 25
+      },
+      {
+        "file": "eval/corrections/worker.ts",
+        "line": 34
+      }
+    ]
+  },
+  {
+    "id": "q-gap-behavior-complex",
+    "kind": "question",
+    "group": "gap",
+    "type": "behavior",
+    "complexity": "complex",
+    "question": "What does the eval AdaptivePool do when a call keeps failing with a rate limit error?",
+    "answer": "It retries the call, ahead of the calls that have not started, up to 8 attempts in all. After each rate limit it halves its concurrency limit, at most once per pause window and never below 2, and waits 1 s, doubling each time up to 30 s. After the 8th failed attempt the rate limit error goes back to the caller. Every 20 good calls it raises the limit by 1 again, up to its start value.",
+    "answerContains": [
+      "8",
+      "halve"
+    ],
+    "proof": [
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 49
+      },
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 115
+      },
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 137
+      },
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 139
+      },
+      {
+        "file": "eval/lib/pool.ts",
+        "line": 150
+      }
+    ]
+  },
+  {
+    "id": "q-stale-locate-simple",
+    "kind": "question",
+    "group": "stale",
+    "type": "locate",
+    "complexity": "simple",
+    "question": "Which file defines wordDiff, the function that diffs two fact versions word by word?",
+    "answer": "src/console/diff.ts.",
+    "answerContains": [
+      "console/diff.ts"
+    ],
+    "proof": [
+      {
+        "file": "src/console/diff.ts",
+        "line": 26
+      }
+    ],
+    "staleFact": {
+      "header": "wordDiff location",
+      "content": "wordDiff, the word diff of two fact versions, is defined in src/console/pages/parts/lists.ts."
+    }
+  },
+  {
+    "id": "q-stale-locate-complex",
+    "kind": "question",
+    "group": "stale",
+    "type": "locate",
+    "complexity": "complex",
+    "question": "In which files are parseTargets, which parses the targets column of a change request, and inList, which builds the placeholders of an SQL IN list, defined?",
+    "answer": "parseTargets is in src/store/targets.ts and inList is in src/store/sql.ts.",
+    "answerContains": [
+      "targets.ts",
+      "sql.ts"
+    ],
+    "proof": [
+      {
+        "file": "src/store/targets.ts",
+        "line": 14
+      },
+      {
+        "file": "src/store/sql.ts",
+        "line": 8
+      }
+    ],
+    "staleFact": {
+      "header": "parseTargets and inList files",
+      "content": "parseTargets is defined in src/store/queue.ts and inList in src/store/search/candidates.ts."
+    }
+  },
+  {
+    "id": "q-stale-explain-simple",
+    "kind": "question",
+    "group": "stale",
+    "type": "explain",
+    "complexity": "simple",
+    "question": "What does parseCommandLine of the evals do with an option that it does not know?",
+    "answer": "It throws: it calls node:util parseArgs in strict mode, which throws a TypeError for an unknown option or a missing value.",
+    "answerContains": [
+      "throw"
+    ],
+    "proof": [
+      {
+        "file": "eval/lib/args.ts",
+        "line": 38
+      }
+    ],
+    "staleFact": {
+      "header": "parseCommandLine unknown option",
+      "content": "parseCommandLine ignores an option that it does not know and returns it among the positional arguments."
+    }
+  },
+  {
+    "id": "q-stale-explain-complex",
+    "kind": "question",
+    "group": "stale",
+    "type": "explain",
+    "complexity": "complex",
+    "question": "In what order does runCorrections do its steps for one cap?",
+    "answer": "It seeds the wiki and notes the seed requests, runs all the tasks with the consumer in a pool, assigns the new submission rows to the tasks and builds the result of each task, then, only when a worker mode is on, drains the queue with the worker questions, and last counts the run and returns the report with the timings. It closes the store at the end.",
+    "answerContains": [
+      "seed"
+    ],
+    "proof": [
+      {
+        "file": "eval/corrections/run.ts",
+        "line": 128
+      },
+      {
+        "file": "eval/corrections/run.ts",
+        "line": 138
+      },
+      {
+        "file": "eval/corrections/run.ts",
+        "line": 139
+      },
+      {
+        "file": "eval/corrections/run.ts",
+        "line": 144
+      },
+      {
+        "file": "eval/corrections/run.ts",
+        "line": 148
+      }
+    ],
+    "staleFact": {
+      "header": "runCorrections step order",
+      "content": "runCorrections drains the queue with the worker questions first, then runs the consumer tasks, then counts the corrections."
+    }
+  },
+  {
+    "id": "q-stale-rationale-simple",
+    "kind": "question",
+    "group": "stale",
+    "type": "rationale",
+    "complexity": "simple",
+    "question": "Why does assignRows widen the run window of a task by 50 ms before its start and by 1000 ms after its end?",
+    "answer": "The 50 ms lead covers clock jitter. The 1000 ms lag covers a change request that lands as the task ends.",
+    "answerContains": [
+      "jitter"
+    ],
+    "proof": [
+      {
+        "file": "eval/corrections/assign-rows.ts",
+        "line": 5
+      },
+      {
+        "file": "eval/corrections/assign-rows.ts",
+        "line": 7
+      }
+    ],
+    "staleFact": {
+      "header": "assignRows window margins",
+      "content": "assignRows widens the run window of a task because the update worker writes each change request one second after the consumer calls requestChange."
+    }
+  },
+  {
+    "id": "q-stale-rationale-complex",
+    "kind": "question",
+    "group": "stale",
+    "type": "rationale",
+    "complexity": "complex",
+    "question": "Why does the correction test give the 50 base facts a read history but seed the 5 new facts with none?",
+    "answer": "The read history gives the base facts a usefulness, so that they rank like the facts of a wiki in use. The new facts have no history to reproduce the failure F17 (rank feedback): a fact with no reads has low usefulness and so a low rank, it ranks under the search cap and is never read, so new facts never surface. The F17 probes count how often a search returns the new facts.",
+    "answerContains": [
+      "usefulness"
+    ],
+    "proof": [
+      {
+        "file": "eval/corrections/seed.ts",
+        "line": 93
+      },
+      {
+        "file": "docs/technical/updates.md",
+        "line": 634
+      }
+    ],
+    "staleFact": {
+      "header": "Correction test read history",
+      "content": "The correction test gives the 5 new facts the same read history as the 50 base facts, so that the search ranks the new facts as high as the wrong ones."
+    }
+  },
+  {
+    "id": "q-stale-behavior-simple",
+    "kind": "question",
+    "group": "stale",
+    "type": "behavior",
+    "complexity": "simple",
+    "question": "What does mean of eval/lib/stats.ts return for an empty list?",
+    "answer": "NaN.",
+    "answerContains": [
+      "NaN"
+    ],
+    "proof": [
+      {
+        "file": "eval/lib/stats.ts",
+        "line": 30
+      }
+    ],
+    "staleFact": {
+      "header": "mean of an empty list",
+      "content": "mean returns 0 for an empty list of samples."
+    }
+  },
+  {
+    "id": "q-stale-behavior-complex",
+    "kind": "question",
+    "group": "stale",
+    "type": "behavior",
+    "complexity": "complex",
+    "question": "What does stamp produce, and what does unstamp return for a string that is not a stamp?",
+    "answer": "stamp gives the ISO time with each colon replaced by a hyphen, for example 2026-10-10T04-07-29.171Z, so that it is valid in a Windows file name. unstamp turns a stamp back into the ISO time and returns undefined for a string that does not match the stamp pattern.",
+    "answerContains": [
+      "undefined"
+    ],
+    "proof": [
+      {
+        "file": "src/time.ts",
+        "line": 5
+      },
+      {
+        "file": "src/time.ts",
+        "line": 15
+      },
+      {
+        "file": "src/time.ts",
+        "line": 26
+      }
+    ],
+    "staleFact": {
+      "header": "stamp and unstamp",
+      "content": "stamp keeps the colons of the ISO time, and unstamp throws an Error for a string that is not a stamp."
+    }
+  },
+  {
+    "id": "t-held-bugfix-lock-release",
+    "kind": "task",
+    "taskType": "bugfix",
+    "group": "held",
+    "issue": "Worker shutdown deletes the lock file of the worker that took the lock over\n\nSteps: start worker A on a wiki database. Worker B starts later, finds the pid in the lock file dead (A was suspended for a long time), removes the stale `game.sqlite.lock` and writes its own pid. Now A wakes up and shuts down normally.\n\nExpected: B keeps its lock, so a third worker is refused while B runs.\nActual: the shutdown of A removes `game.sqlite.lock`, which now holds the pid of B, and a third worker starts next to B. Two workers write the same database.\n\nThe function that `acquireLock` returns should remove the lock file only when the file still holds the pid of its own process.",
+    "setupPatch": "setup.patch",
+    "hiddenTests": [
+      "src/updates/__tests__/lock-release.test.ts"
+    ],
+    "referencePatch": "reference.patch"
+  },
+  {
+    "id": "t-held-bugfix-wiki-twin",
+    "kind": "task",
+    "taskType": "bugfix",
+    "group": "held",
+    "issue": "createWiki accepts a name that differs from an existing wiki only by hyphens\n\nWe have a wiki `bigredwiki`. `createWiki` with the name `big-red-wiki` succeeds, although the tool text says that a name which only differs from an existing wiki by case, hyphens or a final s is refused. The check works for `game-mechanics` against `gamemechanics` (one hyphen) but not when the name has two or more hyphens. The other way round is accepted too: `bigredwiki` next to an existing `big-red-wiki`.\n\nExpected: both are refused as twins.",
+    "setupPatch": "setup.patch",
+    "hiddenTests": [
+      "src/service/__tests__/twin-hyphens.test.ts"
+    ],
+    "referencePatch": "reference.patch"
+  },
+  {
+    "id": "t-held-bugfix-queue-position",
+    "kind": "task",
+    "taskType": "bugfix",
+    "group": "held",
+    "issue": "requestChange tells the first request in line that it is last\n\nWhen several requests arrive in the same millisecond (3 agents that submit together), `queuePosition` numbers them backwards: three requests received in the same millisecond report the places 3, 2, 1, but the worker takes them in the order 1, 2, 3 (oldest first, and in the order of arrival inside the same millisecond). The estimated wait that the answer carries is wrong for them too.\n\nExpected: the place of a request is the number of queued requests that the worker takes before it, itself included, also for requests with the same received time.",
+    "setupPatch": "setup.patch",
+    "hiddenTests": [
+      "src/store/__tests__/queue-position-ties.test.ts"
+    ],
+    "referencePatch": "reference.patch"
+  },
+  {
+    "id": "t-held-bugfix-cosine-blob",
+    "kind": "task",
+    "taskType": "bugfix",
+    "group": "held",
+    "issue": "cosineDistance throws a RangeError on some vectors read from the database\n\nThe step that compares a vector with the stored vectors sometimes dies with `RangeError: start offset of Float32Array should be a multiple of 4` when it reads a stored vector. The buffer that the database driver returns can start at any byte of a larger allocation. The same vector gives a distance when the buffer happens to be aligned.\n\nExpected: `cosineDistance(query, blob)` returns the same distance wherever the blob sits in memory.",
+    "setupPatch": "setup.patch",
+    "hiddenTests": [
+      "src/store/search/__tests__/cosine-blob.test.ts"
+    ],
+    "referencePatch": "reference.patch"
+  },
+  {
+    "id": "t-held-feature-lock-pid",
+    "kind": "task",
+    "taskType": "feature",
+    "group": "held",
+    "issue": "Give LockError the pid of the process that holds the lock\n\nWhen a second worker is refused, `acquireLock` throws a `LockError` and puts the pid only in the text of the message. The service wants to show the pid in its own words and has to parse the message for it. Please add a `pid` property (a number) to `LockError`: set when the lock file names a pid, undefined when the lock file holds no valid pid. The message stays as it is.",
+    "hiddenTests": [
+      "src/updates/__tests__/lock-error-pid.test.ts"
+    ],
+    "referencePatch": "reference.patch"
+  },
+  {
+    "id": "t-stale-feature-errno-cause",
+    "kind": "task",
+    "taskType": "feature",
+    "group": "stale",
+    "issue": "errnoCode does not see the code of a wrapped system error\n\nWe wrap file system errors with context: `new Error('could not write the lock', { cause: err })`. `errnoCode(wrapped)` returns undefined, so the callers that check for EEXIST or EPERM miss the error. When the error has no code of its own, `errnoCode` should return the code of its `cause`, and go on down a chain of causes. A chain can loop, so stop after a few links (5 is enough). The code of the outer error wins when it has one.",
+    "hiddenTests": [
+      "src/__tests__/errno-cause.test.ts"
+    ],
+    "referencePatch": "reference.patch",
+    "staleFact": {
+      "header": "errnoCode cause chain",
+      "content": "errnoCode already reads the code of the cause of a wrapped error and follows a chain of causes, up to 5 links.",
+      "justification": "Stated in src/must.ts at lines 47-50."
+    }
+  },
+  {
+    "id": "t-held-codeanddoc-wiki-name-limit",
+    "kind": "task",
+    "taskType": "codeAndDoc",
+    "group": "held",
+    "issue": "Wiki names: 32 characters at most\n\nA wiki name is the folder name, and the archive folder adds a time stamp to it. On the Windows machines with long user names the path of an archived wiki with a 40-character name goes over the path limit. Lower the limit of a wiki name from 40 to 32 characters. Change it wherever the name is checked or told to a user: the code, the error messages, the text of the createWiki tool and the docs that state the limit.",
+    "hiddenTests": [
+      "src/service/__tests__/name-limit.test.ts"
+    ],
+    "referencePatch": "reference.patch"
+  },
+  {
+    "id": "t-stale-codeanddoc-poll-interval",
+    "kind": "task",
+    "taskType": "codeAndDoc",
+    "group": "stale",
+    "issue": "Poll the queue every 2 seconds, not every second\n\nThe idle update worker polls the request queue every second, which wakes the disk for nothing on the laptop. Make the poll interval 2000 ms when the queue is empty. The deployment doc states the interval. The code and the doc must say the same.",
+    "hiddenTests": [
+      "src/updates/__tests__/poll-interval.test.ts"
+    ],
+    "referencePatch": "reference.patch",
+    "staleFact": {
+      "header": "Update worker queue poll interval",
+      "content": "The update worker polls the request queue every 1500 milliseconds, set by POLL_INTERVAL_MS in src/updates/commands.ts and stated in docs/technical/updates.md.",
+      "justification": "Stated in docs/technical/updates.md at line 24."
+    }
+  }
+]

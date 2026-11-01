@@ -1,0 +1,284 @@
+{
+  "startedAt": "2026-10-21T05:13:27.385Z",
+  "complete": true,
+  "source": "game.sqlite",
+  "requests": 5,
+  "queuedInSource": 1747,
+  "startSeq": 2533,
+  "batchSize": 100,
+  "concurrency": 4,
+  "stub": false,
+  "sequential": {
+    "path": "sequential",
+    "complete": true,
+    "startedAtMs": 1792559607982,
+    "wallMs": 107649,
+    "snapshotMs": 35,
+    "usage": {
+      "calls": 12,
+      "tokens": {
+        "input": 24,
+        "output": 8074,
+        "cacheRead": 81697,
+        "cacheWrite": 70770
+      },
+      "usd": 0.40489405,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q5": 1,
+        "Q1": 3,
+        "Q4": 3,
+        "Q7": 5
+      }
+    },
+    "outcomes": {
+      "accepted": 1,
+      "rejected": 4
+    },
+    "steps": 5,
+    "batches": [],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "First version observed status",
+            "content": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the prior version; the first version is observed when its justification is not blank."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PMJEPJ07DF4PEE6NTK",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change joins two attributes (a new version is created without the reference; no model writes it) that could be true or false separately, and the justification cites exact lines of a document, which implies the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PNYSN08J2WHPQ6VS1Y",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change joins two attributes, where a failing dependent is routed to a draft question and the rewrite has an empty justification, and either could be true while the other is false. The justification cites specific lines of a document as its source, which reads as the submitter having checked it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 1,
+      "candidatePairs": 3,
+      "pairs": [],
+      "judge": {
+        "calls": 1,
+        "tokens": {
+          "input": 2,
+          "output": 238,
+          "cacheRead": 1014,
+          "cacheWrite": 2022
+        }
+      }
+    }
+  },
+  "batch": {
+    "path": "batch",
+    "complete": true,
+    "startedAtMs": 1792559715667,
+    "wallMs": 76894,
+    "snapshotMs": 33,
+    "usage": {
+      "calls": 8,
+      "tokens": {
+        "input": 22,
+        "output": 7249,
+        "cacheRead": 94889,
+        "cacheWrite": 109087
+      },
+      "usd": 0.08263651000000001,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q5B": 4,
+        "Q7B": 2,
+        "Q15": 2
+      }
+    },
+    "outcomes": {
+      "split": 1,
+      "child accepted": 2,
+      "accepted": 2,
+      "rejected": 2
+    },
+    "steps": 2,
+    "batches": [
+      {
+        "batchId": "01M5EE55AKN0Z3JSW8H3E6G2AQ",
+        "status": "done",
+        "size": 5
+      },
+      {
+        "batchId": "01M5EE69TX5JW73PSMT9Y860S5",
+        "status": "done",
+        "size": 2
+      }
+    ],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5EE5HFHPQVPQ41C7Z2KM4T6",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "facts": [
+              {
+                "header": "Observed status of later fact versions",
+                "content": "A later fact version is observed when its justification is not blank and its content or is_deleted differs from the prior version."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5EE5HFHPQVPQ41C7Z2KM4T7",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "facts": [
+              {
+                "header": "First version observed status",
+                "content": "The first version of a fact is observed when its justification is not blank."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Console read flag thresholds",
+            "content": "The operator console flags a read when the share of searches with 0 reads is over 0.5 (NO_READ_SHARE), the share with 3 or more reads is over 0.3 (MANY_READS_SHARE), or the share of sessions with no search is over 0.3 (NO_SEARCH_SHARE)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "SQLite access library",
+            "content": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PMJEPJ07DF4PEE6NTK",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change holds two attributes, the new version's content and who writes it, and either could be wrong alone; the submitter cites lines they read in docs/design/updates.md.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PNYSN08J2WHPQ6VS1Y",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change holds two attributes, where the dependent goes and what justification the rewrite has, and either could be wrong alone; the submitter cites lines they read in docs/design/updates.md.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 4,
+      "candidatePairs": 11,
+      "pairs": [],
+      "judge": {
+        "calls": 4,
+        "tokens": {
+          "input": 8,
+          "output": 1467,
+          "cacheRead": 4056,
+          "cacheWrite": 8114
+        }
+      }
+    }
+  },
+  "differences": {
+    "outcomes": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "change": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the version before it; the first version is observed w",
+        "sequential": "accepted",
+        "batch": "split[accepted,accepted]"
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "change": "The console flags a read when the share of searches with 0 reads is over 0.5 (NO_READ_SHARE), the share with 3 or more reads is over 0.3 (MANY_READS_SHARE), or ",
+        "sequential": "rejected",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "change": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3.",
+        "sequential": "rejected",
+        "batch": "accepted"
+      }
+    ],
+    "onlySequential": [],
+    "onlyBatch": [
+      {
+        "header": "Console read flag thresholds",
+        "content": "The operator console flags a read when the share of searches with 0 reads is over 0.5 (NO_READ_SHARE), the share with 3 or more reads is over 0.3 (MANY_READS_SHARE), or the share of sessions with no search is over 0.3 (NO_SEARCH_SHARE)."
+      },
+      {
+        "header": "SQLite access library",
+        "content": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3."
+      },
+      {
+        "header": "Observed status of later fact versions",
+        "content": "A later fact version is observed when its justification is not blank and its content or is_deleted differs from the prior version."
+      }
+    ],
+    "sameHeader": 1,
+    "sameContent": 0
+  }
+}

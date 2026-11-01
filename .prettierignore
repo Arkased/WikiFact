@@ -1,0 +1,10 @@
+dist
+node_modules
+.cache
+.claude/worktrees
+eval/**/results
+eval/**/*-results
+eval/**/*.json
+reports
+docs
+package-lock.json

@@ -1,0 +1,13 @@
+diff --git b/src/service/names.ts a/src/service/names.ts
+index 1ce68c2..0aa7841 100644
+--- b/src/service/names.ts
++++ a/src/service/names.ts
+@@ -14,7 +14,7 @@ const PLURAL_SUFFIX = "s";
+  * @sideEffects none
+  */
+ export function normalForm(name: string): string {
+-  const flat = name.toLowerCase().replace("-", "");
++  const flat = name.toLowerCase().replaceAll("-", "");
+   return flat.endsWith(PLURAL_SUFFIX) ? flat.slice(0, -PLURAL_SUFFIX.length) : flat;
+ }
+ 

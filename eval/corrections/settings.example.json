@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "node /ABSOLUTE/PATH/TO/WikiFact/eval/corrections/stop-hook.mjs" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_comment": "The price table of the service: what a model call costs, in USD per million tokens, per API model id. The console computes the cost signal from it, and the question runner computes the cost of a configuration from it. A model not listed here is counted at 0 and reported as unpriced. A cache write costs `cacheWriteFactor` (1.25) times the input price (5-minute cache); a cache read costs `cacheReadFactor` (0.1) times it.",
+  "cacheWriteFactor": 1.25,
+  "cacheReadFactor": 0.1,
+  "models": {
+    "claude-haiku-4-5": { "input": 1, "output": 5 },
+    "claude-haiku-5-5": { "input": 0.1, "output": 0.5 },
+    "claude-sonnet-5-5": { "input": 2, "output": 10 },
+    "claude-opus-5-5": { "input": 4, "output": 20 }
+  }
+}

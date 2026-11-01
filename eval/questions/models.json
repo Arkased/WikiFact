@@ -1,0 +1,36 @@
+{
+  "_comment": "The models the question runner knows. Add a model here and run `npm run eval:questions -- --model <id> [--resume <file>]`. The CLI alias, whether a model takes effort and the fallback rule are in src/updates/questions/models.ts: a new model needs an entry there too. Prices are in config/prices.json. candidate: true puts the model in the default matrix (the candidates above each default). A model's own `efforts` list replaces the efforts of the kind of question. Claude Haiku 5.5 (released 2026-10-07) takes effort and adaptive thinking, default effort medium. The `haiku` alias may mean 4.5 or 5.5, so both Haiku entries use the full id.",
+  "models": [
+    { "id": "claude-haiku-4-5", "candidate": false },
+    { "id": "claude-haiku-5-5", "candidate": true, "efforts": ["low", "medium"] },
+    { "id": "claude-sonnet-5-5", "candidate": true },
+    { "id": "claude-opus-5-5", "candidate": true }
+  ],
+  "passBar": {
+    "_comment": "technical/questions.md, \"Test plan\", the budget preset: the cheapest configuration that passes this bar (the standard preset uses it for drafting questions; the premium preset ignores it). The bar applies to all runs of a configuration pooled across the result files. The questions in `strict` pass only at 100 percent on every pooled run. Every other question passes at a mean of `mean` or more over the pooled runs with no single run under `minRun`.",
+    "strict": [],
+    "strictMean": 1,
+    "strictMinRun": 1,
+    "mean": 0.9,
+    "minRun": 0.85
+  },
+  "economyBar": {
+    "_comment": "A lower bar that only the staging uses (there is no economy preset any more): a configuration whose first-run mean is under the lower of this bar and passBar, less `slack`, gets no more runs. The questions in `strict` count at 100 percent, as in passBar. Every other question counts at a mean of `mean`, with no run under `minRun`.",
+    "strict": [],
+    "mean": 0.85,
+    "minRun": 0.8
+  },
+  "concurrency": {
+    "_comment": "`start` is the number of model calls in flight at the start of a run, and the ceiling when the pool climbs back after a rate limit. --concurrency N overrides it.",
+    "start": 12
+  },
+  "staging": {
+    "_comment": "--runs K runs every configuration once, then K-1 more runs only for a configuration whose first-run mean is within `slack` of the bar of the question or above it. The lowest bar of the question counts (economyBar included). --full runs all K at once.",
+    "slack": 0.05
+  },
+  "efforts": {
+    "_comment": "What the matrix tries per kind of question. The kind of a question is the `kind` of its spec in src/updates/questions/specs/. A classification question tries `classification`, a judgment or drafting question tries `other`. The kind also decides the standard preset: it takes the best mean (cheapest among ties) for classification and judgment, and the cheapest configuration that passes passBar for drafting, because a wrong draft is cheap to correct and a wrong classification or judgment writes a duplicate, a compound or a wrong fact. The premium preset ignores the kinds and takes the best mean on every question. The 3 presets are budget, standard and premium.",
+    "classification": ["low", "medium"],
+    "other": ["medium", "high"]
+  }
+}

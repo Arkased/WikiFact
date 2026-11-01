@@ -1,0 +1,193 @@
+{
+  "startedAt": "2026-10-21T05:11:30.578Z",
+  "complete": true,
+  "source": "game.sqlite",
+  "requests": 1,
+  "queuedInSource": 1747,
+  "startSeq": 2533,
+  "batchSize": 100,
+  "concurrency": 4,
+  "stub": false,
+  "sequential": {
+    "path": "sequential",
+    "complete": true,
+    "startedAtMs": 1792559491122,
+    "wallMs": 38037,
+    "snapshotMs": 10,
+    "usage": {
+      "calls": 4,
+      "tokens": {
+        "input": 8,
+        "output": 3472,
+        "cacheRead": 7140,
+        "cacheWrite": 64262
+      },
+      "usd": 0.18296209999999996,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q5": 1,
+        "Q1": 1,
+        "Q4": 1,
+        "Q7": 1
+      }
+    },
+    "outcomes": {
+      "accepted": 1
+    },
+    "steps": 1,
+    "batches": [],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "First version observed status",
+            "content": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the prior version; the first version needs only a non-blank justification."
+          }
+        ],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 1,
+      "candidatePairs": 3,
+      "pairs": [],
+      "judge": {
+        "calls": 1,
+        "tokens": {
+          "input": 2,
+          "output": 57,
+          "cacheRead": 1014,
+          "cacheWrite": 2019
+        }
+      }
+    }
+  },
+  "batch": {
+    "path": "batch",
+    "complete": true,
+    "startedAtMs": 1792559529171,
+    "wallMs": 46547,
+    "snapshotMs": 13,
+    "usage": {
+      "calls": 7,
+      "tokens": {
+        "input": 16,
+        "output": 4705,
+        "cacheRead": 40631,
+        "cacheWrite": 58762
+      },
+      "usd": 0.048071220000000005,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q5B": 2,
+        "Q8": 2,
+        "Q7B": 2,
+        "Q15": 1
+      }
+    },
+    "outcomes": {
+      "split": 1,
+      "child accepted": 1,
+      "child duplicate": 1
+    },
+    "steps": 2,
+    "batches": [
+      {
+        "batchId": "01M5EDZF6M13X9FB65HNA0Q0RV",
+        "status": "done",
+        "size": 1
+      },
+      {
+        "batchId": "01M5EDZNZNSG77XG42KNJEM561",
+        "status": "done",
+        "size": 2
+      }
+    ],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5EDZNZB7HJA3QWRGYBEZM6Z",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "facts": [
+              {
+                "header": "Confidence update events",
+                "content": "A fact version is observed when its justification is non-blank and its content or is_deleted differs from the prior version."
+              },
+              {
+                "header": "Worker-derived version justification",
+                "content": "The code sets an empty justification on a dependent fact that Q9 rewrites."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5EDZNZB7HJA3QWRGYBEZM70",
+            "status": "done",
+            "outcome": "duplicate",
+            "attempts": 0,
+            "facts": [],
+            "children": []
+          }
+        ]
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 2,
+      "candidatePairs": 6,
+      "pairs": [],
+      "judge": {
+        "calls": 2,
+        "tokens": {
+          "input": 4,
+          "output": 1166,
+          "cacheRead": 2028,
+          "cacheWrite": 4024
+        }
+      }
+    }
+  },
+  "differences": {
+    "outcomes": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "change": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the version before it; the first version is observed w",
+        "sequential": "accepted",
+        "batch": "split[accepted,duplicate]"
+      }
+    ],
+    "onlySequential": [
+      {
+        "header": "First version observed status",
+        "content": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the prior version; the first version needs only a non-blank justification."
+      }
+    ],
+    "onlyBatch": [
+      {
+        "header": "Confidence update events",
+        "content": "A fact version is observed when its justification is non-blank and its content or is_deleted differs from the prior version."
+      },
+      {
+        "header": "Worker-derived version justification",
+        "content": "The code sets an empty justification on a dependent fact that Q9 rewrites."
+      }
+    ],
+    "sameHeader": 0,
+    "sameContent": 0
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "startedAt": "2026-10-15T00:39:04.114Z",
+  "complete": true,
+  "args": {
+    "only": "relevance",
+    "skip": [],
+    "continueOnFailure": false,
+    "pass": {
+      "questions": "",
+      "relevance": "",
+      "replay": "",
+      "corrections": "",
+      "speed": ""
+    }
+  },
+  "tests": [
+    {
+      "name": "questions",
+      "status": "skipped"
+    },
+    {
+      "name": "relevance",
+      "status": "ran",
+      "command": "npm run relevance --",
+      "exitCode": 1,
+      "startedAt": "2026-10-15T00:39:04.116Z",
+      "finishedAt": "2026-10-15T00:39:06.790Z",
+      "resultFile": "eval/relevance-results/2026-10-15T00-39-04.968Z.json"
+    },
+    {
+      "name": "replay",
+      "status": "skipped"
+    },
+    {
+      "name": "corrections",
+      "status": "skipped"
+    },
+    {
+      "name": "speed",
+      "status": "skipped"
+    }
+  ],
+  "ok": false,
+  "finishedAt": "2026-10-15T00:39:06.791Z"
+}

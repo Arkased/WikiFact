@@ -1,0 +1,102 @@
+diff --git a/docs/technical/wikis.md b/docs/technical/wikis.md
+index f9b13bd..397205c 100644
+--- a/docs/technical/wikis.md
++++ b/docs/technical/wikis.md
+@@ -8,7 +8,7 @@ The management endpoint of service mode has the 4 tools below and the 4 wiki too
+ 
+ | Tool | Input | Output |
+ |---|---|---|
+-| `createWiki` | `name`: 1 to 40 lower-case letters, digits and hyphens. `subject`: the sentence every question gets, not empty. `quality` optional, a preset name of [Quality presets](questions.md#quality-presets). | `{ name, url, created }`. The same name with the same subject returns the existing wiki with `created: false`. The same name with another subject is a tool error that names the existing subject. A name whose normal form (lower case, hyphens removed, a final `s` removed) equals the normal form of an existing wiki is a tool error that names that wiki. A bad name, an empty subject, or a count at `--max-wikis` is a tool error that says so. |
++| `createWiki` | `name`: 1 to 32 lower-case letters, digits and hyphens. `subject`: the sentence every question gets, not empty. `quality` optional, a preset name of [Quality presets](questions.md#quality-presets). | `{ name, url, created }`. The same name with the same subject returns the existing wiki with `created: false`. The same name with another subject is a tool error that names the existing subject. A name whose normal form (lower case, hyphens removed, a final `s` removed) equals the normal form of an existing wiki is a tool error that names that wiki. A bad name, an empty subject, or a count at `--max-wikis` is a tool error that says so. |
+ | `archiveWiki` | `name` | `{ name, archivedTo }` or `{ name, removed: true }`. The wiki is unmounted and its worker stopped. A wiki with no fact at all (live or deleted) and 0 queued requests is removed. Any other wiki moves to `<wikis>/.archive/<name>-<stamp>/`, and a human restores it by moving the folder back. |
+ | `unarchiveWiki` | `name`, or the archive folder name `<name>-<stamp>` to pick one of several | `{ name, url }`. The folder moves back to `<wikis>/<name>/`, is mounted, and gets its worker. With several archives of one name, the newest is restored and the answer says so. A live wiki with that name, or an unknown archive, is a tool error. |
+ | `listWikis` | none | `wikis: Array<{ name, subject, url, liveFacts, queued, worker }>`, sorted by name, and `archived: Array<{ name, folder, archivedAt }>`. `worker` is `{ running: boolean, lastCall?: { ok, kind?, message?, at } }` from the status of [Queue and worker](updates.md#queue-and-worker), so a session sees whether the credential works before it submits. |
+diff --git a/src/mcp/management.ts b/src/mcp/management.ts
+index 43d4cf4..b705b9a 100644
+--- a/src/mcp/management.ts
++++ b/src/mcp/management.ts
+@@ -73,11 +73,11 @@ function registerManagementTools(
+       title: "Create a wiki",
+       description:
+         "Create a new, empty wiki and return the MCP URL to connect to it. " +
+-        "The name is 1 to 40 lower-case letters, digits and hyphens. " +
++        "The name is 1 to 32 lower-case letters, digits and hyphens. " +
+         "The same name with the same subject returns the existing wiki (created: false). " +
+         "A name that only differs from an existing wiki by case, hyphens or a final s is refused.",
+       inputSchema: {
+-        name: z.string().describe("1 to 40 lower-case letters, digits and hyphens."),
++        name: z.string().describe("1 to 32 lower-case letters, digits and hyphens."),
+         subject: z.string().describe("One sentence that says what the wiki covers. Every question gets it."),
+         quality: z.enum(Quality).optional().describe("The preset of model settings. Default: standard."),
+       },
+diff --git a/src/service/__tests__/registry.test.ts b/src/service/__tests__/registry.test.ts
+index d19b011..bab5575 100644
+--- a/src/service/__tests__/registry.test.ts
++++ b/src/service/__tests__/registry.test.ts
+@@ -60,10 +60,10 @@ function seedFolder(name: string, config: object): void {
+ }
+ 
+ describe("WIKI_NAME_PATTERN", () => {
+-  it("takes 1 to 40 lower-case letters, digits and hyphens", () => {
+-    for (const ok of ["a", "demo", "my-wiki-2", "0", "-", "a".repeat(40)])
++  it("takes 1 to 32 lower-case letters, digits and hyphens", () => {
++    for (const ok of ["a", "demo", "my-wiki-2", "0", "-", "a".repeat(32)])
+       expect(WIKI_NAME_PATTERN.test(ok)).toBe(true);
+-    for (const bad of ["", "Demo", "my_wiki", "a b", "a/b", "..", "a.b", "é", "a".repeat(41), "a\n"]) {
++    for (const bad of ["", "Demo", "my_wiki", "a b", "a/b", "..", "a.b", "é", "a".repeat(33), "a\n"]) {
+       expect(WIKI_NAME_PATTERN.test(bad)).toBe(false);
+     }
+   });
+diff --git a/src/service/edit.ts b/src/service/edit.ts
+index e23f91b..56c2bb5 100644
+--- a/src/service/edit.ts
++++ b/src/service/edit.ts
+@@ -252,7 +252,7 @@ export function createWikiEditor(ctx: EditorContext): WikiEditor {
+   const renameWiki = async (from: string, to: string): Promise<RenamedWiki> => {
+     const entry = need(from);
+     if (!WIKI_NAME_PATTERN.test(to)) {
+-      throw new WikiError(`"${to}" is not a valid name: use 1 to 40 lower-case letters, digits and hyphens`);
++      throw new WikiError(`"${to}" is not a valid name: use 1 to 32 lower-case letters, digits and hyphens`);
+     }
+     if (to === from) throw new WikiError(`the wiki is already named "${to}"`);
+     const others = [...ctx.entries.keys()].filter((n) => n !== from);
+diff --git a/src/service/names.ts b/src/service/names.ts
+index 0aa7841..ac3d3dc 100644
+--- a/src/service/names.ts
++++ b/src/service/names.ts
+@@ -1,7 +1,7 @@
+ // technical/wikis.md, "Management tools of the service": the near-twin rule for wiki names. `creeper` and `creepers` are one subject spelled twice.
+ 
+-/** The names a wiki may have: 1 to 40 lower-case letters, digits and hyphens. */
+-export const WIKI_NAME_PATTERN = /^[a-z0-9-]{1,40}$/;
++/** The names a wiki may have: 1 to 32 lower-case letters, digits and hyphens. */
++export const WIKI_NAME_PATTERN = /^[a-z0-9-]{1,32}$/;
+ 
+ /** The suffix that the normal form drops once. */
+ const PLURAL_SUFFIX = "s";
+diff --git a/src/service/registry.ts b/src/service/registry.ts
+index a3f35a0..3c76477 100644
+--- a/src/service/registry.ts
++++ b/src/service/registry.ts
+@@ -264,7 +264,7 @@ export function createWikiRegistry(opts: RegistryOptions): WikiRegistry {
+ 
+   const addWiki = (name: string, subject: string, quality?: Quality): CreatedWiki => {
+     if (!WIKI_NAME_PATTERN.test(name)) {
+-      throw new WikiError(`"${name}" is not a valid name: use 1 to 40 lower-case letters, digits and hyphens`);
++      throw new WikiError(`"${name}" is not a valid name: use 1 to 32 lower-case letters, digits and hyphens`);
+     }
+     if (subject.trim() === "") throw new WikiError("subject must not be empty");
+     const existing = entries.get(name);
+diff --git a/src/service/wikis.ts b/src/service/wikis.ts
+index 03e4428..db65b64 100644
+--- a/src/service/wikis.ts
++++ b/src/service/wikis.ts
+@@ -78,7 +78,7 @@ export function discoverWikis(wikisDir: string): DiscoveredWiki[] {
+     if (!existsSync(join(dir, WIKI_CONFIG_FILE))) continue;
+     if (!WIKI_NAME_PATTERN.test(entry.name)) {
+       throw new WikiError(
+-        `the folder ${dir} is not a valid wiki name: use 1 to 40 lower-case letters, digits and hyphens`,
++        `the folder ${dir} is not a valid wiki name: use 1 to 32 lower-case letters, digits and hyphens`,
+       );
+     }
+     const dbPath = join(dir, WIKI_DB_FILE);

@@ -1,0 +1,387 @@
+{
+  "meta": {
+    "stamp": "2026-10-29T03-10-38.621Z",
+    "db": ".cache/reads-per-search/game.sqlite",
+    "labelerModel": "claude-opus-5-5 (medium)",
+    "seed": 1,
+    "sampleSize": 20,
+    "agreementBar": 0.8,
+    "minSample": 10,
+    "searchesWithMintedIds": 174,
+    "excluded": 10,
+    "population": {
+      "0": 122,
+      "1": 29,
+      "2": 11,
+      "3": 1,
+      "4": 1
+    },
+    "omittedListedFacts": 0,
+    "costUsd": 0.7766744
+  },
+  "samples": [
+    {
+      "sample": "0 reads",
+      "size": 20,
+      "agreed": 11,
+      "agreement": 0.55,
+      "verdict": "fails",
+      "searches": [
+        {
+          "id": "01M5G5TQ0PDD0ABW9CM8CBZH2B",
+          "query": "temp folder per test run cleanup",
+          "reads": 0,
+          "label": "not found",
+          "reason": "No listed header covers per-test-run temp folders or their cleanup: the only temp-directory fact is about the npm run corrections script, and the others cover test locations and build exclusion.",
+          "omitted": []
+        },
+        {
+          "id": "01M5XK3ST5DQAYW0D0YT0SNN5Y",
+          "query": "CLI transport claude -p cache write variable input",
+          "reads": 0,
+          "label": "not found",
+          "reason": "The listed headers cover CLI transport input, command, flags, login and binary lookup, but none of them is about cache writes or how variable input affects caching under claude -p, and no fact was opened to show otherwise.",
+          "omitted": []
+        },
+        {
+          "id": "01M5JXRCVS9NF5X69TWDSXZHMW",
+          "query": "high volume mode threshold batch faster and cheaper test result",
+          "reads": 0,
+          "label": "found",
+          "reason": "Result 2, \"High volume batch time at 100 submissions\", looks like the test result for high volume mode at its threshold size, and result 4 describes how the batch runs, though no fact was opened to confirm that cost is covered.",
+          "omitted": []
+        },
+        {
+          "id": "01M5Z7VXZN1WN3Z0V9CG8N6A2Q",
+          "query": "held-out half",
+          "reads": 0,
+          "label": "found",
+          "reason": "The header \"Eval question runner Q7 halves\" describes how the Q7 eval is split into halves, which should cover the held-out half, and result 3 adds the held-out score.",
+          "omitted": []
+        },
+        {
+          "id": "01M5XRYDMKV6D6GWJR4P6BF2VV",
+          "query": "Q11B group size presets file",
+          "reads": 0,
+          "label": "not found",
+          "reason": "The list has a Q11B fact about the missing-tag batch group question and several facts about the quality presets file, but no header mentions group size or a group-size presets file, and none of the facts were opened to show otherwise.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BPTN4D7YSNGDDE3RBWNDE5",
+          "query": "worker loop runOnce gather dependents loop lint",
+          "reads": 0,
+          "label": "found",
+          "reason": "The headers cover the parts of the query directly: the update worker dependents loop (step order, depth limit, visited set, re-judge count) and the Step 6 draft lint checks, though none names runOnce and no fact was opened to confirm it.",
+          "omitted": []
+        },
+        {
+          "id": "01M5E4007RFG9KWY0HYDJ22C3G",
+          "query": "scripts check-standard",
+          "reads": 0,
+          "label": "not found",
+          "reason": "Neither header names a check-standard script: one covers the ship script's preflight checks and the other covers requirements-check eval file mapping, so the list does not answer the query.",
+          "omitted": []
+        },
+        {
+          "id": "01M5JEC6BNB3BAAG82AK279CYE",
+          "query": "npm run check output quiet step results folder",
+          "reads": 0,
+          "label": "found",
+          "reason": "The several \"check script npm run check output\" facts, along with the verbose and failing-step output facts, most likely describe how the check output works, including quiet mode and where step results are written, though no fact was opened to confirm this.",
+          "omitted": []
+        },
+        {
+          "id": "01M5KC9HKNC2EKHCA1344YNHYW",
+          "query": "consumer search uses searchCap 10, agentSearchCap is for the update agent form with includeHistory",
+          "reads": 0,
+          "label": "found",
+          "reason": "The headers \"Search result cap\" (rank 5), \"Update agent search results\" (rank 3) and \"Update agent search history\" (rank 4) together cover the consumer searchCap, the agentSearchCap for the update agent, and includeHistory, though none was opened to confirm the details.",
+          "omitted": []
+        },
+        {
+          "id": "01M5GGDB1JC4A7PQ8K0G49XVVZ",
+          "query": "high volume mode batch staging promotion",
+          "reads": 0,
+          "label": "found",
+          "reason": "Judging only from the headers, since no facts were opened: \"Store high volume functions\" and \"Wiki run modes\" match the high volume mode and batch staging promotion that the query asks about.",
+          "omitted": []
+        },
+        {
+          "id": "01M5JBS1SE4AE7CDA0CDPYVD7F",
+          "query": "hooks of .claude/scripts agent-gate PreToolUse",
+          "reads": 0,
+          "label": "not found",
+          "reason": "The listed facts cover SubagentStop hooks and an npm corrections file; none covers the agent-gate script or its PreToolUse hook.",
+          "omitted": []
+        },
+        {
+          "id": "01M5ZDKZN99Y25SA33VDT3TPJD",
+          "query": ".claude/scripts review gate worktree cleanup",
+          "reads": 0,
+          "label": "found",
+          "reason": "Result 1's header names worktree cleanup in the gate hooks. Results 2, 3, 9 and 10 cover the review gate in the same gate-script set, so the list fits the query.",
+          "omitted": []
+        },
+        {
+          "id": "01M5XW68GGNCSB5AT41D1ENZ8C",
+          "query": "benefit test verify-cases",
+          "reads": 0,
+          "label": "not found",
+          "reason": "No header names verify-cases; \"npm run benefit flags\" might list it, but nothing was opened, so the list does not show an answer to the query.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BC4GTWZMZ6SW8CKCYTT1PA",
+          "query": "Service health page dialogAction pause queue panel",
+          "reads": 0,
+          "label": "not found",
+          "reason": "The listed facts cover the Service health page's clusters, refresh, worker panel data source, status line and failed requests table, but none covers a pause-queue dialog action or a queue panel.",
+          "omitted": []
+        },
+        {
+          "id": "01M5Z67VJS0GHNMTEVZ1M7KV4Q",
+          "query": "worker batch starts on 10 queued submissions or after 60 s wait, Run a batch now button",
+          "reads": 0,
+          "label": "found",
+          "reason": "From its header, \"Operation page Batch panel\" (rank 5) looks like the fact on the batch trigger and the \"Run a batch now\" button, and \"High volume mode default threshold\" may give the start condition, but the agent opened neither fact.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BACSEPNN3WVQM3DPQYT2JV",
+          "query": "backlog and project process",
+          "reads": 0,
+          "label": "not found",
+          "reason": "The only result, \"MCP server process count\", shares the word \"process\" with the query but is about counting OS processes, not about backlog or project workflow.",
+          "omitted": []
+        },
+        {
+          "id": "01M5XT0QTA48DZK4B51HTW1XQK",
+          "query": "benefit test preload run folder resume",
+          "reads": 0,
+          "label": "not found",
+          "reason": "The list has benefit-preload facts (queue drain, round change count, stop condition) and separate facts on run folders and resume, but no header covers resuming a benefit test preload from its run folder, and no fact was opened to show otherwise.",
+          "omitted": []
+        },
+        {
+          "id": "01M5GDG9X7YQ6C6MX9MG880VZ1",
+          "query": "Q11B missing tag batch group question",
+          "reads": 0,
+          "label": "not found",
+          "reason": "None of the listed headers mentions Q11B or a missing-tag batch group question: \"Q11 tag removal\" is about a different question, the other results cover tag repair and merging in general, and no fact was opened that shows otherwise.",
+          "omitted": []
+        },
+        {
+          "id": "01M5ZDV18RAX3SQ1BFRKYGBAYG",
+          "query": "negation of a deleted fact; negation request on a deleted fact",
+          "reads": 0,
+          "label": "found",
+          "reason": "The headers \"Stale deleted fact negation\" (rank 2) and \"Q4 relation negates on deleted fact\" (rank 3) match the query about negating a deleted fact directly, and no opened fact shows otherwise.",
+          "omitted": []
+        },
+        {
+          "id": "01M5G8PQ8YPPRDZ31N1H280CBB",
+          "query": "high volume batch runs full pipeline in parallel with stale check and reconciliation",
+          "reads": 0,
+          "label": "not found",
+          "reason": "No listed header describes a high-volume batch that runs the full pipeline in parallel with a stale check and reconciliation; the results only touch nearby topics (store schema, check ordering, seed batches, concurrency, store functions), and no fact was opened to show otherwise.",
+          "omitted": []
+        }
+      ]
+    },
+    {
+      "sample": "1 read",
+      "size": 20,
+      "agreed": 14,
+      "agreement": 0.7,
+      "verdict": "fails",
+      "searches": [
+        {
+          "id": "01M5Z62RN4VTTQXS37HZTKHEX3",
+          "query": "group call cost",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact \"Group question submission cost\" gives the cost of the group-question path's calls: $13.22 for 1,954 submissions, or $0.0068 per request.",
+          "omitted": []
+        },
+        {
+          "id": "01M5ZBKEZKRK4BHR9J5CAZS8EP",
+          "query": "standard preset Q4 pick Sonnet high",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact confirms that the standard preset runs Q4 on claude-sonnet-5-5, and the listed facts \"Q4 model and effort\" and \"Standard quality preset pick rule\" cover the effort level and the pick rule.",
+          "omitted": []
+        },
+        {
+          "id": "01M5JBNZF79K77EM90S18MJ7QD",
+          "query": "check script npm run check output",
+          "reads": 1,
+          "label": "misled",
+          "reason": "The headers look like they cover npm run check, but the opened fact only lists the 6 parallel steps and says nothing about the command's output, so the query about its output goes unanswered.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BACSQTTEVDHMPZ5EAKS5XC",
+          "query": "tag cleanup trigger interval",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact \"Cleanup finder run intervals\" answers the query: the interval is stored in meta.cleanup_every and starts from CLEANUP_EVERY. After each run it doubles when there are 0 repairs, halves when there are 3 or more, and stays the same for 1 or 2, always between 10 and 2000 writes.",
+          "omitted": []
+        },
+        {
+          "id": "01M5ZWA287R8DP9M2YS57VXK6Y",
+          "query": "dogfood fill 2026-10-16 1,391 requests split 900 cost $177.05",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact 'Wiki fill results on October 16, 2026' confirms the 1,391 submissions with 900 split, so it is the fill fact the query describes, though it does not state the $177.05 cost.",
+          "omitted": []
+        },
+        {
+          "id": "01M5Z67WVFCTFSVP1KVSFR25GS",
+          "query": "FORCE_PROMPT_CACHING_5M 5-minute prompt cache CLI transport",
+          "reads": 1,
+          "label": "found",
+          "reason": "The top result, which the agent opened, says the CLI transport sets FORCE_PROMPT_CACHING_5M=1 in the claude -p child environment so that cache writes use the 5-minute cache.",
+          "omitted": []
+        },
+        {
+          "id": "01M5XAM8H7A9H7R41FT825TDMT",
+          "query": "bulk test groups first architecture --arch groups",
+          "reads": 1,
+          "label": "misled",
+          "reason": "The opened fact about the harness and the groups architecture only says that --resume is refused under --arch groups, and none of the listed headers describes the groups-first architecture of the bulk test itself; the other architecture facts cover B and C.",
+          "omitted": []
+        },
+        {
+          "id": "01M5Z62RZW8DR7327PFPTTRZQV",
+          "query": "costUsd prices",
+          "reads": 1,
+          "label": "found",
+          "reason": "The list covers where the USD cost prices come from and how they are applied: the price table format, its consumers, the eval price source and the tokenCost USD formula; the opened fact also gives a real pricing rule, that config/prices.json prices a cache write at the input price.",
+          "omitted": []
+        },
+        {
+          "id": "01M5Z7WBWA0PB7FZQ1QMZQ3WXN",
+          "query": "batch path write transaction",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact \"Batch staging promotion transaction\" says the batch path writes its staged rows into the wiki tables in one immediate transaction, which answers the query, and \"applyBatch transaction\" in the list also covers it.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BBCMF1CC9V8PW72GTVKBJA",
+          "query": "readsPerSearch minted ids",
+          "reads": 1,
+          "label": "misled",
+          "reason": "The opened fact 'readsPerSearch counts' looked like a match, but it only covers what readsPerSearch returns and how reads link to searches, with nothing on minted ids; no other header connects readsPerSearch to minted ids either.",
+          "omitted": []
+        },
+        {
+          "id": "01M5Z67W8GBN91AC50MK2RTKX2",
+          "query": "costUsd cache write 1.25x cache read 0.1x price formula",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact 'tokenCost usd formula' says costUsd in src/config/prices.ts is the only cost formula and that it prices cache write and cache read tokens per million, and 'Price table cache write price' (rank 1) likely covers the cache write rate, though the 1.25x and 0.1x numbers were not seen in any opened text.",
+          "omitted": []
+        },
+        {
+          "id": "01M5K1VTTETHFE3QPQJ7025522",
+          "query": "claim check Q7 question test",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact \"Q7 eval question sets\" names the labeled test question set for the Q7 claim check (eval/questions/q7.json), which answers the query.",
+          "omitted": []
+        },
+        {
+          "id": "01M5JE0C5W0N4N0Z1K1NP7QG4B",
+          "query": "test run folder .cache/test-runs global setup",
+          "reads": 1,
+          "label": "not found",
+          "reason": "None of the headers ties the test run folder to .cache/test-runs or says how global setup creates it, and the one opened fact only says a killed run leaves its wikifact-run-* folder behind.",
+          "omitted": []
+        },
+        {
+          "id": "01M5XA7GJ4YACWDRBC315E9Z8C",
+          "query": "test run cleans leftover temp folders older than 1 hour",
+          "reads": 1,
+          "label": "found",
+          "reason": "The headers \"Stale test run folder age rule\" (rank 3) and \"Stale test run folder cleanup\" (rank 9) fit the query about a test run deleting leftover temp folders older than 1 hour. The one opened fact (about the folder prefix) was only a side detail and did not lead the agent away.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BAEXE566Y3M8G8Z81EPPNB",
+          "query": "Jobs page next run tag cleanup trigger",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact says the Jobs page Next run cell of a tag cleanup row shows \"in N writes\", where N is the interval minus writesSince, never below 0. That answers what the next run shows and that a write count triggers it.",
+          "omitted": []
+        },
+        {
+          "id": "01M5ZDXMF6DRSTFSS74N5SNKW8",
+          "query": "fill of the wiki from the repo change requests outcomes",
+          "reads": 1,
+          "label": "found",
+          "reason": "The opened fact 'First wiki fill results' gives the change request outcomes of the first wiki fill: 105 submissions, of which 58 were accepted, 2 were duplicates and 46 were rejected as compound.",
+          "omitted": []
+        },
+        {
+          "id": "01M5ZVYWTFEVZQQRCN66JCW152",
+          "query": "fill requests bulk test claim check",
+          "reads": 1,
+          "label": "misled",
+          "reason": "The opened fact about the claim check on the first wiki fill only reports how accurate it was on 46 compound rejections in real use, not how the claim check works with bulk test fill requests, and none of the bulk test headers mention the claim check.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BCXJJQ0JMRXRH9FVXS01WR",
+          "query": "rate limit pause worker status",
+          "reads": 1,
+          "label": "found",
+          "reason": "The top result, \"Update worker rate limit pause\", was opened and covers the query: after a rate-limited call the update worker pauses 5 minutes, doubling up to 1 hour; it doesn't say how the pause shows in the worker's status, though \"Update worker status storage\" is also listed for that.",
+          "omitted": []
+        },
+        {
+          "id": "01M5BAXENYSJSX47CSYZMG0GXV",
+          "query": "rate limit pause weekly limit resume worker",
+          "reads": 1,
+          "label": "misled",
+          "reason": "The opened fact \"Update worker rate limit pause\" looked like the answer, but it only covers the per-call backoff (5 minutes, doubling up to 1 hour). It says nothing about a pause for the weekly limit or how the worker resumes after it.",
+          "omitted": []
+        },
+        {
+          "id": "01M5Z62SBC5Y17ZMFM853HFQVK",
+          "query": "prompt cache 5 minutes",
+          "reads": 1,
+          "label": "found",
+          "reason": "The first result, which the agent opened, says the CLI transport sets FORCE_PROMPT_CACHING_5M=1 so that cache writes use the 5-minute prompt cache, and that answers the query directly.",
+          "omitted": []
+        }
+      ]
+    },
+    {
+      "sample": "3 or more reads",
+      "size": 2,
+      "agreed": 0,
+      "agreement": 0,
+      "verdict": "no verdict",
+      "searches": [
+        {
+          "id": "01M5XK2A4Y1X6S89EQ8C7T9JSA",
+          "query": "CLI transport claude -p arguments system prompt file cache breakpoint SDK transport cache_control",
+          "reads": 3,
+          "label": "found",
+          "reason": "The opened fact \"CLI transport command\" lists the claude -p arguments, and \"CLI transport system prompt file\" covers the system prompt file part; no listed fact covers the cache breakpoint or SDK transport cache_control part, so the answer is partial.",
+          "omitted": []
+        },
+        {
+          "id": "01M5JXRCHX0CPE3VS6PP9ZXVQC",
+          "query": "batch path high volume mode code that differs from the 1-at-a-time path",
+          "reads": 4,
+          "label": "found",
+          "reason": "Result 8's header names what the batch path does differently from the sequential path (it runs the full pipeline in parallel and adds a stale check and reconciliation), which answers the query; the opened facts only give time, cost and outcome numbers.",
+          "omitted": []
+        }
+      ]
+    }
+  ]
+}

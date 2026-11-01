@@ -1,0 +1,281 @@
+{
+  "startedAt": "2026-10-23T05:54:23.368Z",
+  "complete": true,
+  "mode": "real",
+  "transport": "cli",
+  "models": [
+    "claude-opus-5-5",
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "concurrency": 6,
+  "usage": {
+    "input": 0,
+    "output": 0
+  },
+  "results": [
+    {
+      "id": "r01",
+      "note": "a new fact",
+      "outcome": "accepted",
+      "liveDelta": 1,
+      "newFacts": 1,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:23.369Z",
+      "finishedAt": "2026-10-23T05:54:48.956Z"
+    },
+    {
+      "id": "r02",
+      "note": "a duplicate in the same words",
+      "critical": "duplicate",
+      "outcome": "duplicate",
+      "liveDelta": 0,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:23.647Z",
+      "finishedAt": "2026-10-23T05:54:43.987Z"
+    },
+    {
+      "id": "r03",
+      "note": "F1: a duplicate in other words",
+      "critical": "duplicate",
+      "outcome": "duplicate",
+      "liveDelta": 0,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:23.652Z",
+      "finishedAt": "2026-10-23T05:54:44.297Z"
+    },
+    {
+      "id": "r04",
+      "note": "a correction of a fact that has dependents (they still hold); 12 also breaks the seed's cap of 8, so the cap goes (-1)",
+      "outcome": "accepted",
+      "liveDelta": -1,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:23.658Z",
+      "finishedAt": "2026-10-23T05:55:05.098Z"
+    },
+    {
+      "id": "r05",
+      "note": "F22: a change that no reader can act on alone (a pronoun with no subject, so no claims to split) is rejected as compound at step 1",
+      "critical": "compound",
+      "outcome": "rejected",
+      "liveDelta": 0,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:23.663Z",
+      "finishedAt": "2026-10-23T05:54:30.924Z"
+    },
+    {
+      "id": "r06",
+      "note": "an unsupported claim",
+      "outcome": "rejected",
+      "liveDelta": 0,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:23.668Z",
+      "finishedAt": "2026-10-23T05:54:29.807Z"
+    },
+    {
+      "id": "r07",
+      "note": "a conflict: the claim shows a related fact wrong and a dependent must be rewritten",
+      "outcome": "accepted",
+      "liveDelta": -1,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:29.808Z",
+      "finishedAt": "2026-10-23T05:54:58.587Z"
+    },
+    {
+      "id": "r08",
+      "note": "a duplicate that carries a prior query the wiki may not answer (step 9)",
+      "critical": "duplicate",
+      "outcome": "duplicate",
+      "liveDelta": 0,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:30.926Z",
+      "finishedAt": "2026-10-23T05:54:47.690Z"
+    },
+    {
+      "id": "r09",
+      "note": "F6: a fact that was deleted comes back with a firm observation",
+      "outcome": "accepted",
+      "liveDelta": 1,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:43.989Z",
+      "finishedAt": "2026-10-23T05:55:04.816Z"
+    },
+    {
+      "id": "r10",
+      "note": "a new fact next to a close scope: it is not a duplicate of creeper damage",
+      "outcome": "accepted",
+      "liveDelta": 1,
+      "newFacts": 1,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:44.298Z",
+      "finishedAt": "2026-10-23T05:55:02.832Z"
+    },
+    {
+      "id": "r11",
+      "note": "a new fact on a brewing stand",
+      "outcome": "accepted",
+      "liveDelta": 1,
+      "newFacts": 1,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:47.691Z",
+      "finishedAt": "2026-10-23T05:55:07.312Z"
+    },
+    {
+      "id": "r12",
+      "note": "a belief is rejected before the search",
+      "outcome": "rejected",
+      "liveDelta": 0,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:48.957Z",
+      "finishedAt": "2026-10-23T05:54:54.775Z"
+    },
+    {
+      "id": "r13",
+      "note": "F24: sibling scopes stay apart; Q1 matches \"Zombie damage\" for a claim about knockback, Q4 says unrelated, and the claim becomes a new fact (the seed already holds \"Zombie health\", so the claim is not health)",
+      "outcome": "accepted",
+      "liveDelta": 1,
+      "newFacts": 1,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:54.776Z",
+      "finishedAt": "2026-10-23T05:55:12.180Z"
+    },
+    {
+      "id": "r14",
+      "note": "a deletion by negation: the claim says the bed recipe no longer holds and gives no new content, so the fact is deleted and no negated fact is written",
+      "outcome": "accepted",
+      "liveDelta": -1,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:54:58.589Z",
+      "finishedAt": "2026-10-23T05:55:17.333Z"
+    },
+    {
+      "id": "r15",
+      "note": "a deleted claim sent again with an observation weaker than the reason of the deletion: the fact is live again with content that says the claim is no longer true",
+      "outcome": "accepted",
+      "liveDelta": 1,
+      "newFacts": 0,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:55:02.833Z",
+      "finishedAt": "2026-10-23T05:55:26.427Z"
+    },
+    {
+      "id": "r16",
+      "note": "F22: a compound submission is split at step 1 into one request per claim, and each claim ends as its own fact",
+      "critical": "compound",
+      "outcome": "split",
+      "liveDelta": 2,
+      "newFacts": 2,
+      "criticalMisses": [],
+      "misses": [],
+      "errors": [],
+      "tokens": {
+        "input": 0,
+        "output": 0
+      },
+      "startedAt": "2026-10-23T05:55:04.817Z",
+      "finishedAt": "2026-10-23T05:55:50.541Z"
+    }
+  ],
+  "pass": true,
+  "finishedAt": "2026-10-23T05:55:50.543Z"
+}

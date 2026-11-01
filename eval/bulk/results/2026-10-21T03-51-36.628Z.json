@@ -1,0 +1,3227 @@
+{
+  "startedAt": "2026-10-21T03:51:36.630Z",
+  "complete": true,
+  "source": "game.sqlite",
+  "requests": 100,
+  "queuedInSource": 1747,
+  "startSeq": 2533,
+  "batchSize": 100,
+  "concurrency": 4,
+  "stub": false,
+  "sequential": {
+    "path": "sequential",
+    "complete": true,
+    "startedAtMs": 1792554697239,
+    "wallMs": 2539216,
+    "snapshotMs": 5012,
+    "usage": {
+      "calls": 340,
+      "tokens": {
+        "input": 680,
+        "output": 191810,
+        "cacheRead": 574572,
+        "cacheWrite": 4842223
+      },
+      "usd": 13.08446082,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q2": 12,
+        "Q3": 9,
+        "Q5": 55,
+        "Q8": 2,
+        "Q1": 81,
+        "Q4": 81,
+        "Q7": 100
+      }
+    },
+    "outcomes": {
+      "rejected": 25,
+      "duplicate": 20,
+      "accepted": 55
+    },
+    "steps": 100,
+    "batches": [],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PMJEPJ07DF4PEE6NTK",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change joins two attributes (the dependent gets a new version without the reference, and no model writes it) that could be true or false independently, and the justification only cites a document without saying the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PNYSN08J2WHPQ6VS1Y",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change makes two claims (routing of a failing dependent to a draft question, and the empty justification of the rewrite), either of which could be false alone, and the justification only cites a document without saying the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TM6NS3TVWJDPX9KNJ6S52",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TM6NS3TVWJDPX9KNJ6S53",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TM6NS3TVWJDPX9KNJ6S54",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Replaced-by link scope",
+            "content": "The replaced-by link serves only consumers that keep a fact id and read it later, a use case out of scope."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMCTMQ2V6CZB6X5Y97VHH",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMCTMQ2V6CZB6X5Y97VHJ",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change defines the current version (largest seq per fact_id) and separately says a named view exposes it, so the view name could be wrong while the definition stands; the justification cites specific line numbers in the document, which shows the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMJ71X3MKVA31KW9YZNKV",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMJ71X3MKVA31KW9YZNKW",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Draft lint failure attempt",
+            "content": "The update worker counts a draft that fails lint twice as a failed attempt, since the next attempt can pass."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMJ72DXHFTSZ777SERZM5",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMR356DCPG5FFEEVAV4QR",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Fact liveness",
+            "content": "A WikiFact fact is live when its current fact version has is_deleted set to 0."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMR356DCPG5FFEEVAV4QS",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change gives two attributes of consumer reads (using the view, filtering deleted facts), and one could be true while the other is false; the justification only cites a document without saying the submitter read it, so it is second-hand.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMR356DCPG5FFEEVAV4QT",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Update agent fact version reads",
+            "content": "The update agent reads all fact versions."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZS",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Operator console number definitions",
+            "content": "The operator console shows each number as data, with its definition one click or hover away."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZT",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZV",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Operator console interpretations code",
+            "content": "The operator console's interpretations are kept as 1 list in the code, with their status and test (decided October 16, 2026)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZW",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Operator console interpretation that fails its test",
+            "content": "An operator console interpretation that fails its test is removed while its data stays (decided October 16, 2026)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TP688AQ75G7NM1CK3XNJ3",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Operator console reading line",
+            "content": "Operator console interpretation readings are note lines with an info mark and a muted verified or unverified word, never chips."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TP688AQ75G7NM1CK3XNJ4",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Operator console chart axis names",
+            "content": "Every chart in the operator console names its axes, as decided by the owner on October 16, 2026."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPBM9GZ8445P214150CHJ",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPBM9GZ8445P214150CHK",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPJ7PKZF30FT78VMCJP35",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "tags.name column collation",
+            "content": "The tags.name column of the WikiFact wiki database is COLLATE NOCASE from schema version 3."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPJ7PKZF30FT78VMCJP36",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPSHACT885F3BZTBXKGMG",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Stale deleted fact negation",
+            "content": "A deleted fact, restated with weaker observation than the deletion reason, gets a live version saying the claim is no longer true."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPSHACT885F3BZTBXKGMH",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ015EEC9H58MFZ3Y8NXC",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Fact tag maximum count query",
+            "content": "The unanswerable query \"fact tag maximum count\" is an accepted miss that returns 3 unrelated dogfood facts."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ015EEC9H58MFZ3Y8NXD",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ52JC298PBNBHHJ5PMBB",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "fact_version_tags table",
+            "content": "The fact_version_tags table has primary key (fact_version_id, tag_id), holding the tags of one fact version."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ52KBHGNPTZFZ4PVC7Z8",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change gives two attributes of the table (what it holds, and its primary key), which can be true or false apart; the justification only cites a document and does not say the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQBFHB8VXPHE282Z22NH1",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change joins what is done with the reject reason (stored and logged) and a separate claim that nothing reads it, and either could be false alone; the justification only cites a document without saying the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQBFHB8VXPHE282Z22NH2",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Reject reasons in planned repeat detection",
+            "content": "The reject reasons contradicted and unsupported feed the planned repeat detection described in docs/future.md."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQJKBJ1X31R0683F2SZVA",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQJKC3WJ8GH9PWBTYXEW1",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Duplicate check of deleted facts",
+            "content": "Only a claim that a deleted fact is no longer true counts as a duplicate of that deleted fact."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQR8P78KEN3Y572166W2J",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Deleted tag fact_version_tags rows",
+            "content": "A deleted tag keeps its rows in the fact_version_tags table."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQR8P78KEN3Y572166W2K",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change names four subjects (getTag, listTags, the tag search, the console tag page), each of which could be wrong on its own, and the justification only cites a document without saying the submitter checked it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQR8P78KEN3Y572166W2M",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Draft naming a deleted tag",
+            "content": "A draft that names a deleted tag's name creates a new live tag with that name."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQYY48Q7CTJF32KBATXDM",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQYY48Q7CTJF32KBATXDN",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has two attributes (capturing the tag, and validating its format) that could each be true or false alone; the justification cites a specific line in a document, which reads as the submitter having read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQYY48Q7CTJF32KBATXDP",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Ship proof version match",
+            "content": "The ship proof's version match uses a boundary after the version number, so a shipped version does not match a longer one."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR4X7J6CRW693R8R976FP",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change makes two claims, one about how test sets are built (own labeled set, cases in 1 group) and one about the pass rule (set mean and set floor per run), and either could be false alone; the justification cites specific lines of a document, which shows the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR4X7J6CRW693R8R976FQ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Prompt or schema change test rule",
+            "content": "A prompt change runs the question test again on each model because the result pool restarts for the changed prompt."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR9Q46TE3JX8672ETV0WS",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR9Q46TE3JX8672ETV0WT",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "retrievals table weight",
+            "content": "The weight column of the retrievals table is more than 1 only on a folded row."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF87",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Update worker compound rejection",
+            "content": "The update worker's submission check rejects a compound submission at step 1 of the update pipeline."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF88",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF89",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF8A",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Merge repair of missed duplicate",
+            "content": "The fact merge repairs a missed duplicate fact on the next update request in the same scope."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRN8HG4536DKWPA18C6CH",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Change request kinds",
+            "content": "The change_requests.kind column allows submission (default), lookupRepair, operatorEdit and tagRepair."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRN8HG4536DKWPA18C6CJ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Change request status values",
+            "content": "The change_requests.status column allows queued, running, done and failed."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRN8HG4536DKWPA18C6CK",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "change_requests targets column",
+            "content": "The targets column of the change_requests table is a JSON array of ids."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRVW2A4FPNB1F56FG24S4",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRVW2A4FPNB1F56FG24S5",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change gives two subjects (requestChange and listWikis), each with its own value, so one could be wrong while the other stands; the justification cites specific lines in the docs, which implies the submitter read them.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TT51RAR4H1JZW6MRJZ5V3",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TT51RAR4H1JZW6MRJZ5V4",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change joins two attributes (question count and process-start cost, and the model used for judgment) that could be true or false separately, and the justification cites a specific line in a document, which implies the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTB22Q887AZ1PZD0E5ZEB",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTB22Q887AZ1PZD0E5ZEC",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "openStore schema migration order",
+            "content": "openStore applies each numbered schema migration above the stored schema version in ascending order, each in its own transaction."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTB22Q887AZ1PZD0E5ZED",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTH4DYSJY1HPWEFDZ73Q7",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Update worker model writes",
+            "content": "In the WikiFact update worker, the model writes nothing by itself."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTH4DYSJY1HPWEFDZ73Q8",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Update worker answer checks",
+            "content": "The update worker checks each model answer with schema checks and timers."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTH4DYSJY1HPWEFDZ73Q9",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Update worker wrong answer handling",
+            "content": "In the update worker, a wrong answer shows up as a known failure kind with a known repair."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTPG8MQT8NT1Z4M3X9F34",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema migration table changes",
+            "content": "A schema migration of the WikiFact wiki database adds columns or tables, or rebuilds a table copying every row when SQLite cannot alter a constraint in place."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTPG8MQT8NT1Z4M3X9F35",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema migration row loss",
+            "content": "A schema migration of the WikiFact wiki database never loses a row."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTXV2SWWKDT7S4T40MV8M",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Submission content",
+            "content": "A submission to a wiki states what should be different in the wiki, not how the wiki should be shaped."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTXV2SWWKDT7S4T40MV8N",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Handling facts and choosing tags are two attributes, so one could be false while the other stands; the justification only points to a document and doesn't say the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTXV2SWWKDT7S4T40MV8P",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change gives two attributes of the tag cleanup (what it repairs, and when it runs), and either could be corrected while the other stands; the justification cites a specific line of a document, which shows the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV3037EFM4JH2BBNNR3QS",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change makes two claims, that schema 2 adds the column and that the worker sets it when it takes the row, and either could be true while the other is false; the justification cites specific line numbers in the document, which shows the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV3037EFM4JH2BBNNR3QT",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV8J5PCQZGSWKW1P98FM6",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV8J5PCQZGSWKW1P98FM7",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema 4 migration tag versions",
+            "content": "The schema 4 migration writes one tag_versions row per existing tag, from its current row, at the seq of the first change whose fact version carries the tag, or at the highest seq when none does."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVGJGD72TEJK6D32AA11G",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVGJGD72TEJK6D32AA11H",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two tables (changes, change_requests) are rebuilt for different purposes, so one could be wrong while the other stands; the justification only points to a document without saying the submitter read or checked it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVPDYJQ0TR25JHR7ZYPKF",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Wiki database schema version 3",
+            "content": "Schema version 3 of the WikiFact wiki database adds an is_deleted column to the tags table."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVPDZP1P9GVJSKK79FJSG",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVWRW3K0AVBZC4JS9BBZD",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "search_results target_id foreign key",
+            "content": "The search_results.target_id column has no foreign key, because its kind column says whether it names a fact or a tag."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVWRW3K0AVBZC4JS9BBZE",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Read to search link storage",
+            "content": "The link of a read to its search is computed from the search_results table, and no column stores that link."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW36WTZQ1QGX4KKXR3VA7",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW36WTZQ1QGX4KKXR3VA8",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "SCHEMA_VERSION constant",
+            "content": "The SCHEMA_VERSION constant in src/store/schema.ts has the value 9, the wiki database schema version."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW94ZZDTW2E0PJBG3Q5ER",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "fact_versions_fts table",
+            "content": "The fact_versions_fts table is an FTS5 table with the porter unicode61 tokenizer, kept as external content over fact_versions."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW94ZZDTW2E0PJBG3Q5ES",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "tags_fts table",
+            "content": "The tags_fts table is an FTS5 table with the porter unicode61 tokenizer, kept as external content over tags."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF23Z",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change makes two claims (what the table holds, and that the agent search with history reads it), either of which could be false alone; the justification only says a document states it, without saying the submitter read or checked it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF240",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Tags vector table",
+            "content": "The tags_vec vector table holds the embedding vectors of tags."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF241",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "fact_versions_vec vector format",
+            "content": "Embeddings in the fact_versions_vec table stay float vectors, not 1-bit vectors."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF242",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "tags_vec vector format",
+            "content": "Embeddings in the tags_vec table stay float vectors, not 1-bit vectors."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWS162BJY278B5171Y9QR",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "current_vec embedding column",
+            "content": "The embedding column of current_vec is vec_quantize_binary of the float vector, so its dimension must be a multiple of 8."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWS162BJY278B5171Y9QS",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change states where the float vector is stored and, separately, how the search uses that column, so either part could be false while the other stands; the justification cites specific lines of a document, which implies the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWY3FBCMR11AW58DWZSQQ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Fact version embedded text",
+            "content": "The embedded text of a fact version is its header, then a period and a space, then its content."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWY3FBCMR11AW58DWZSQR",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Tag embedded text",
+            "content": "The embedded text of a tag is its name, then a period and a space, then its description."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TZTNXT2FG11FK5VTRQPM8",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "archiveWiki worker stop and unmount",
+            "content": "archiveWiki stops the update worker of a wiki and unmounts that wiki before it removes or archives the wiki."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TZTNXT2FG11FK5VTRQPM9",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V00X4K7NX31KDPNJNEBYV",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "unarchiveWiki restore",
+            "content": "unarchiveWiki moves an archived wiki folder back, mounts the wiki and starts the wiki's update worker."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V00X4K7NX31KDPNJNEBYW",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change makes two claims, what unarchiveWiki restores and what its answer says, so one could be false while the other stands; the justification cites a specific line of a document, which suggests the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V00X4K7NX31KDPNJNEBYX",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKG",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "createWiki idempotency",
+            "content": "createWiki returns the existing wiki and creates nothing when called with the same wiki name and subject."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKH",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "createWiki name conflict with another subject",
+            "content": "createWiki returns an error naming the existing subject when given an existing wiki name with another subject."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKJ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "createWiki wiki name uniqueness",
+            "content": "createWiki returns an error naming the existing wiki when a new wiki name is close to that wiki's name."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V1BYBFNNNRX59E12B33YM",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Service mode management endpoint",
+            "content": "The service mode management endpoint at /mcp has 4 management tools and 4 wiki tools, each wiki tool with 1 more required argument naming the wiki."
+          },
+          {
+            "header": "Wiki MCP tools",
+            "content": "Every rejection of a WikiFact MCP tool call is returned as a tool error."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V1BYBFNNNRX59E12B33YN",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change makes two claims (the wiki tools lack the name argument; there is no management tool), and either could be false while the other stands; the justification cites specific lines of a document, which shows the submitter read it.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 59,
+      "candidatePairs": 152,
+      "pairs": [
+        {
+          "a": {
+            "factId": "01M5E9P8FE9SVMB7V48T2K3WNH",
+            "header": "Update agent fact version reads",
+            "content": "The update agent reads all fact versions."
+          },
+          "b": {
+            "factId": "01M5837GAZRRQGYN0567QZZQTD",
+            "header": "Update agent read path",
+            "content": "The update agent reads wiki facts through the Store API, not through the consumer MCP tools."
+          },
+          "distance": 0.20477426188986292
+        },
+        {
+          "a": {
+            "factId": "01M5E9KQ2XX7SCM8PNCZJS76H9",
+            "header": "Draft lint failure attempt",
+            "content": "The update worker counts a draft that fails lint twice as a failed attempt, since the next attempt can pass."
+          },
+          "b": {
+            "factId": "01M4WFT7Q17JKQFS6SX5WFPENA",
+            "header": "Draft lint retry",
+            "content": "A draft that fails lint is sent back once to the same question with the failure text; a second lint failure throws LintError."
+          },
+          "distance": 0.123333707867333
+        },
+        {
+          "a": {
+            "factId": "01M5E9Q6F5STJJ1DSGQ37CRV3Z",
+            "header": "Operator console number definitions",
+            "content": "The operator console shows each number as data, with its definition one click or hover away."
+          },
+          "b": {
+            "factId": "01M56HSKY6KE2FWJK2FACXF0AX",
+            "header": "Operator console number field",
+            "content": "The operator console number field is an input of type number with step=\"any\", so a fraction such as 0.5 is accepted."
+          },
+          "distance": 0.16912466799526993
+        },
+        {
+          "a": {
+            "factId": "01M5E9W9PZ6SDZE2XWWFMYTASH",
+            "header": "Operator console chart axis names",
+            "content": "Every chart in the operator console names its axes, as decided by the owner on October 16, 2026."
+          },
+          "b": {
+            "factId": "01M56G7SZJ4GG9EQQRV9S6ND2N",
+            "header": "Console chart x axis labels",
+            "content": "A console chart with a dense x axis shows at most 5 labels: the first, the last and evenly spaced ones between, dropping a label within half a step of the last."
+          },
+          "distance": 0.21138583181504644
+        },
+        {
+          "a": {
+            "factId": "01M5EA689QV7P0NC8S6HVTGG2R",
+            "header": "Reject reasons in planned repeat detection",
+            "content": "The reject reasons contradicted and unsupported feed the planned repeat detection described in docs/future.md."
+          },
+          "b": {
+            "factId": "01M582VJ8EDYGBTCAMT76318P1",
+            "header": "Planned repeat detection of unsupported claims",
+            "content": "Planned repeat detection accepts a second independent submission of a claim rejected as unsupported, because 2 observations are enough."
+          },
+          "distance": 0.142168579037254
+        },
+        {
+          "a": {
+            "factId": "01M5EA90D4CSCP25228T36CKF8",
+            "header": "Duplicate check of deleted facts",
+            "content": "Only a claim that a deleted fact is no longer true counts as a duplicate of that deleted fact."
+          },
+          "b": {
+            "factId": "01M55S2ZVWFMNMAPNZX8AX1S3X",
+            "header": "Stale deleted fact negation",
+            "content": "A deleted fact, restated with weaker observation than the deletion reason, gets a live version saying the claim is no longer true."
+          },
+          "distance": 0.1643045609809748
+        },
+        {
+          "a": {
+            "factId": "01M5EAD18HW687BJ1P24Z3JCK9",
+            "header": "Ship proof version match",
+            "content": "The ship proof's version match uses a boundary after the version number, so a shipped version does not match a longer one."
+          },
+          "b": {
+            "factId": "01M4WG5RVEYW56CP0HTN09X9MY",
+            "header": "Ship proof pass condition",
+            "content": "The ship proof passes when the port answers, the console page names the shipped version, and every wiki schema matches the code schema; a missing listening line does not fail it."
+          },
+          "distance": 0.19664811640762292
+        },
+        {
+          "a": {
+            "factId": "01M55TA1X57H0WVHTBG76ZWYJS",
+            "header": "Update worker scope match",
+            "content": "The update worker's scope match makes 0 live matches a new claim, 1 a correction or repeat, and 2 or more duplicates."
+          },
+          "b": {
+            "factId": "01M5634Q8G8SKAYZPC9EADBKNA",
+            "header": "Update worker live match count routing",
+            "content": "Zero live Q1 matches make a claim new; one live match means it corrects or repeats that fact; two or more trigger a merge at step 3 before step 4 judges."
+          },
+          "distance": 0.19105961617929257
+        },
+        {
+          "a": {
+            "factId": "01M5474QMD6G287TVQ3RS6Z41R",
+            "header": "Update worker compound rejection",
+            "content": "The update worker's submission check rejects a compound submission at step 1 of the update pipeline."
+          },
+          "b": {
+            "factId": "01M55RA7S58HBSDPBDEN15VXRY",
+            "header": "Update worker submission check",
+            "content": "The first step of the WikiFact update worker is a submission check, which reads only the change and its justification."
+          },
+          "distance": 0.21763209057971444
+        },
+        {
+          "a": {
+            "factId": "01M585B1ESEWRDYHD2M19BAGCY",
+            "header": "Q4 deleted match evidence",
+            "content": "Q4 treats the deletion justification of the most recently deleted match as evidence against a claim."
+          },
+          "b": {
+            "factId": "01M55Z1Z8138DS8WFEZ8A95FAT",
+            "header": "Q4 deletion relations",
+            "content": "Q4 has two deletion relations: negates deletes a live fact with no draft question; stale makes Q5 draft a negation."
+          },
+          "distance": 0.20889709887726837
+        },
+        {
+          "a": {
+            "factId": "01M5EAWRJV38BV0X4BWBGBS52W",
+            "header": "Update worker answer checks",
+            "content": "The update worker checks each model answer with schema checks and timers."
+          },
+          "b": {
+            "factId": "01M55RA7S58HBSDPBDEN15VXRY",
+            "header": "Update worker submission check",
+            "content": "The first step of the WikiFact update worker is a submission check, which reads only the change and its justification."
+          },
+          "distance": 0.2295504594149076
+        },
+        {
+          "a": {
+            "factId": "01M58634SM4MW9XMS1JB61ZJ4A",
+            "header": "Local kind worker transport",
+            "content": "In local mode, the update worker uses the CLI transport without an API key."
+          },
+          "b": {
+            "factId": "01M585VR1HR29N75E2E2V4GPX1",
+            "header": "Worker command without API key",
+            "content": "Without an API key, the wikifact worker command exits with a message unless local mode is on or WIKIFACT_TRANSPORT=cli is set."
+          },
+          "distance": 0.156419279221502
+        },
+        {
+          "a": {
+            "factId": "01M53MPR2EXJHB02R47VYM7TJR",
+            "header": "searchCorrections readsPerSearch session change request",
+            "content": "searchCorrections readsPerSearch session change request means enqueueRequest session id."
+          },
+          "b": {
+            "factId": "01M53KQGAVM5BB11EM95WPNAG0",
+            "header": "searchCorrections change request link",
+            "content": "The searchCorrections read links each change request to the last search in the same session at or before its received_at."
+          },
+          "distance": 0.17529834623095863
+        },
+        {
+          "a": {
+            "factId": "01M5EBAH114NCZD2VJC6G4ZZ15",
+            "header": "SCHEMA_VERSION constant",
+            "content": "The SCHEMA_VERSION constant in src/store/schema.ts has the value 9, the wiki database schema version."
+          },
+          "b": {
+            "factId": "01M5324WKDDKPMV49RX9SABSWE",
+            "header": "Wiki database schema version 3",
+            "content": "Schema version 3 of the WikiFact wiki database adds an is_deleted column to the tags table."
+          },
+          "distance": 0.26020710228292976
+        },
+        {
+          "a": {
+            "factId": "01M5324WKDDKPMV49RX9SABSWE",
+            "header": "Wiki database schema version 3",
+            "content": "Schema version 3 of the WikiFact wiki database adds an is_deleted column to the tags table."
+          },
+          "b": {
+            "factId": "01M5EAYAN9F3S9J07E6BSPP7FK",
+            "header": "Schema migration table changes",
+            "content": "A schema migration of the WikiFact wiki database adds columns or tables, or rebuilds a table copying every row when SQLite cannot alter a constraint in place."
+          },
+          "distance": 0.17145768221117286
+        },
+        {
+          "a": {
+            "factId": "01M5EBG0D86CRKDMN0848D0NDA",
+            "header": "current_vec embedding column",
+            "content": "The embedding column of current_vec is vec_quantize_binary of the float vector, so its dimension must be a multiple of 8."
+          },
+          "b": {
+            "factId": "01M56B4485N8P8V76BFC3QPZ4B",
+            "header": "current_vec row vectors",
+            "content": "Each live fact's current_vec row holds a 1-bit KNN vector and a float rescore vector, both bound from one float buffer."
+          },
+          "distance": 0.19590193945058665
+        },
+        {
+          "a": {
+            "factId": "01M56CSTRP69BVTCV99QR4S4A8",
+            "header": "unarchiveWiki restore",
+            "content": "unarchiveWiki moves an archived wiki folder back, mounts the wiki and starts the wiki's update worker."
+          },
+          "b": {
+            "factId": "01M584ZPFGSHJJ9PCBVB0BJ4VC",
+            "header": "Wiki archive undo",
+            "content": "An agent can undo an archive of a wiki that the same agent archived."
+          },
+          "distance": 0.21878829546476108
+        },
+        {
+          "a": {
+            "factId": "01M5EBPXFC6FW9WFKXBM21EK30",
+            "header": "createWiki name conflict with another subject",
+            "content": "createWiki returns an error naming the existing subject when given an existing wiki name with another subject."
+          },
+          "b": {
+            "factId": "01M56C178NPXZ4E0847FWMV8M8",
+            "header": "createWiki wiki name uniqueness",
+            "content": "createWiki returns an error naming the existing wiki when a new wiki name is close to that wiki's name."
+          },
+          "distance": 0.11351621725166594
+        },
+        {
+          "a": {
+            "factId": "01M4M4C1QZC2QAF8Y7K8WCXR1W",
+            "header": "Wiki MCP tools",
+            "content": "Every rejection of a WikiFact MCP tool call is returned as a tool error."
+          },
+          "b": {
+            "factId": "01M55SKPKAXDAMVBJFSW6CGKVK",
+            "header": "Failed tool call",
+            "content": "A WikiFact MCP tool call counts as failed only when its handler throws, which logs a tool line with ok false; a request never reaching a handler logs an http_error line instead."
+          },
+          "distance": 0.14845437499372527
+        }
+      ],
+      "judge": {
+        "calls": 59,
+        "tokens": {
+          "input": 118,
+          "output": 23006,
+          "cacheRead": 59826,
+          "cacheWrite": 118839
+        }
+      }
+    }
+  },
+  "batch": {
+    "path": "batch",
+    "complete": true,
+    "startedAtMs": 1792557241470,
+    "wallMs": 258091,
+    "snapshotMs": 159,
+    "usage": {
+      "calls": 8,
+      "tokens": {
+        "input": 18,
+        "output": 37624,
+        "cacheRead": 21889,
+        "cacheWrite": 187708
+      },
+      "usd": 0.49102426,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q5B": 4,
+        "Q7B": 2,
+        "Q15": 2
+      }
+    },
+    "outcomes": {
+      "split": 1,
+      "child accepted": 1,
+      "child duplicate": 1,
+      "accepted": 50,
+      "rejected": 28,
+      "duplicate": 21
+    },
+    "steps": 2,
+    "batches": [
+      {
+        "batchId": "01M5EBSN4002T7AACS9M31DWMN",
+        "status": "done",
+        "size": 100
+      },
+      {
+        "batchId": "01M5EC0XT3RTR2YZ4C9PZ2SPKJ",
+        "status": "done",
+        "size": 2
+      }
+    ],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5EBVXG2647ZHGFN3MB2PHDJ",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "facts": [
+              {
+                "header": "Fact version observed status",
+                "content": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the version before it."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5EBVXG2647ZHGFN3MB2PHDK",
+            "status": "done",
+            "outcome": "duplicate",
+            "attempts": 0,
+            "facts": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Console read flags",
+            "content": "The console flags a read when the share of searches with 0 reads is over 0.5 (NO_READ_SHARE), with 3 or more reads over 0.3 (MANY_READS_SHARE), or sessions with no search over 0.3 (NO_SEARCH_SHARE)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "WikiFact language and runtime",
+            "content": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PMJEPJ07DF4PEE6NTK",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: what the new version holds, and who writes it; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TH9PNYSN08J2WHPQ6VS1Y",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: where the dependent goes, and the justification of the rewrite; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TM6NS3TVWJDPX9KNJ6S52",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TM6NS3TVWJDPX9KNJ6S53",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TM6NS3TVWJDPX9KNJ6S54",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Replaced by link",
+            "content": "The \"replaced by\" link served only a consumer that keeps a fact id and reads it later, a use case out of scope (decided October 14, 2026)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMCTMQ2V6CZB6X5Y97VHH",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMCTMQ2V6CZB6X5Y97VHJ",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: how the current version is defined, and which view exposes it; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMJ71X3MKVA31KW9YZNKV",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMJ71X3MKVA31KW9YZNKW",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Lint failure attempts",
+            "content": "A draft that fails the lint twice is a failed attempt because the next attempt can pass."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMJ72DXHFTSZ777SERZM5",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: the classification, and the requeue behavior; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMR356DCPG5FFEEVAV4QR",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Live fact",
+            "content": "A fact is live when its current fact version has is_deleted = 0."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMR356DCPG5FFEEVAV4QS",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes that can each be true or false on their own; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMR356DCPG5FFEEVAV4QT",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZS",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Console number definitions",
+            "content": "The console shows a number as data with its definition 1 click or hover away (decided October 16, 2026)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZT",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZV",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Console interpretations list",
+            "content": "The console's interpretations are 1 list in the code with their status and test (decided October 16, 2026)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TMYPXJYNJW5K45MDB3WZW",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Console interpretation failure",
+            "content": "In the console, an interpretation that fails its test is removed while its data stays (decided October 16, 2026)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TP688AQ75G7NM1CK3XNJ3",
+        "status": "done",
+        "outcome": "rejected",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TP688AQ75G7NM1CK3XNJ4",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Chart axes",
+            "content": "Every chart names its axes (decided by the owner on October 16, 2026, third review of the live console)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPBM9GZ8445P214150CHJ",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPBM9GZ8445P214150CHK",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: what the table holds, and when it is updated; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPJ7PKZF30FT78VMCJP35",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "tags.name collation",
+            "content": "The tags.name column is COLLATE NOCASE (schema 3)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPJ7PKZF30FT78VMCJP36",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPSHACT885F3BZTBXKGMG",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: the classification, and the action taken; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TPSHACT885F3BZTBXKGMH",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ015EEC9H58MFZ3Y8NXC",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: the status of the miss, and the results the query returns; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ015EEC9H58MFZ3Y8NXD",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ52JC298PBNBHHJ5PMBB",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "fact_version_tags table",
+            "content": "The fact_version_tags table holds the tags of one fact version (primary key fact_version_id, tag_id)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQ52KBHGNPTZFZ4PVC7Z8",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "fact_version_refs table",
+            "content": "The fact_version_refs table holds the facts a fact version depends on (primary key fact_version_id, ref_fact_id)."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQBFHB8VXPHE282Z22NH1",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes that can each be true or false on their own; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQBFHB8VXPHE282Z22NH2",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Reject reason repeat detection",
+            "content": "The reject reason `contradicted` versus `unsupported` feeds the repeat detection of docs/future.md."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQJKBJ1X31R0683F2SZVA",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Three attributes: the classification, the write, and the confirmation event; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQJKC3WJ8GH9PWBTYXEW1",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Deleted fact duplicates",
+            "content": "The only case where a deleted fact is a duplicate is a claim that says the deleted fact is no longer true."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQR8P78KEN3Y572166W2J",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Deleted tag fact links",
+            "content": "A deleted tag keeps its fact_version_tags rows."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQR8P78KEN3Y572166W2K",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Four subjects, each of which could be wrong on its own; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQR8P78KEN3Y572166W2M",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Tag name uniqueness",
+            "content": "A draft that names the name of a deleted tag creates a new tag."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQYY48Q7CTJF32KBATXDM",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "A cause and its effect are two facts that can each be corrected on their own; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQYY48Q7CTJF32KBATXDN",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two actions that can each be true or false on their own; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TQYY48Q7CTJF32KBATXDP",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Release proof version match",
+            "content": "The release proof now matches the version with a boundary."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR4X7J6CRW693R8R976FP",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: the test set, and the pass rule; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR4X7J6CRW693R8R976FQ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Prompt or schema change test rule",
+            "content": "A prompt change to an update pipeline model question runs the question test again on each model, because the result pool starts again."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR9Q46TE3JX8672ETV0WS",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TR9Q46TE3JX8672ETV0WT",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "retrievals weight",
+            "content": "The retrievals table has a weight that is more than 1 only on a folded row."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF87",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF88",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF89",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Sibling scope claims",
+            "content": "In the pipeline, the judgment question marks a sibling scope \"unrelated\" so the claim becomes a new fact."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF8A",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Missed duplicate repair",
+            "content": "In the pipeline, the merge repairs a missed duplicate on the next request in that scope."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRN8HG4536DKWPA18C6CH",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Change request kinds",
+            "content": "The change_requests.kind column allows four values: submission (default), lookupRepair, operatorEdit and tagRepair."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRN8HG4536DKWPA18C6CJ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "change_requests status column",
+            "content": "The change_requests.status column allows queued, running, done and failed."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRN8HG4536DKWPA18C6CK",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "change_requests targets column",
+            "content": "The change_requests.targets column is a JSON array of ids."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRVW2A4FPNB1F56FG24S4",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two conditions that each have their own transport and can each be corrected on their own; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TRVW2A4FPNB1F56FG24S5",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two outputs that can each be true or false on their own; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TT51RAR4H1JZW6MRJZ5V3",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TT51RAR4H1JZW6MRJZ5V4",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Three attributes that can each be corrected on their own; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTB22Q887AZ1PZD0E5ZEB",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTB22Q887AZ1PZD0E5ZEC",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema migration transaction",
+            "content": "openStore applies the numbered schema migrations above the stored version in order, each in one transaction."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTB22Q887AZ1PZD0E5ZED",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTH4DYSJY1HPWEFDZ73Q7",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Model writes in update worker",
+            "content": "In the update worker, the model writes nothing by itself."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTH4DYSJY1HPWEFDZ73Q8",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Update worker answer checks",
+            "content": "In the update worker, code checks each answer by schema checks and timers."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTH4DYSJY1HPWEFDZ73Q9",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Wrong model answers",
+            "content": "In the update worker, a wrong answer shows up as a known kind of failure with a known repair."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTPG8MQT8NT1Z4M3X9F34",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema migration method",
+            "content": "A schema migration adds columns or tables, or rebuilds a table with every row copied when SQLite cannot alter a constraint in place."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTPG8MQT8NT1Z4M3X9F35",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema migration row loss",
+            "content": "A schema migration never loses a row."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTXV2SWWKDT7S4T40MV8M",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Submission content",
+            "content": "A submission says what should be different and not how the wiki should be shaped."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTXV2SWWKDT7S4T40MV8N",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes that can each be true or false on their own; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TTXV2SWWKDT7S4T40MV8P",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: the repair, and when it runs; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV3037EFM4JH2BBNNR3QS",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: when the column was added, and who sets it; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV3037EFM4JH2BBNNR3QT",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV8J5PCQZGSWKW1P98FM6",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema 4 tag_versions table",
+            "content": "Schema 4 adds the tag_versions table."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TV8J5PCQZGSWKW1P98FM7",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema 4 migration tag versions",
+            "content": "The schema 4 migration writes one version per existing tag from its current row at the seq of the first change whose fact version carries the tag, or at the highest seq when none does."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVGJGD72TEJK6D32AA11G",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema 6 change_requests.parent_id",
+            "content": "Schema 6 adds the change_requests.parent_id column and the change outcome split."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVGJGD72TEJK6D32AA11H",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Schema 6 migration rebuild",
+            "content": "The Schema 6 migration rebuilds changes for its new CHECK and change_requests for its new column, copying rows with parent_id NULL."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVPDYJQ0TR25JHR7ZYPKF",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Wiki database schema version 7",
+            "content": "Schema 7 adds the tables sessions, searches, search_results and model_calls, and a nullable session_id column on retrievals and tag_retrievals, without rebuilding a table."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVPDZP1P9GVJSKK79FJSG",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "SCHEMA_VERSION after schema 7",
+            "content": "SCHEMA_VERSION in src/store/schema.ts became 7."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVWRW3K0AVBZC4JS9BBZD",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "search_results target_id",
+            "content": "search_results.target_id has no foreign key, because kind says whether it names a fact or a tag."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TVWRW3K0AVBZC4JS9BBZE",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Read to search link",
+            "content": "The link of a read to its search is computed from search_results, with no column storing it."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW36WTZQ1QGX4KKXR3VA7",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW36WTZQ1QGX4KKXR3VA8",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "SCHEMA_VERSION current value",
+            "content": "SCHEMA_VERSION in src/store/schema.ts is 9."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW94ZZDTW2E0PJBG3Q5ER",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TW94ZZDTW2E0PJBG3Q5ES",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF23Z",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: what the table holds, and who reads it; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF240",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "tags_vec contents",
+            "content": "tags_vec holds tag embeddings."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF241",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "fact_versions_vec precision",
+            "content": "fact_versions_vec embeddings stay float."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWHE6K4XSKQMR6YFNF242",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "tags_vec precision",
+            "content": "tags_vec embeddings stay float."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWS162BJY278B5171Y9QR",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two facts: the column encoding, and the dimension constraint that follows from it; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWS162BJY278B5171Y9QS",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: where the vector is kept, and how the search uses it; the submitter cites the document lines.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWY3FBCMR11AW58DWZSQQ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Embedded fact version text",
+            "content": "The embedded text of a fact version is header + \". \" + content."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TWY3FBCMR11AW58DWZSQR",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Embedded tag text",
+            "content": "The embedded text of a tag is name + \". \" + description."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TZTNXT2FG11FK5VTRQPM8",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "archiveWiki order",
+            "content": "archiveWiki stops the worker of the wiki and unmounts it before it removes or archives the wiki."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55TZTNXT2FG11FK5VTRQPM9",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V00X4K7NX31KDPNJNEBYV",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "unarchiveWiki restore",
+            "content": "unarchiveWiki moves an archived wiki folder from .archive/ back, mounts the wiki and starts its worker."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V00X4K7NX31KDPNJNEBYW",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "Two attributes: which archive comes back, and what the answer reports; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V00X4K7NX31KDPNJNEBYX",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "\"that name\" refers to a name the text never states, so a reader cannot act on the claim alone; the submitter cites the document line.",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKG",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "createWiki repeat call",
+            "content": "createWiki with the same name and the same subject as an existing wiki returns the existing wiki and creates nothing."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKH",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKJ",
+        "status": "done",
+        "outcome": "duplicate",
+        "attempts": 0,
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M55V1BYBFNNNRX59E12B33YM",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Management endpoint tools",
+            "content": "The management endpoint has the 4 management tools (listWikis, createWiki, archiveWiki, unarchiveWiki) and the 4 wiki tools, each wiki tool taking the wiki name as 1 more required argument."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M55V1BYBFNNNRX59E12B33YN",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "facts": [
+          {
+            "header": "Single wiki endpoint tools",
+            "content": "The endpoint of a single wiki has the 4 wiki tools without the name argument and no management tool."
+          }
+        ],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 51,
+      "candidatePairs": 132,
+      "pairs": [
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCHH",
+            "header": "Lint failure attempts",
+            "content": "A draft that fails the lint twice is a failed attempt because the next attempt can pass."
+          },
+          "b": {
+            "factId": "01M4WFT7Q17JKQFS6SX5WFPENA",
+            "header": "Draft lint retry",
+            "content": "A draft that fails lint is sent back once to the same question with the failure text; a second lint failure throws LintError."
+          },
+          "distance": 0.1162163027102111
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCHE",
+            "header": "Replaced by link",
+            "content": "The \"replaced by\" link served only a consumer that keeps a fact id and reads it later, a use case out of scope (decided October 14, 2026)."
+          },
+          "b": {
+            "factId": "01M56DD03ZXR9TYA2QHKV96M7E",
+            "header": "Replaced-by reference meaning",
+            "content": "A second reference meaning, \"replaced by\", made revived facts depend on unintended facts."
+          },
+          "distance": 0.2929847395079558
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCHP",
+            "header": "Console interpretations list",
+            "content": "The console's interpretations are 1 list in the code with their status and test (decided October 16, 2026)."
+          },
+          "b": {
+            "factId": "01M53B2MJ24JB3GHQNZA6F9ZYR",
+            "header": "Operator console interpretations list",
+            "content": "On branch worktree-agent-a33238b1c3d5c1372, operator console interpretations are a ul.interps list under a hairline, with the chip in a fixed first column."
+          },
+          "distance": 0.20152958166389856
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCJ0",
+            "header": "fact_version_refs table",
+            "content": "The fact_version_refs table holds the facts a fact version depends on (primary key fact_version_id, ref_fact_id)."
+          },
+          "b": {
+            "factId": "01M543NDA4ZJSZPYDRH7DPNVQW",
+            "header": "Fact version references",
+            "content": "A reference on a fact version means only \"depends on\": when a referenced fact changes, the referencing fact is checked again."
+          },
+          "distance": 0.16772619718687998
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCJ2",
+            "header": "Deleted fact duplicates",
+            "content": "The only case where a deleted fact is a duplicate is a claim that says the deleted fact is no longer true."
+          },
+          "b": {
+            "factId": "01M55S2ZVWFMNMAPNZX8AX1S3X",
+            "header": "Stale deleted fact negation",
+            "content": "A deleted fact whose claim Q4 finds stale gets a live version saying the old claim is no longer true."
+          },
+          "distance": 0.20394382965208935
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCJC",
+            "header": "Missed duplicate repair",
+            "content": "In the pipeline, the merge repairs a missed duplicate on the next request in that scope."
+          },
+          "b": {
+            "factId": "01M4WG52GRPBAGNB8FEF50PNPG",
+            "header": "Duplicate tag repair merge",
+            "content": "The duplicate tag repair merges the tag with fewer live facts into the other tag when question Q12 says they share a topic; ties keep the older tag."
+          },
+          "distance": 0.27488666162322806
+        },
+        {
+          "a": {
+            "factId": "01M4WGVJ0N8BFY60HHV5KQCMH3",
+            "header": "Schema migration transaction",
+            "content": "openStore applies the numbered schema migrations above the stored version in order, each in one transaction."
+          },
+          "b": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCJQ",
+            "header": "Schema migration method",
+            "content": "A schema migration adds columns or tables, or rebuilds a table with every row copied when SQLite cannot alter a constraint in place."
+          },
+          "distance": 0.2549191816251617
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCJN",
+            "header": "Update worker answer checks",
+            "content": "In the update worker, code checks each answer by schema checks and timers."
+          },
+          "b": {
+            "factId": "01M55RA7S58HBSDPBDEN15VXRY",
+            "header": "Update worker submission check",
+            "content": "The first step of the WikiFact update worker is a submission check, which reads only the change and its justification."
+          },
+          "distance": 0.22095812461628872
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCJV",
+            "header": "Schema 4 tag_versions table",
+            "content": "Schema 4 adds the tag_versions table."
+          },
+          "b": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCJW",
+            "header": "Schema 4 migration tag versions",
+            "content": "The schema 4 migration writes one version per existing tag from its current row at the seq of the first change whose fact version carries the tag, or at the highest seq when none does."
+          },
+          "distance": 0.1716914944058998
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCK0",
+            "header": "SCHEMA_VERSION after schema 7",
+            "content": "SCHEMA_VERSION in src/store/schema.ts became 7."
+          },
+          "b": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCK4",
+            "header": "SCHEMA_VERSION current value",
+            "content": "SCHEMA_VERSION in src/store/schema.ts is 9."
+          },
+          "distance": 0.11158116051059919
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCK0",
+            "header": "SCHEMA_VERSION after schema 7",
+            "content": "SCHEMA_VERSION in src/store/schema.ts became 7."
+          },
+          "b": {
+            "factId": "01M5324WKDDKPMV49RX9SABSWE",
+            "header": "Wiki database schema version 7",
+            "content": "Schema 7 adds the tables sessions, searches, search_results and model_calls, and a nullable session_id column on retrievals and tag_retrievals, without rebuilding a table."
+          },
+          "distance": 0.2671302617285545
+        },
+        {
+          "a": {
+            "factId": "01M5EBVXHJT6FDEYF525TCDCK2",
+            "header": "Read to search link",
+            "content": "The link of a read to its search is computed from search_results, with no column storing it."
+          },
+          "b": {
+            "factId": "01M546HMPT4J5M18XGM1RVKD5T",
+            "header": "searchMisses read link to search",
+            "content": "A read links to the last search in the same session, at or before that read, whose results hold the read's target; a read with a NULL session_id links to nothing."
+          },
+          "distance": 0.19367065161532004
+        }
+      ],
+      "judge": {
+        "calls": 51,
+        "tokens": {
+          "input": 102,
+          "output": 17272,
+          "cacheRead": 51714,
+          "cacheWrite": 102627
+        }
+      }
+    }
+  },
+  "differences": {
+    "outcomes": [
+      {
+        "requestId": "01M543JT7J9R62D3XA90ZANG3X",
+        "change": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the version before it; the first version is observed w",
+        "sequential": "rejected",
+        "batch": "split[accepted,duplicate]"
+      },
+      {
+        "requestId": "01M543WWFD07DF828MJ23MYEZV",
+        "change": "The console flags a read when the share of searches with 0 reads is over 0.5 (NO_READ_SHARE), the share with 3 or more reads is over 0.3 (MANY_READS_SHARE), or ",
+        "sequential": "rejected",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M54549WMYDDBVBWJ65320HJT",
+        "change": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3.",
+        "sequential": "rejected",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M55TMJ72DXHFTSZ777SERZM5",
+        "change": "An error of the model call or API is a failed attempt that puts the request back in the queue with a longer wait after each failure.",
+        "sequential": "duplicate",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TMR356DCPG5FFEEVAV4QT",
+        "change": "The update agent reads all fact versions.",
+        "sequential": "accepted",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TP688AQ75G7NM1CK3XNJ3",
+        "change": "The reading of an interpretation in the console is a note line with an info mark and a muted \"unverified\" or \"verified\" word, never a chip (decided by the owner",
+        "sequential": "accepted",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TPBM9GZ8445P214150CHK",
+        "change": "The tags table is a copy of the latest tag_versions row, kept in the same transaction as the write.",
+        "sequential": "duplicate",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TPSHACT885F3BZTBXKGMG",
+        "change": "When a claim restates a deleted fact and its observation is weaker than the reason of the deletion, the relation is \"stale\" and a draft question keeps the heade",
+        "sequential": "accepted",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TQ015EEC9H58MFZ3Y8NXC",
+        "change": "The unanswerable query \"fact tag maximum count\" is a known and accepted miss: it returns 3 unrelated results on the dogfood facts because they share common word",
+        "sequential": "accepted",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TQ52KBHGNPTZFZ4PVC7Z8",
+        "change": "The fact_version_refs table holds the facts a fact version depends on (primary key fact_version_id, ref_fact_id).",
+        "sequential": "rejected",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M55TQJKBJ1X31R0683F2SZVA",
+        "change": "A claim that says a deleted fact is no longer true is a \"duplicate\" of the deletion, writes nothing and gets no confirmation event because a deleted fact has co",
+        "sequential": "accepted",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TQYY48Q7CTJF32KBATXDM",
+        "change": "The first `npm run ship` (v0.1.19) lost the version string, so its deploy log entry and console proof were empty.",
+        "sequential": "duplicate",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF87",
+        "change": "In the pipeline, the submission check rejects a compound submission at step 1.",
+        "sequential": "accepted",
+        "batch": "duplicate"
+      },
+      {
+        "requestId": "01M55TRFSPM0K6HDYGTC3DEF89",
+        "change": "In the pipeline, the judgment question marks a sibling scope \"unrelated\" so the claim becomes a new fact.",
+        "sequential": "duplicate",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M55TVGJGD72TEJK6D32AA11H",
+        "change": "The Schema 6 migration rebuilds changes for the new CHECK and change_requests for the new column, copying every row with parent_id NULL.",
+        "sequential": "rejected",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M55TVPDZP1P9GVJSKK79FJSG",
+        "change": "SCHEMA_VERSION in src/store/schema.ts became 7.",
+        "sequential": "rejected",
+        "batch": "accepted"
+      },
+      {
+        "requestId": "01M55TW36WTZQ1QGX4KKXR3VA7",
+        "change": "Schema 9 adds the tool_calls table with the index tool_calls_by_at(at).",
+        "sequential": "accepted",
+        "batch": "duplicate"
+      },
+      {
+        "requestId": "01M55TW94ZZDTW2E0PJBG3Q5ER",
+        "change": "fact_versions_fts is an FTS5 table with the tokenizer porter unicode61, kept as external content over fact_versions.",
+        "sequential": "accepted",
+        "batch": "duplicate"
+      },
+      {
+        "requestId": "01M55TW94ZZDTW2E0PJBG3Q5ES",
+        "change": "tags_fts is an FTS5 table with the tokenizer porter unicode61, kept as external content over tags.",
+        "sequential": "accepted",
+        "batch": "duplicate"
+      },
+      {
+        "requestId": "01M55TWS162BJY278B5171Y9QR",
+        "change": "The embedding column of current_vec is vec_quantize_binary of the float vector, so the dimension must be a multiple of 8.",
+        "sequential": "accepted",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55V00X4K7NX31KDPNJNEBYX",
+        "change": "When a live wiki with that name exists, unarchiveWiki returns an error.",
+        "sequential": "duplicate",
+        "batch": "rejected"
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKH",
+        "change": "createWiki with the same name as an existing wiki but another subject is an error that names the existing subject.",
+        "sequential": "accepted",
+        "batch": "duplicate"
+      },
+      {
+        "requestId": "01M55V063FRTX8N07J2YSNKZKJ",
+        "change": "createWiki with a name close to an existing name is an error that names that wiki.",
+        "sequential": "accepted",
+        "batch": "duplicate"
+      },
+      {
+        "requestId": "01M55V1BYBFNNNRX59E12B33YN",
+        "change": "The endpoint of a single wiki has the 4 wiki tools without the name argument and no management tool.",
+        "sequential": "rejected",
+        "batch": "accepted"
+      }
+    ],
+    "onlySequential": [
+      {
+        "header": "Replaced-by link scope",
+        "content": "The replaced-by link serves only consumers that keep a fact id and read it later, a use case out of scope."
+      },
+      {
+        "header": "Draft lint failure attempt",
+        "content": "The update worker counts a draft that fails lint twice as a failed attempt, since the next attempt can pass."
+      },
+      {
+        "header": "Fact liveness",
+        "content": "A WikiFact fact is live when its current fact version has is_deleted set to 0."
+      },
+      {
+        "header": "Update agent fact version reads",
+        "content": "The update agent reads all fact versions."
+      },
+      {
+        "header": "Operator console number definitions",
+        "content": "The operator console shows each number as data, with its definition one click or hover away."
+      },
+      {
+        "header": "Operator console interpretations code",
+        "content": "The operator console's interpretations are kept as 1 list in the code, with their status and test (decided October 16, 2026)."
+      },
+      {
+        "header": "Operator console interpretation that fails its test",
+        "content": "An operator console interpretation that fails its test is removed while its data stays (decided October 16, 2026)."
+      },
+      {
+        "header": "Operator console reading line",
+        "content": "Operator console interpretation readings are note lines with an info mark and a muted verified or unverified word, never chips."
+      },
+      {
+        "header": "Operator console chart axis names",
+        "content": "Every chart in the operator console names its axes, as decided by the owner on October 16, 2026."
+      },
+      {
+        "header": "tags.name column collation",
+        "content": "The tags.name column of the WikiFact wiki database is COLLATE NOCASE from schema version 3."
+      },
+      {
+        "header": "Fact tag maximum count query",
+        "content": "The unanswerable query \"fact tag maximum count\" is an accepted miss that returns 3 unrelated dogfood facts."
+      },
+      {
+        "header": "Relevance eval unanswerable result",
+        "content": "The relevance eval passes 5 of 6 unanswerable cases (83%)."
+      },
+      {
+        "header": "Planned repeat detection of unsupported claims",
+        "content": "Planned repeat detection accepts a second independent submission of a claim rejected as unsupported, because 2 observations are enough."
+      },
+      {
+        "header": "Reject reasons in planned repeat detection",
+        "content": "The reject reasons contradicted and unsupported feed the planned repeat detection described in docs/future.md."
+      },
+      {
+        "header": "Stale deleted fact negation",
+        "content": "A deleted fact, restated with weaker observation than the deletion reason, gets a live version saying the claim is no longer true."
+      },
+      {
+        "header": "Duplicate check of deleted facts",
+        "content": "Only a claim that a deleted fact is no longer true counts as a duplicate of that deleted fact."
+      },
+      {
+        "header": "Deleted tag fact_version_tags rows",
+        "content": "A deleted tag keeps its rows in the fact_version_tags table."
+      },
+      {
+        "header": "Draft naming a deleted tag",
+        "content": "A draft that names a deleted tag's name creates a new live tag with that name."
+      },
+      {
+        "header": "Ship proof version match",
+        "content": "The ship proof's version match uses a boundary after the version number, so a shipped version does not match a longer one."
+      },
+      {
+        "header": "retrievals table weight",
+        "content": "The weight column of the retrievals table is more than 1 only on a folded row."
+      },
+      {
+        "header": "Update worker compound rejection",
+        "content": "The update worker's submission check rejects a compound submission at step 1 of the update pipeline."
+      },
+      {
+        "header": "Update worker scope match",
+        "content": "The update worker's scope match makes 0 live matches a new claim, 1 a correction or repeat, and 2 or more duplicates."
+      },
+      {
+        "header": "Q4 deleted match evidence",
+        "content": "Q4 treats the deletion justification of the most recently deleted match as evidence against a claim."
+      },
+      {
+        "header": "Merge repair of missed duplicate",
+        "content": "The fact merge repairs a missed duplicate fact on the next update request in the same scope."
+      },
+      {
+        "header": "Change request status values",
+        "content": "The change_requests.status column allows queued, running, done and failed."
+      },
+      {
+        "header": "Local kind worker transport",
+        "content": "In local mode, the update worker uses the CLI transport without an API key."
+      },
+      {
+        "header": "openStore schema migration order",
+        "content": "openStore applies each numbered schema migration above the stored schema version in ascending order, each in its own transaction."
+      },
+      {
+        "header": "Update worker model writes",
+        "content": "In the WikiFact update worker, the model writes nothing by itself."
+      },
+      {
+        "header": "Update worker wrong answer handling",
+        "content": "In the update worker, a wrong answer shows up as a known failure kind with a known repair."
+      },
+      {
+        "header": "Schema migration table changes",
+        "content": "A schema migration of the WikiFact wiki database adds columns or tables, or rebuilds a table copying every row when SQLite cannot alter a constraint in place."
+      },
+      {
+        "header": "enqueueRequest session id",
+        "content": "The enqueueRequest function stores the session id of the requestChange call."
+      },
+      {
+        "header": "searchCorrections readsPerSearch session change request",
+        "content": "searchCorrections readsPerSearch session change request means enqueueRequest session id."
+      },
+      {
+        "header": "search_results target_id foreign key",
+        "content": "The search_results.target_id column has no foreign key, because its kind column says whether it names a fact or a tag."
+      },
+      {
+        "header": "Read to search link storage",
+        "content": "The link of a read to its search is computed from the search_results table, and no column stores that link."
+      },
+      {
+        "header": "Wiki database schema version 3",
+        "content": "Schema version 3 of the WikiFact wiki database adds an is_deleted column to the tags table."
+      },
+      {
+        "header": "SCHEMA_VERSION constant",
+        "content": "The SCHEMA_VERSION constant in src/store/schema.ts has the value 9, the wiki database schema version."
+      },
+      {
+        "header": "fact_versions_fts table",
+        "content": "The fact_versions_fts table is an FTS5 table with the porter unicode61 tokenizer, kept as external content over fact_versions."
+      },
+      {
+        "header": "tags_fts table",
+        "content": "The tags_fts table is an FTS5 table with the porter unicode61 tokenizer, kept as external content over tags."
+      },
+      {
+        "header": "Tags vector table",
+        "content": "The tags_vec vector table holds the embedding vectors of tags."
+      },
+      {
+        "header": "fact_versions_vec vector format",
+        "content": "Embeddings in the fact_versions_vec table stay float vectors, not 1-bit vectors."
+      },
+      {
+        "header": "tags_vec vector format",
+        "content": "Embeddings in the tags_vec table stay float vectors, not 1-bit vectors."
+      },
+      {
+        "header": "current_vec embedding column",
+        "content": "The embedding column of current_vec is vec_quantize_binary of the float vector, so its dimension must be a multiple of 8."
+      },
+      {
+        "header": "Fact version embedded text",
+        "content": "The embedded text of a fact version is its header, then a period and a space, then its content."
+      },
+      {
+        "header": "Tag embedded text",
+        "content": "The embedded text of a tag is its name, then a period and a space, then its description."
+      },
+      {
+        "header": "archiveWiki worker stop and unmount",
+        "content": "archiveWiki stops the update worker of a wiki and unmounts that wiki before it removes or archives the wiki."
+      },
+      {
+        "header": "createWiki idempotency",
+        "content": "createWiki returns the existing wiki and creates nothing when called with the same wiki name and subject."
+      },
+      {
+        "header": "createWiki name conflict with another subject",
+        "content": "createWiki returns an error naming the existing subject when given an existing wiki name with another subject."
+      },
+      {
+        "header": "createWiki wiki name uniqueness",
+        "content": "createWiki returns an error naming the existing wiki when a new wiki name is close to that wiki's name."
+      },
+      {
+        "header": "Service mode management endpoint",
+        "content": "The service mode management endpoint at /mcp has 4 management tools and 4 wiki tools, each wiki tool with 1 more required argument naming the wiki."
+      },
+      {
+        "header": "Wiki MCP tools",
+        "content": "Every rejection of a WikiFact MCP tool call is returned as a tool error."
+      }
+    ],
+    "onlyBatch": [
+      {
+        "header": "Console read flags",
+        "content": "The console flags a read when the share of searches with 0 reads is over 0.5 (NO_READ_SHARE), with 3 or more reads over 0.3 (MANY_READS_SHARE), or sessions with no search over 0.3 (NO_SEARCH_SHARE)."
+      },
+      {
+        "header": "WikiFact language and runtime",
+        "content": "WikiFact is written in TypeScript on Node.js 22 with better-sqlite3."
+      },
+      {
+        "header": "Replaced by link",
+        "content": "The \"replaced by\" link served only a consumer that keeps a fact id and reads it later, a use case out of scope (decided October 14, 2026)."
+      },
+      {
+        "header": "Lint failure attempts",
+        "content": "A draft that fails the lint twice is a failed attempt because the next attempt can pass."
+      },
+      {
+        "header": "Live fact",
+        "content": "A fact is live when its current fact version has is_deleted = 0."
+      },
+      {
+        "header": "Console number definitions",
+        "content": "The console shows a number as data with its definition 1 click or hover away (decided October 16, 2026)."
+      },
+      {
+        "header": "Console interpretations list",
+        "content": "The console's interpretations are 1 list in the code with their status and test (decided October 16, 2026)."
+      },
+      {
+        "header": "Console interpretation failure",
+        "content": "In the console, an interpretation that fails its test is removed while its data stays (decided October 16, 2026)."
+      },
+      {
+        "header": "Chart axes",
+        "content": "Every chart names its axes (decided by the owner on October 16, 2026, third review of the live console)."
+      },
+      {
+        "header": "tags.name collation",
+        "content": "The tags.name column is COLLATE NOCASE (schema 3)."
+      },
+      {
+        "header": "fact_version_refs table",
+        "content": "The fact_version_refs table holds the facts a fact version depends on (primary key fact_version_id, ref_fact_id)."
+      },
+      {
+        "header": "Reject reason repeat detection",
+        "content": "The reject reason `contradicted` versus `unsupported` feeds the repeat detection of docs/future.md."
+      },
+      {
+        "header": "Deleted fact duplicates",
+        "content": "The only case where a deleted fact is a duplicate is a claim that says the deleted fact is no longer true."
+      },
+      {
+        "header": "Deleted tag fact links",
+        "content": "A deleted tag keeps its fact_version_tags rows."
+      },
+      {
+        "header": "Tag name uniqueness",
+        "content": "A draft that names the name of a deleted tag creates a new tag."
+      },
+      {
+        "header": "Release proof version match",
+        "content": "The release proof now matches the version with a boundary."
+      },
+      {
+        "header": "retrievals weight",
+        "content": "The retrievals table has a weight that is more than 1 only on a folded row."
+      },
+      {
+        "header": "Sibling scope claims",
+        "content": "In the pipeline, the judgment question marks a sibling scope \"unrelated\" so the claim becomes a new fact."
+      },
+      {
+        "header": "Missed duplicate repair",
+        "content": "In the pipeline, the merge repairs a missed duplicate on the next request in that scope."
+      },
+      {
+        "header": "change_requests status column",
+        "content": "The change_requests.status column allows queued, running, done and failed."
+      },
+      {
+        "header": "Schema migration transaction",
+        "content": "openStore applies the numbered schema migrations above the stored version in order, each in one transaction."
+      },
+      {
+        "header": "Model writes in update worker",
+        "content": "In the update worker, the model writes nothing by itself."
+      },
+      {
+        "header": "Wrong model answers",
+        "content": "In the update worker, a wrong answer shows up as a known kind of failure with a known repair."
+      },
+      {
+        "header": "Schema migration method",
+        "content": "A schema migration adds columns or tables, or rebuilds a table with every row copied when SQLite cannot alter a constraint in place."
+      },
+      {
+        "header": "Schema 4 tag_versions table",
+        "content": "Schema 4 adds the tag_versions table."
+      },
+      {
+        "header": "Schema 6 change_requests.parent_id",
+        "content": "Schema 6 adds the change_requests.parent_id column and the change outcome split."
+      },
+      {
+        "header": "Schema 6 migration rebuild",
+        "content": "The Schema 6 migration rebuilds changes for its new CHECK and change_requests for its new column, copying rows with parent_id NULL."
+      },
+      {
+        "header": "Wiki database schema version 7",
+        "content": "Schema 7 adds the tables sessions, searches, search_results and model_calls, and a nullable session_id column on retrievals and tag_retrievals, without rebuilding a table."
+      },
+      {
+        "header": "SCHEMA_VERSION after schema 7",
+        "content": "SCHEMA_VERSION in src/store/schema.ts became 7."
+      },
+      {
+        "header": "search_results target_id",
+        "content": "search_results.target_id has no foreign key, because kind says whether it names a fact or a tag."
+      },
+      {
+        "header": "Read to search link",
+        "content": "The link of a read to its search is computed from search_results, with no column storing it."
+      },
+      {
+        "header": "SCHEMA_VERSION current value",
+        "content": "SCHEMA_VERSION in src/store/schema.ts is 9."
+      },
+      {
+        "header": "tags_vec contents",
+        "content": "tags_vec holds tag embeddings."
+      },
+      {
+        "header": "fact_versions_vec precision",
+        "content": "fact_versions_vec embeddings stay float."
+      },
+      {
+        "header": "tags_vec precision",
+        "content": "tags_vec embeddings stay float."
+      },
+      {
+        "header": "Embedded fact version text",
+        "content": "The embedded text of a fact version is header + \". \" + content."
+      },
+      {
+        "header": "Embedded tag text",
+        "content": "The embedded text of a tag is name + \". \" + description."
+      },
+      {
+        "header": "archiveWiki order",
+        "content": "archiveWiki stops the worker of the wiki and unmounts it before it removes or archives the wiki."
+      },
+      {
+        "header": "createWiki repeat call",
+        "content": "createWiki with the same name and the same subject as an existing wiki returns the existing wiki and creates nothing."
+      },
+      {
+        "header": "Management endpoint tools",
+        "content": "The management endpoint has the 4 management tools (listWikis, createWiki, archiveWiki, unarchiveWiki) and the 4 wiki tools, each wiki tool taking the wiki name as 1 more required argument."
+      },
+      {
+        "header": "Single wiki endpoint tools",
+        "content": "The endpoint of a single wiki has the 4 wiki tools without the name argument and no management tool."
+      },
+      {
+        "header": "Fact version observed status",
+        "content": "A fact version is observed when its justification is not blank and its content or is_deleted differs from the version before it."
+      }
+    ],
+    "sameHeader": 9,
+    "sameContent": 0
+  }
+}

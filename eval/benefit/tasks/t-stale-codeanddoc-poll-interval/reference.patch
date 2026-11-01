@@ -1,0 +1,26 @@
+diff --git a/docs/technical/deployment.md b/docs/technical/deployment.md
+index a0203cc..03c80ed 100644
+--- a/docs/technical/deployment.md
++++ b/docs/technical/deployment.md
+@@ -6,7 +6,7 @@ Technical layer. The requirements are in [../requirements/deployment.md](../requ
+ 
+ - Install: `npm ci --ignore-scripts`, `npm run build` (README "Install" says why).
+ - Layout: a wiki is a folder under `wikis/` with `wikifact.json` and its database. The demo wiki is `wikis/demo/`. The database, its `-wal` and `-shm` files and its lock file are ignored by git. `--db` defaults to `./wikis/demo/game.sqlite`. The model cache `.cache/` stays at the repo root.
+-- Worker: `wikifact worker --db ./wikis/demo/game.sqlite`. One per database. It takes `game.sqlite.lock` with an exclusive open at start, and a second worker on the same file exits with a message. It polls the queue every 1000 ms when the queue is empty. A request queued while no worker runs waits in the queue.
++- Worker: `wikifact worker --db ./wikis/demo/game.sqlite`. One per database. It takes `game.sqlite.lock` with an exclusive open at start, and a second worker on the same file exits with a message. It polls the queue every 2000 ms when the queue is empty. A request queued while no worker runs waits in the queue.
+ - MCP server: `wikifact serve --db ./wikis/demo/game.sqlite`. Transport: stdio by default, `--http PORT` for shared use. Any number may run on one database. It never runs the worker.
+ - Repair: `wikifact requeue [id]` lists failed requests or puts one back in the queue. `wikifact check` compares the index tables with `fact_versions`. `wikifact reindex` rebuilds the index tables and embeds everything again.
+ - `wikifact.json` next to the database, as in `wikis/demo/wikifact.json`: `mode` ([Local mode](deployment.md#local-mode)), `subject`, `embeddingModel`, `questions` (model and effort per question), `questionTimeout` in seconds, `highVolume` (the batch: `batchSize`, `waitMs`, `concurrency` and `groupCut`, [High volume mode](updates.md#high-volume-mode)), `weights` ([Scores](lookup.md#scores), half-lives in ms), `searchCap`, `agentSearchCap`. Every missing key takes the [Open settings](README.md#open-settings) default. An unknown key is an error. The API key comes from `ANTHROPIC_API_KEY`. A second transport runs the questions through the Claude Code login: the question layer spawns `claude -p` in headless mode with the fixed prompt, the output schema through `--json-schema`, the model and effort from the config, and no tools. `WIKIFACT_TRANSPORT=sdk|cli` forces one transport, and `WIKIFACT_CLAUDE_BIN` names the binary. The CLI transport needs a login of the standalone CLI (`claude auth login`), because the token of a running Claude Code session does not reach child shells.
+diff --git a/src/updates/worker.ts b/src/updates/worker.ts
+index 9cf229e..3a38d19 100644
+--- a/src/updates/worker.ts
++++ b/src/updates/worker.ts
+@@ -37,7 +37,7 @@ import {
+ const DEFAULT_HEARTBEAT_MS = 15000;
+ 
+ /** The poll interval when the queue is empty, in milliseconds (technical/deployment.md, "Install and run"). */
+-const DEFAULT_POLL_MS = 1000;
++const DEFAULT_POLL_MS = 2000;
+ 
+ /** The base delay after a failed attempt, in milliseconds. The loop waits attempts times this. */
+ export const DEFAULT_RETRY_DELAY_MS = 10000;

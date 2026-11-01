@@ -1,0 +1,13 @@
+diff --git b/src/store/queue.ts a/src/store/queue.ts
+index 7e2a85f..21653f6 100644
+--- b/src/store/queue.ts
++++ a/src/store/queue.ts
+@@ -278,7 +278,7 @@ export function queuePosition(store: Store, id: string): number {
+   const row = store.db
+     .prepare(
+       `SELECT COUNT(*) AS n FROM change_requests WHERE status = ? AND
+-       (${RANK_SQL} < ? OR (${RANK_SQL} = ? AND (received_at < ? OR (received_at = ? AND rowid >= ?))))`,
++       (${RANK_SQL} < ? OR (${RANK_SQL} = ? AND (received_at < ? OR (received_at = ? AND rowid <= ?))))`,
+     )
+     .get(RequestStatus.Queued, me.rank, me.rank, me.received_at, me.received_at, me.rid) as { n: number };
+   return row.n;

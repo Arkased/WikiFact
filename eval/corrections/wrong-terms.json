@@ -1,0 +1,12 @@
+{
+  "creeper-fuse": { "subject": "creeper", "any": ["fuse", "hiss", "explod", "second"] },
+  "zombie-damage": { "subject": "zombie", "any": ["damage", "hit", "health"] },
+  "torch-recipe": { "subject": "torch", "any": ["recipe", "coal", "stick", "craft", "make"] },
+  "bed-recipe": { "subject": "bed", "any": ["recipe", "wool", "plank", "craft"] },
+  "wood-pick": { "subject": "pickaxe", "any": ["durab", "uses", "break", "wood"] },
+  "skeleton-arrow": { "subject": "skeleton", "any": ["arrow", "damage"] },
+  "bread-food": { "subject": "bread", "any": ["hunger", "restor", "point"] },
+  "wheat-growth": { "subject": "wheat", "any": ["ripe", "grow", "minute", "harvest"] },
+  "furnace-time": { "subject": "furnace", "any": ["smelt", "second", "time"] },
+  "golem-health": { "subject": "golem", "any": ["health", "damage", "hp"] }
+}

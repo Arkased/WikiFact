@@ -1,0 +1,286 @@
+{
+  "startedAt": "2026-10-22T19:13:38.350Z",
+  "complete": true,
+  "transport": "cli",
+  "runs": 3,
+  "staged": true,
+  "bar": {
+    "_comment": "technical/questions.md, \"Test plan\", the budget preset: the cheapest configuration that passes this bar (the standard preset uses it for drafting questions; the premium preset ignores it). The bar applies to all runs of a configuration pooled across the result files. The questions in `strict` pass only at 100 percent on every pooled run. Every other question passes at a mean of `mean` or more over the pooled runs with no single run under `minRun`.",
+    "strict": [],
+    "strictMean": 1,
+    "strictMinRun": 1,
+    "mean": 0.9,
+    "minRun": 0.85
+  },
+  "pool": {
+    "start": 12,
+    "limitHistory": [
+      {
+        "t": 0,
+        "limit": 12
+      }
+    ],
+    "rateLimitRetries": 0,
+    "transientRetries": 0
+  },
+  "results": [
+    {
+      "question": "Q7",
+      "model": "claude-sonnet-5-5",
+      "effort": "medium",
+      "effortSent": true,
+      "cases": 91,
+      "runs": 3,
+      "stage": "2",
+      "runAccuracy": [
+        0.9340659340659341,
+        0.9010989010989011,
+        0.9340659340659341
+      ],
+      "mean": 0.923076923076923,
+      "casePassRate": {
+        "q7-01": 1,
+        "q7-02": 1,
+        "q7-03": 1,
+        "q7-04": 1,
+        "q7-05": 1,
+        "q7-06": 1,
+        "q7-07": 1,
+        "q7-08": 1,
+        "q7-09": 1,
+        "q7-10": 1,
+        "q7-11": 1,
+        "q7-12": 1,
+        "q7-13": 1,
+        "q7-14": 1,
+        "q7-15": 1,
+        "q7-16": 1,
+        "q7-17": 1,
+        "q7-18": 1,
+        "q7-19": 1,
+        "q7-20": 1,
+        "q7-21": 1,
+        "q7-22": 1,
+        "q7-23": 1,
+        "q7-24": 1,
+        "q7-25": 1,
+        "q7-26": 1,
+        "q7-27": 1,
+        "q7-28": 1,
+        "q7-29": 1,
+        "q7-30": 1,
+        "q7-31": 1,
+        "q7-32": 1,
+        "q7-33": 1,
+        "q7-34": 1,
+        "q7-35": 1,
+        "q7-36": 1,
+        "q7-37": 1,
+        "q7-38": 1,
+        "q7-39": 1,
+        "q7-40": 1,
+        "q7-41": 1,
+        "q7-42": 1,
+        "q7-43": 1,
+        "q7-44": 1,
+        "q7-45": 0.6666666666666666,
+        "q7-46": 1,
+        "q7-47": 1,
+        "q7-48": 1,
+        "q7-49": 0.3333333333333333,
+        "q7-50": 1,
+        "q7-51": 1,
+        "q7-52": 1,
+        "q7-53": 1,
+        "q7-54": 1,
+        "q7-55": 1,
+        "q7-56": 1,
+        "q7-57": 0.3333333333333333,
+        "q7-58": 1,
+        "q7-59": 1,
+        "q7-60": 0,
+        "q7-61": 0.6666666666666666,
+        "q7-62": 1,
+        "q7-63": 1,
+        "q7-64": 1,
+        "q7-65": 1,
+        "q7-66": 1,
+        "q7-67": 0,
+        "q7-68": 0.6666666666666666,
+        "q7-69": 0.6666666666666666,
+        "q7-70": 1,
+        "q7-71": 1,
+        "q7-72": 1,
+        "q7-73": 1,
+        "q7-74": 1,
+        "q7-75": 1,
+        "q7-76": 1,
+        "q7-77": 1,
+        "q7-78": 1,
+        "q7-79": 1,
+        "q7-80": 1,
+        "q7-81": 1,
+        "q7-82": 1,
+        "q7-83": 1,
+        "q7-84": 1,
+        "q7-85": 1,
+        "q7-86": 1,
+        "q7-87": 0,
+        "q7-88": 1,
+        "q7-89": 0.6666666666666666,
+        "q7-90": 0.6666666666666666,
+        "q7-91": 0.3333333333333333
+      },
+      "allRunsPass": false,
+      "unstable": [
+        "q7-45",
+        "q7-49",
+        "q7-57",
+        "q7-61",
+        "q7-66",
+        "q7-68",
+        "q7-69",
+        "q7-89",
+        "q7-90",
+        "q7-91"
+      ],
+      "failing": [
+        "q7-45: oneClaim false, expected true",
+        "q7-49: oneClaim false, expected true",
+        "q7-57: oneClaim false, expected true",
+        "q7-60: oneClaim true, expected false",
+        "q7-61: oneClaim false, expected true",
+        "q7-67: support observation, expected report",
+        "q7-68: oneClaim false, expected true",
+        "q7-69: oneClaim true, expected false",
+        "q7-87: oneClaim true, expected false",
+        "q7-89: oneClaim false, expected true",
+        "q7-90: oneClaim false, expected true",
+        "q7-91: oneClaim false, expected true"
+      ],
+      "groups": {
+        "designed": {
+          "cases": 56,
+          "mean": 1,
+          "missed": []
+        },
+        "real use": {
+          "cases": 35,
+          "mean": 0.8000000000000002,
+          "missed": [
+            "q7-45",
+            "q7-49",
+            "q7-57",
+            "q7-60",
+            "q7-61",
+            "q7-67",
+            "q7-68",
+            "q7-69",
+            "q7-87",
+            "q7-89",
+            "q7-90",
+            "q7-91"
+          ]
+        }
+      },
+      "errors": 0,
+      "usage": {
+        "input": 958203,
+        "output": 77865
+      },
+      "cache": {
+        "read": 650324,
+        "write": 307333
+      },
+      "costEstimateUsd": 1.5244728,
+      "latency": {
+        "calls": 273,
+        "queueMs": {
+          "p50": 28698,
+          "p95": 74837
+        },
+        "wallMs": {
+          "p50": 5282,
+          "p95": 8777
+        },
+        "apiMs": {
+          "p50": 4020,
+          "p95": 8009
+        },
+        "overheadMs": {
+          "p50": 1188,
+          "p95": 2412
+        },
+        "perRun": [
+          {
+            "run": 1,
+            "calls": 91,
+            "queueMs": {
+              "p50": 16949,
+              "p95": 36475
+            },
+            "wallMs": {
+              "p50": 5270,
+              "p95": 8349
+            },
+            "apiMs": {
+              "p50": 3875,
+              "p95": 7643
+            },
+            "overheadMs": {
+              "p50": 1178,
+              "p95": 2464
+            }
+          },
+          {
+            "run": 2,
+            "calls": 91,
+            "queueMs": {
+              "p50": 17094,
+              "p95": 37107
+            },
+            "wallMs": {
+              "p50": 5390,
+              "p95": 8777
+            },
+            "apiMs": {
+              "p50": 4029,
+              "p95": 7892
+            },
+            "overheadMs": {
+              "p50": 1248,
+              "p95": 2649
+            }
+          },
+          {
+            "run": 3,
+            "calls": 91,
+            "queueMs": {
+              "p50": 57766,
+              "p95": 78931
+            },
+            "wallMs": {
+              "p50": 5210,
+              "p95": 9442
+            },
+            "apiMs": {
+              "p50": 4075,
+              "p95": 8653
+            },
+            "overheadMs": {
+              "p50": 1142,
+              "p95": 1799
+            }
+          }
+        ]
+      },
+      "startedAt": "2026-10-22T19:13:38.355Z",
+      "finishedAt": "2026-10-22T19:16:01.505Z",
+      "promptHash": "4b77479a2d528ae6"
+    }
+  ],
+  "summary": [
+    "Q7: claude-sonnet-5-5 at medium, mean 92.3%, lowest run 90.1%"
+  ],
+  "finishedAt": "2026-10-22T19:16:01.506Z"
+}

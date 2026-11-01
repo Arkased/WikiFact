@@ -1,0 +1,37 @@
+diff --git a/src/updates/lock.ts b/src/updates/lock.ts
+index ee8dcb0..5bb07c4 100644
+--- a/src/updates/lock.ts
++++ b/src/updates/lock.ts
+@@ -3,7 +3,23 @@ import { closeSync, existsSync, openSync, readFileSync, unlinkSync, writeSync }
+ import { errnoCode } from "../must.js";
+ 
+ /** Thrown when another live worker holds the lock of the database. */
+-export class LockError extends Error {}
++export class LockError extends Error {
++  /** The pid that the lock file names; undefined when the file holds no pid. */
++  readonly pid: number | undefined;
++
++  /**
++   * Builds the error.
++   *
++   * @param message - what happened, for the user
++   * @param pid - the pid that the lock file names; omit it when the file holds no pid
++   * @sideEffects none
++   */
++  constructor(message: string, pid?: number) {
++    super(message);
++    this.name = "LockError";
++    this.pid = pid;
++  }
++}
+ 
+ function pidAlive(pid: number): boolean {
+   try {
+@@ -56,6 +72,7 @@ export function acquireLock(dbPath: string, onTakeover?: (stalePid: number) => v
+       if (!stale || tries > 0) {
+         throw new LockError(
+           `another worker holds ${path}${Number.isInteger(owner) ? ` (pid ${owner})` : ""}. Only one worker runs per database.`,
++          Number.isInteger(owner) ? owner : undefined,
+         );
+       }
+       unlinkSync(path);

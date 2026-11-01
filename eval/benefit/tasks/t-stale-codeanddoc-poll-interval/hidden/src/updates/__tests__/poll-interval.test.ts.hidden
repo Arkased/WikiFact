@@ -1,0 +1,45 @@
+import { mkdtempSync, readFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { describe, expect, it, vi } from "vitest";
+import { parseConfig } from "../../config/index.js";
+import { StubQuestions } from "../../../fakes/stub-questions.js";
+import { runWorker } from "../worker.js";
+
+// The test observes the delay of the idle wait of the worker through its timers, so a moved constant, a type annotation or
+// `2_000` all pass.
+describe("the poll interval of the update worker", () => {
+  it("is 2000 ms when the queue is empty and no interval is set", async () => {
+    const dir = mkdtempSync(join(tmpdir(), "wikifact-poll-"));
+    const delays: number[] = [];
+    const realSetTimeout = globalThis.setTimeout;
+    const spy = vi.spyOn(globalThis, "setTimeout").mockImplementation(((fn: () => void, ms?: number, ...rest: unknown[]) => {
+      if (typeof ms === "number") delays.push(ms);
+      return realSetTimeout(fn, ms, ...rest);
+    }) as typeof setTimeout);
+    const abort = new AbortController();
+    const worker = runWorker({
+      dbPath: join(dir, "game.sqlite"),
+      config: parseConfig({ embeddingModel: "test-model" }),
+      questions: new StubQuestions(),
+      signal: abort.signal,
+      log: () => undefined,
+    });
+    try {
+      await vi.waitFor(() => expect(delays.some((ms) => ms >= 1000 && ms <= 2000)).toBe(true), { timeout: 20_000 });
+      expect(delays.filter((ms) => ms >= 1000 && ms <= 2000)).toEqual([2000]);
+    } finally {
+      abort.abort();
+      await worker;
+      spy.mockRestore();
+    }
+  });
+
+  it("is the interval that the deployment doc states for the worker", () => {
+    const doc = readFileSync(join(process.cwd(), "docs", "technical", "deployment.md"), "utf8");
+    const line = doc.split("\n").find((l) => l.startsWith("- Worker:"));
+    expect(line).toBeDefined();
+    expect(line).toContain("polls the queue every 2000 ms");
+    expect(line).not.toContain("1000 ms");
+  });
+});

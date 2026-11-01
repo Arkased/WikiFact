@@ -1,0 +1,306 @@
+{
+  "startedAt": "2026-10-29T21:18:57.584Z",
+  "complete": true,
+  "transport": "cli",
+  "runs": 3,
+  "staged": false,
+  "bar": {
+    "_comment": "technical/questions.md, \"Test plan\", the budget preset: the cheapest configuration that passes this bar (the standard preset uses it for drafting questions; the premium preset ignores it). The bar applies to all runs of a configuration pooled across the result files. The questions in `strict` pass only at 100 percent on every pooled run. Every other question passes at a mean of `mean` or more over the pooled runs with no single run under `minRun`.",
+    "strict": [],
+    "strictMean": 1,
+    "strictMinRun": 1,
+    "mean": 0.9,
+    "minRun": 0.85
+  },
+  "pool": {
+    "start": 12,
+    "limitHistory": [
+      {
+        "t": 0,
+        "limit": 12
+      }
+    ],
+    "rateLimitRetries": 0,
+    "transientRetries": 0
+  },
+  "results": [
+    {
+      "question": "Q1",
+      "model": "claude-opus-5-5",
+      "effort": "low",
+      "effortSent": true,
+      "cases": 82,
+      "runs": 3,
+      "stage": "full",
+      "runAccuracy": [
+        0.9512195121951219,
+        0.9390243902439024,
+        0.9512195121951219
+      ],
+      "mean": 0.9471544715447154,
+      "ci": [
+        0.9116976235971502,
+        0.9688602979019115
+      ],
+      "casePassRate": {
+        "q1-01": 1,
+        "q1-02": 1,
+        "q1-03": 1,
+        "q1-04": 1,
+        "q1-05": 1,
+        "q1-06": 1,
+        "q1-07": 1,
+        "q1-08": 1,
+        "q1-09": 1,
+        "q1-10": 1,
+        "q1-11": 1,
+        "q1-12": 1,
+        "q1-13": 1,
+        "q1-14": 1,
+        "q1-15": 1,
+        "q1-16": 1,
+        "q1-17": 1,
+        "q1-18": 1,
+        "q1-19": 1,
+        "q1-20": 1,
+        "q1-21": 1,
+        "q1-22": 1,
+        "q1-23": 1,
+        "q1-24": 1,
+        "q1-25": 1,
+        "q1-26": 1,
+        "q1-27": 1,
+        "q1-28": 1,
+        "q1-29": 1,
+        "q1-30": 1,
+        "q1-31": 1,
+        "q1-32": 1,
+        "q1-33": 1,
+        "q1-34": 1,
+        "q1-35": 1,
+        "q1-36": 1,
+        "q1-37": 1,
+        "q1-38": 0.6666666666666666,
+        "q1-39": 1,
+        "q1-40": 0,
+        "q1-41": 0,
+        "q1-42": 1,
+        "q1-43": 1,
+        "q1-44": 1,
+        "q1-45": 0,
+        "q1-46": 1,
+        "q1-47": 1,
+        "q1-48": 1,
+        "q1-49": 1,
+        "q1-50": 1,
+        "q1-51": 1,
+        "q1-52": 1,
+        "q1-53": 1,
+        "q1-54": 1,
+        "q1-55": 1,
+        "q1-56": 1,
+        "q1-57": 1,
+        "q1-58": 1,
+        "q1-59": 1,
+        "q1-60": 1,
+        "q1-61": 1,
+        "q1-62": 1,
+        "q1-63": 1,
+        "q1-64": 0,
+        "q1-65": 1,
+        "q1-66": 1,
+        "q1-67": 1,
+        "q1-68": 1,
+        "q1-69": 1,
+        "q1-70": 1,
+        "q1-71": 1,
+        "q1-72": 1,
+        "q1-73": 1,
+        "q1-74": 1,
+        "q1-75": 1,
+        "q1-76": 1,
+        "q1-77": 1,
+        "q1-78": 1,
+        "q1-79": 1,
+        "q1-80": 1,
+        "q1-81": 1,
+        "q1-82": 1
+      },
+      "allRunsPass": false,
+      "unstable": [
+        "q1-38"
+      ],
+      "failing": [
+        "q1-38: matches [\"01M4S89MDSVKXB8MMNJAAWXA9Q\"], expected []",
+        "q1-40: matches [\"01M4M4PGVDW2ZATQEA6DGGT087\"], expected []",
+        "q1-41: matches [\"01M4M4CWPXFJYSGFA6ANW2ZXN5\"], expected []",
+        "q1-45: matches [\"01M4W4P9ETSEN6T8QBFHDXRT0R\"], expected []",
+        "q1-64: matches [\"01M4M4F6E4N7QWV6GTKYN8HQKF\"], expected []"
+      ],
+      "groups": {
+        "designed": {
+          "cases": 52,
+          "mean": 1,
+          "ci": [
+            0.9759662065444789,
+            0.9999999999999999
+          ],
+          "missed": []
+        },
+        "real use": {
+          "cases": 30,
+          "mean": 0.8555555555555556,
+          "ci": [
+            0.7683993769120605,
+            0.9136009299880774
+          ],
+          "missed": [
+            "q1-38",
+            "q1-40",
+            "q1-41",
+            "q1-45",
+            "q1-64"
+          ]
+        }
+      },
+      "kinds": {
+        "negation": {
+          "cases": 5,
+          "mean": 1,
+          "ci": [
+            0.7961107336956521,
+            1
+          ],
+          "missed": []
+        },
+        "changedValue": {
+          "cases": 5,
+          "mean": 1,
+          "ci": [
+            0.7961107336956521,
+            1
+          ],
+          "missed": []
+        },
+        "supersession": {
+          "cases": 5,
+          "mean": 1,
+          "ci": [
+            0.7961107336956521,
+            1
+          ],
+          "missed": []
+        },
+        "scopeDifference": {
+          "cases": 17,
+          "mean": 0.9411764705882352,
+          "ci": [
+            0.8407512606105803,
+            0.9797937271359478
+          ],
+          "missed": [
+            "q1-45"
+          ]
+        }
+      },
+      "errors": 0,
+      "usage": {
+        "input": 849608,
+        "output": 30313
+      },
+      "cache": {
+        "read": 548588,
+        "write": 300528
+      },
+      "costEstimateUsd": 2.3303032000000004,
+      "latency": {
+        "calls": 246,
+        "queueMs": {
+          "p50": 245152,
+          "p95": 453389
+        },
+        "wallMs": {
+          "p50": 24161,
+          "p95": 32549
+        },
+        "apiMs": {
+          "p50": 4614,
+          "p95": 7718
+        },
+        "overheadMs": {
+          "p50": 19542,
+          "p95": 26957
+        },
+        "perRun": [
+          {
+            "run": 1,
+            "calls": 82,
+            "queueMs": {
+              "p50": 75055,
+              "p95": 160306
+            },
+            "wallMs": {
+              "p50": 28753,
+              "p95": 33808
+            },
+            "apiMs": {
+              "p50": 4591,
+              "p95": 7678
+            },
+            "overheadMs": {
+              "p50": 23459,
+              "p95": 27903
+            }
+          },
+          {
+            "run": 2,
+            "calls": 82,
+            "queueMs": {
+              "p50": 245152,
+              "p95": 314652
+            },
+            "wallMs": {
+              "p50": 23317,
+              "p95": 29818
+            },
+            "apiMs": {
+              "p50": 4863,
+              "p95": 7648
+            },
+            "overheadMs": {
+              "p50": 19159,
+              "p95": 25682
+            }
+          },
+          {
+            "run": 3,
+            "calls": 82,
+            "queueMs": {
+              "p50": 400346,
+              "p95": 467764
+            },
+            "wallMs": {
+              "p50": 21111,
+              "p95": 29424
+            },
+            "apiMs": {
+              "p50": 4476,
+              "p95": 7718
+            },
+            "overheadMs": {
+              "p50": 15466,
+              "p95": 23813
+            }
+          }
+        ]
+      },
+      "startedAt": "2026-10-29T21:18:57.602Z",
+      "finishedAt": "2026-10-29T21:27:06.869Z",
+      "promptHash": "70bed1c57514f7f6"
+    }
+  ],
+  "summary": [
+    "Q1: claude-opus-5-5 at low, mean 94.7%, lowest run 93.9%"
+  ],
+  "finishedAt": "2026-10-29T21:27:06.874Z"
+}

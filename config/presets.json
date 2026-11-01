@@ -1,0 +1,131 @@
+{
+  "source": "summary-2026-10-29T21-27-43.482Z.json",
+  "presets": {
+    "budget": {
+      "Q1": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q2": {
+        "model": "claude-haiku-5-5",
+        "effort": "medium"
+      },
+      "Q3": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q4": {
+        "model": "claude-sonnet-5-5",
+        "effort": "high"
+      },
+      "Q5": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q6": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q7": {
+        "model": "claude-sonnet-5-5",
+        "effort": "low"
+      },
+      "Q8": {
+        "model": "claude-haiku-5-5",
+        "effort": "medium"
+      },
+      "Q9": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q10": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      }
+    },
+    "standard": {
+      "Q1": {
+        "model": "claude-opus-5-5",
+        "effort": "medium"
+      },
+      "Q2": {
+        "model": "claude-opus-5-5",
+        "effort": "medium"
+      },
+      "Q3": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q4": {
+        "model": "claude-sonnet-5-5",
+        "effort": "high"
+      },
+      "Q5": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q6": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q7": {
+        "model": "claude-sonnet-5-5",
+        "effort": "medium"
+      },
+      "Q8": {
+        "model": "claude-opus-5-5",
+        "effort": "medium"
+      },
+      "Q9": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q10": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      }
+    },
+    "premium": {
+      "Q1": {
+        "model": "claude-opus-5-5",
+        "effort": "medium"
+      },
+      "Q2": {
+        "model": "claude-opus-5-5",
+        "effort": "medium"
+      },
+      "Q3": {
+        "model": "claude-sonnet-5-5",
+        "effort": "low"
+      },
+      "Q4": {
+        "model": "claude-sonnet-5-5",
+        "effort": "high"
+      },
+      "Q5": {
+        "model": "claude-opus-5-5",
+        "effort": "medium"
+      },
+      "Q6": {
+        "model": "claude-sonnet-5-5",
+        "effort": "low"
+      },
+      "Q7": {
+        "model": "claude-sonnet-5-5",
+        "effort": "medium"
+      },
+      "Q8": {
+        "model": "claude-opus-5-5",
+        "effort": "medium"
+      },
+      "Q9": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      },
+      "Q10": {
+        "model": "claude-haiku-5-5",
+        "effort": "low"
+      }
+    }
+  }
+}

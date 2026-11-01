@@ -1,0 +1,44 @@
+import { describe, expect, it } from "vitest";
+import { errnoCode } from "../must.js";
+
+/** A system error as Node throws it. */
+function sysError(code: string): Error {
+  return Object.assign(new Error(`${code}: failed`), { code });
+}
+
+describe("errnoCode", () => {
+  it("reads the code of the error itself", () => {
+    expect(errnoCode(sysError("EEXIST"))).toBe("EEXIST");
+  });
+
+  it("is undefined for a value with no code", () => {
+    expect(errnoCode(new Error("plain"))).toBeUndefined();
+    expect(errnoCode("EEXIST")).toBeUndefined();
+    expect(errnoCode(null)).toBeUndefined();
+    expect(errnoCode(undefined)).toBeUndefined();
+  });
+
+  it("reads the code of the cause of a wrapped error", () => {
+    const wrapped = new Error("could not take the lock", { cause: sysError("EPERM") });
+    expect(errnoCode(wrapped)).toBe("EPERM");
+  });
+
+  it("follows a chain of causes", () => {
+    const inner = sysError("ENOENT");
+    const middle = new Error("middle", { cause: inner });
+    const outer = new Error("outer", { cause: middle });
+    expect(errnoCode(outer)).toBe("ENOENT");
+  });
+
+  it("prefers the code of the outer error over the code of its cause", () => {
+    const outer = Object.assign(new Error("outer", { cause: sysError("ENOENT") }), { code: "EACCES" });
+    expect(errnoCode(outer)).toBe("EACCES");
+  });
+
+  it("ends on a cause chain that loops", () => {
+    const a = new Error("a");
+    const b = new Error("b", { cause: a });
+    Object.assign(a, { cause: b });
+    expect(errnoCode(a)).toBeUndefined();
+  });
+});

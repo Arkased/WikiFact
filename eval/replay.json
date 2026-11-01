@@ -1,0 +1,156 @@
+{
+  "subject": "The game Minecraft: mobs, damage, health, potions and crafting.",
+  "facts": [
+    { "key": "cd", "header": "Creeper damage", "content": "A creeper explosion does 10 damage to an unarmored player.", "just": "I stood next to a creeper without armor and lost 10 health on the health bar." },
+    { "key": "ch", "header": "Creeper health", "content": "A creeper has 20 health.", "just": "A wooden sword with 4 damage killed one in 5 hits." },
+    { "key": "cf", "header": "Creeper fuse time", "content": "A creeper explodes 1.5 seconds after it starts to hiss.", "just": "I timed 8 hisses with a stopwatch." },
+    { "key": "ph", "header": "Player health", "content": "A player has 20 health.", "just": "The bar shows 10 hearts of 2 health each." },
+    { "key": "zd", "header": "Zombie damage", "content": "A zombie hit does 3 damage to an unarmored player.", "just": "I took 3 damage from one zombie hit on normal difficulty." },
+    { "key": "zh", "header": "Zombie health", "content": "A zombie has 20 health.", "just": "A wooden sword with 4 damage killed one in 5 hits." },
+    { "key": "ws", "header": "Wooden sword damage", "content": "A wooden sword does 4 damage per hit.", "just": "A zombie died after exactly 5 hits." },
+    { "key": "cck", "header": "Charged creeper kill", "content": "A charged creeper kills an unarmored player in one hit.", "just": "I died to a charged creeper at full health.", "refs": ["cd", "ph"] },
+    { "key": "cek", "header": "Creeper explosions to kill", "content": "A creeper needs 2 explosions to kill an unarmored player.", "just": "", "refs": ["cd", "ph"] },
+    { "key": "zhk", "header": "Zombie hits to kill", "content": "A zombie needs 7 hits to kill an unarmored player.", "just": "", "refs": ["zd", "ph"] },
+    { "key": "sa", "header": "Skeleton arrow damage", "content": "A skeleton arrow does 3 damage to an unarmored player.", "just": "I took 3 damage from an arrow on normal difficulty." },
+    { "key": "tr", "header": "Torch recipe", "content": "A torch needs 1 coal and 1 stick and makes 4 torches.", "just": "I crafted at the table and got 4 torches." },
+    { "key": "br", "header": "Bed recipe", "content": "A bed needs 3 wool and 3 planks.", "just": "I made a bed with exactly 3 wool and 3 planks." },
+    { "key": "cap", "header": "Hostile mob damage cap", "content": "No hostile mob does more than 8 damage.", "just": "I tested zombies, skeletons and spiders and none did more than 8." },
+    { "key": "frp", "header": "Fire resistance potion duration", "content": "A fire resistance potion lasts 3 minutes.", "just": "Potions were removed from the game in my version.", "deleted": true, "older": [{ "content": "A fire resistance potion lasts 3 minutes.", "just": "I timed one with a clock." }] }
+  ],
+  "cases": [
+    {
+      "id": "r01",
+      "note": "a new fact",
+      "request": { "change": "Zombies drop rotten flesh when killed.", "justification": "I killed 10 zombies with a stone sword and every one dropped rotten flesh." },
+      "expect": { "outcome": "accepted", "liveDelta": 1, "newFacts": 1, "contentHas": ["rotten flesh"] },
+      "stub": { "q1": [], "q4": { "supported": true }, "q5": { "drafts": [{ "header": "Zombie drops", "content": "Zombies drop rotten flesh when killed.", "references": [] }] } }
+    },
+    {
+      "id": "r02",
+      "note": "a duplicate in the same words",
+      "critical": "duplicate",
+      "request": { "change": "A creeper explosion does 10 damage to an unarmored player.", "justification": "I measured 10 damage from a creeper on normal difficulty." },
+      "expect": { "outcome": "duplicate", "liveDelta": 0, "newFacts": 0 },
+      "stub": { "q1": ["Creeper damage"], "q4": { "supported": true, "relation": "same" } }
+    },
+    {
+      "id": "r03",
+      "note": "F1: a duplicate in other words",
+      "critical": "duplicate",
+      "request": { "change": "Creeper blast damage is 10 for a player with no armor.", "justification": "I stood by a creeper with no armor and lost 10 on the health bar." },
+      "expect": { "outcome": "duplicate", "liveDelta": 0, "newFacts": 0 },
+      "stub": { "q1": ["Creeper damage"], "q4": { "supported": true, "relation": "same" } }
+    },
+    {
+      "id": "r04",
+      "note": "a correction of a fact that has dependents (they still hold); 12 also breaks the seed's cap of 8, so the cap goes (-1)",
+      "request": { "change": "A creeper explosion does 12 damage to an unarmored player.", "justification": "I measured 12 damage three times at full health on normal difficulty after updating to 1.21." },
+      "expect": { "outcome": "accepted", "liveDelta": -1, "newFacts": 0, "deleted": ["Hostile mob damage cap"], "headerContent": { "Creeper damage": ["12"] }, "unchanged": ["Creeper explosions to kill", "Charged creeper kill"] },
+      "stub": { "q1": ["Creeper damage"], "q4": { "supported": true, "relation": "different", "wrongRelated": [{ "factId": "@cap", "action": "delete" }] }, "q5": { "drafts": [{ "header": "Creeper damage", "content": "A creeper explosion does 12 damage to an unarmored player.", "references": [] }] } }
+    },
+    {
+      "id": "r05",
+      "note": "F22: a change that no reader can act on alone (a pronoun with no subject, so no claims to split) is rejected as compound at step 1",
+      "critical": "compound",
+      "request": { "change": "It does 10 damage.", "justification": "I stood next to one and lost 10 health." },
+      "expect": { "outcome": "rejected", "liveDelta": 0, "newFacts": 0 },
+      "stub": { "q7": { "oneClaim": false, "reason": "No subject: a reader cannot tell what does the damage." } }
+    },
+    {
+      "id": "r06",
+      "note": "an unsupported claim",
+      "request": { "change": "Spiders do 15 damage.", "justification": "I think so." },
+      "expect": { "outcome": "rejected", "liveDelta": 0, "newFacts": 0 },
+      "stub": { "q1": [], "q4": { "supported": false, "rejectReason": "unsupported" } }
+    },
+    {
+      "id": "r07",
+      "note": "a conflict: the claim shows a related fact wrong and a dependent must be rewritten",
+      "request": { "change": "A zombie hit does 9 damage to an unarmored player.", "justification": "I took 9 damage from a zombie hit on normal difficulty in the current version, four times, from full health of 20." },
+      "expect": { "outcome": "accepted", "liveDelta": -1, "newFacts": 0, "deleted": ["Hostile mob damage cap"], "headerContent": { "Zombie damage": ["9"], "Zombie hits to kill": ["3 hits"] } },
+      "stub": {
+        "q1": ["Zombie damage"],
+        "q4": { "supported": true, "relation": "different", "wrongRelated": [{ "factId": "@cap", "action": "delete" }] },
+        "q5": { "drafts": [{ "header": "Zombie damage", "content": "A zombie hit does 9 damage to an unarmored player.", "references": [] }] },
+        "q8": { "holds": false, "stillDepends": [], "reason": "stub" },
+        "q9": { "drafts": [{ "header": "Zombie hits to kill", "content": "A zombie needs 3 hits to kill an unarmored player.", "references": ["@zd", "@ph"] }] }
+      }
+    },
+    {
+      "id": "r08",
+      "note": "a duplicate that carries a prior query the wiki may not answer (step 9)",
+      "critical": "duplicate",
+      "request": { "change": "A skeleton arrow does 3 damage to an unarmored player.", "justification": "I took 3 damage from a skeleton arrow on normal difficulty, twice.", "priorQuery": "skellies arrow dmg" },
+      "expect": { "outcome": "duplicate", "liveDelta": [0, 1], "newFacts": [0, 1] },
+      "stub": { "q1": ["Skeleton arrow damage"], "q4": { "supported": true, "relation": "same" } }
+    },
+    {
+      "id": "r09",
+      "note": "F6: a fact that was deleted comes back with a firm observation",
+      "request": { "change": "A fire resistance potion lasts 3 minutes.", "justification": "I brewed one in the current version and timed it with a clock: 3 minutes." },
+      "expect": { "outcome": "accepted", "liveDelta": 1, "newFacts": 0, "revived": "Fire resistance potion duration" },
+      "stub": { "q1": ["Fire resistance potion duration"], "q4": { "supported": true, "relation": "same" }, "q5": { "drafts": [{ "header": "Fire resistance potion duration", "content": "A fire resistance potion lasts 3 minutes.", "references": [] }] } }
+    },
+    {
+      "id": "r10",
+      "note": "a new fact next to a close scope: it is not a duplicate of creeper damage",
+      "request": { "change": "A creeper explosion reaches 3 blocks.", "justification": "I measured the edge of the crater from the creeper's position: 3 blocks." },
+      "expect": { "outcome": "accepted", "liveDelta": 1, "newFacts": 1, "contentHas": ["3 blocks"] },
+      "stub": { "q1": [], "q4": { "supported": true }, "q5": { "drafts": [{ "header": "Creeper explosion radius", "content": "A creeper explosion reaches 3 blocks.", "references": [] }] } }
+    },
+    {
+      "id": "r11",
+      "note": "a new fact on a brewing stand",
+      "request": { "change": "A brewing stand needs 20 seconds to finish one brew.", "justification": "I timed three brews with a clock." },
+      "expect": { "outcome": "accepted", "liveDelta": 1, "newFacts": 1, "contentHas": ["20 seconds"] },
+      "stub": { "q1": [], "q4": { "supported": true }, "q5": { "drafts": [{ "header": "Brewing time", "content": "A brewing stand needs 20 seconds to finish one brew.", "references": [] }] } }
+    },
+    {
+      "id": "r12",
+      "note": "a belief is rejected before the search",
+      "request": { "change": "Spiders do 15 damage.", "justification": "I think spiders should hit hard, because they look dangerous." },
+      "expect": { "outcome": "rejected", "liveDelta": 0, "newFacts": 0 },
+      "stub": { "q7": { "support": "belief", "reason": "The justification is an opinion, not an observation." } }
+    },
+    {
+      "id": "r13",
+      "note": "F24: sibling scopes stay apart; Q1 matches \"Zombie damage\" for a claim about knockback, Q4 says unrelated, and the claim becomes a new fact (the seed already holds \"Zombie health\", so the claim is not health)",
+      "request": { "change": "A zombie hit knocks an unarmored player back 1 block.", "justification": "I stood still on flat ground and measured the knockback of 5 zombie hits with a block grid: 1 block each time." },
+      "expect": { "outcome": "accepted", "liveDelta": 1, "newFacts": 1, "contentHas": ["knocks"], "unchanged": ["Zombie damage"] },
+      "stub": { "q1": ["Zombie damage"], "q4": { "supported": true, "relation": "unrelated" }, "q5": { "drafts": [{ "header": "Zombie knockback", "content": "A zombie hit knocks an unarmored player back 1 block.", "references": [] }] } }
+    },
+    {
+      "id": "r14",
+      "note": "a deletion by negation: the claim says the bed recipe no longer holds and gives no new content, so the fact is deleted and no negated fact is written",
+      "request": { "change": "Beds can no longer be crafted.", "justification": "I opened the crafting table in the current version with 3 wool and 3 planks in every arrangement and nothing came out, and the recipe book has no bed entry." },
+      "expect": { "outcome": "accepted", "liveDelta": -1, "newFacts": 0, "deleted": ["Bed recipe"] },
+      "stub": { "q1": ["Bed recipe"], "q4": { "supported": true, "relation": "negates" } }
+    },
+    {
+      "id": "r15",
+      "note": "a deleted claim sent again with an observation weaker than the reason of the deletion: the fact is live again with content that says the claim is no longer true",
+      "request": { "change": "A fire resistance potion lasts 3 minutes.", "justification": "I saw a screenshot of someone's inventory in the current version with a fire resistance potion at a 3:00 timer, but I did not brew one myself." },
+      "expect": { "outcome": "accepted", "liveDelta": 1, "newFacts": 0, "revived": "Fire resistance potion duration", "contentHas": ["no longer"] },
+      "stub": { "q1": ["Fire resistance potion duration"], "q4": { "supported": true, "relation": "stale" }, "q5": { "drafts": [{ "header": "Fire resistance potion duration", "content": "A fire resistance potion no longer lasts 3 minutes.", "references": [] }] } }
+    },
+    {
+      "id": "r16",
+      "note": "F22: a compound submission is split at step 1 into one request per claim, and each claim ends as its own fact",
+      "critical": "compound",
+      "request": { "change": "A crafting table needs 4 planks and a furnace needs 8 cobblestone.", "justification": "I crafted a crafting table from 4 oak planks, and a furnace from 8 cobblestone, at a crafting table." },
+      "expect": { "outcome": "split", "liveDelta": 2, "newFacts": 2, "contentHas": ["4 planks", "8 cobblestone"] },
+      "stub": {
+        "q7": [
+          { "oneClaim": false, "claims": ["A crafting table needs 4 planks.", "A furnace needs 8 cobblestone."], "reason": "Two claims: a crafting table recipe and a furnace recipe." },
+          { "oneClaim": true }
+        ],
+        "q1": [],
+        "q4": { "supported": true },
+        "q5": [
+          { "drafts": [{ "header": "Crafting table recipe", "content": "A crafting table needs 4 planks.", "references": [] }] },
+          { "drafts": [{ "header": "Furnace recipe", "content": "A furnace needs 8 cobblestone.", "references": [] }] }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Release
+
+Technical layer. The requirements are in [../requirements/release.md](../requirements/release.md). The design is in [../design/release.md](../design/release.md).
+
+## Ship a release
+
+- `npm run ship -- patch|minor|major` is the one command of a release and its deploy. It refuses a dirty tree or a branch other than `build`, and then runs, in order: `npm run check` once; the version bump, the tag and the fast-forward of `main`; a backup, with the SQLite backup API, of each wiki whose stored schema is older than the schema of the code, into `<wikis>/.backups/<name>-<version>.sqlite`, read-only, because the service migrates a wiki when it opens it; the deploy steps of [Service mode](deployment.md#service-mode) with one build (the pack builds; nothing builds twice); the proof: the port answers, `/console/` names the new version (read up to 6 times, 2 s apart, because the first read can reach the old process during the swap), and each wiki reports the schema of the code; and last the deploy log entry, appended to `reports/deploys.md` and committed on `build`, with the version, the UTC time, the stop, start and port lines, the listening line of the service log, the proof results and the backup paths. A failed proof does not skip that entry: `ship` writes and commits the entry with `Proof (FAILED)` and the failed results, and then fails with the error "the proof of v&lt;version&gt; failed: see the entry in reports/deploys.md" (`scripts/lib/ship.ts`).
+- One finished round of work is one ship: the work is done on a branch of a Claude worktree, merged into `build`, and shipped.

@@ -1,0 +1,13 @@
+diff --git b/src/updates/lock.ts a/src/updates/lock.ts
+index ac4d4f7..ee8dcb0 100644
+--- b/src/updates/lock.ts
++++ a/src/updates/lock.ts
+@@ -44,7 +44,7 @@ export function acquireLock(dbPath: string, onTakeover?: (stalePid: number) => v
+           // already closed
+         }
+         try {
+-          if (existsSync(path)) unlinkSync(path);
++          if (existsSync(path) && readFileSync(path, "utf8").trim() === String(process.pid)) unlinkSync(path);
+         } catch {
+           // already removed
+         }

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "lib": ["dom", "es2022"],
+    "strict": true,
+    "skipLibCheck": true,
+    "types": [],
+    "outDir": "dist/src/console/client",
+    "rootDir": "src/console/client"
+  },
+  "include": ["src/console/client"]
+}

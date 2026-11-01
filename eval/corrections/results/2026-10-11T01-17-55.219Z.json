@@ -1,0 +1,543 @@
+{
+  "consumer": "claude -p",
+  "workerMode": "stub",
+  "hook": false,
+  "reports": [
+    {
+      "cap": 10,
+      "hook": false,
+      "consumer": "claude -p",
+      "workerMode": "stub",
+      "concurrency": 6,
+      "counts": {
+        "tasks": 20,
+        "retrievals": 21,
+        "getFactCalls": 21,
+        "readsOfWrong": 19,
+        "requestChange": 19,
+        "namingWrong": 19,
+        "namingOwn": 19,
+        "tasksWithCorrection": 19,
+        "wrongFactsNamed": 10,
+        "answersOk": 20,
+        "accepted": 19,
+        "acceptedNamingWrong": 19,
+        "wrongFactsWithNewVersion": 10,
+        "costUsd": 0.5350716,
+        "f17": {
+          "probes": 10,
+          "hits": 10,
+          "ranks": [
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            1,
+            4,
+            2,
+            1
+          ]
+        }
+      },
+      "results": [
+        {
+          "taskId": "t01",
+          "wrongKey": "creeper-fuse",
+          "answer": "You have about 3 seconds. That's what I timed in your world. The wiki says 1.5 seconds, so I've sent a correction request, and it was still queued when I finished.",
+          "answerOk": true,
+          "costUsd": 0.0327852,
+          "turns": 4,
+          "startedAt": 1791681428185,
+          "wallMs": 11465,
+          "submissions": [
+            {
+              "id": "01M4M8J7RQ54ZJ2RR2JH9W2DVB",
+              "kind": "submission",
+              "change": "Creeper fuse: I timed a creeper in my world and it exploded 3 seconds after the hiss began, not 1.5 seconds as the fact states.",
+              "targets": "[\"01M4M8HYM9G4VE0FVXB31XRD66\"]",
+              "justification": "I timed it directly in my game: 3 seconds from hiss start to explosion.",
+              "received_at": 1791681437463
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t02",
+          "wrongKey": "creeper-fuse",
+          "answer": "Plan for a window of about 3 seconds, because that's what I measured in your test world. The wiki says 1.5 seconds, but that entry has low confidence (0.16) and cites only one sighting.\n\nI've submitted a correction request to the wiki. It was still queued when I finished, so it hasn't been applied yet. Your 3 seconds is also a single timing. If you need to be safe, build the trap to cancel the fuse within 1.5 seconds. That works under either figure.",
+          "answerOk": true,
+          "costUsd": 0.0343465,
+          "turns": 4,
+          "startedAt": 1791681428204,
+          "wallMs": 13242,
+          "submissions": [
+            {
+              "id": "01M4M8J8QWAY2DDBYAYJV31E42",
+              "kind": "submission",
+              "change": "Creeper fuse: in my test world a creeper took 3 seconds from the start of the hiss to the explosion, not 1.5 seconds as the wiki says.",
+              "targets": "[\"01M4M8HYM9G4VE0FVXB31XRD66\"]",
+              "justification": "I observed it directly in my test world and timed the interval from the hiss to the explosion as 3 seconds. This is one observation.",
+              "received_at": 1791681438460
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t03",
+          "wrongKey": "zombie-damage",
+          "answer": "**4 hits.** The player has 20 health and I lost 5 per zombie hit, so 20 ÷ 5 = 4 hits.\n\nThe wiki says a zombie hit does 3 damage, which would give 7 hits. I went with what I saw in the game and filed a correction request for that fact. It was still queued when I finished.",
+          "answerOk": true,
+          "costUsd": 0.036243899999999996,
+          "turns": 5,
+          "startedAt": 1791681428216,
+          "wallMs": 12056,
+          "submissions": [
+            {
+              "id": "01M4M8J86FV8AZ23EXR80C9T4A",
+              "kind": "submission",
+              "change": "Zombie damage fact says 3 damage to an unarmored player, but I observed one zombie hit reduce my health bar by 5.",
+              "targets": "[\"01M4M8HYM9G4VE0FVXB31XRD6A\"]",
+              "justification": "I observed in-game that my health bar dropped by 5 after a single zombie hit while unarmored.",
+              "received_at": 1791681437903
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t04",
+          "wrongKey": "zombie-damage",
+          "answer": "One zombie hit did 5 damage to me, based on my health bar dropping by 5. The wiki says 3, which doesn't match what I saw, so I've submitted a correction request. It was still queued when I finished.",
+          "answerOk": true,
+          "costUsd": 0.0343176,
+          "turns": 4,
+          "startedAt": 1791681428227,
+          "wallMs": 11697,
+          "submissions": [
+            {
+              "id": "01M4M8J8BR6YD83B1X714SQ9KJ",
+              "kind": "submission",
+              "change": "Zombie hit does 5 damage to an unarmored player, not 3.",
+              "targets": "[\"01M4M8HYM9G4VE0FVXB31XRD6A\"]",
+              "justification": "I was hit by a zombie once in the game while unarmored and lost 5 health.",
+              "received_at": 1791681438071
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t05",
+          "wrongKey": "torch-recipe",
+          "answer": "One coal and one stick give 2 torches. That's what you got when you crafted one, and it disagrees with the wiki, which says 4. For 8 torches you need 4 coal (and 4 sticks).\n\nI sent the wiki a correction request. It was still queued when I finished, so the entry may not be fixed yet.",
+          "answerOk": true,
+          "costUsd": 0.032309199999999996,
+          "turns": 4,
+          "startedAt": 1791681428240,
+          "wallMs": 12261,
+          "submissions": [
+            {
+              "id": "01M4M8J88DV43B43PBCVYY9RAR",
+              "kind": "submission",
+              "change": "The torch recipe yields 2 torches from 1 coal and 1 stick, not 4.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG2E\"]",
+              "justification": "I crafted a torch at the crafting table in the game and received 2 torches.",
+              "received_at": 1791681437965
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t06",
+          "wrongKey": "torch-recipe",
+          "answer": "You need **5 coal and 5 sticks**. In your game, 1 coal and 1 stick make 2 torches, so 10 torches takes 5 crafts.\n\nThe wiki says the recipe makes 4 torches, which doesn't match what you saw. I used your observation and sent the wiki a correction request. It was queued, but the tool warned that no worker has run on the database, so it may not have been applied.",
+          "answerOk": true,
+          "costUsd": 0.033092399999999994,
+          "turns": 4,
+          "startedAt": 1791681428252,
+          "wallMs": 12724,
+          "submissions": [
+            {
+              "id": "01M4M8J8HAFJXQPS3ZTZNVGGDS",
+              "kind": "submission",
+              "change": "Torch recipe: 1 coal and 1 stick makes 2 torches, not 4.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG2E\"]",
+              "justification": "I used the crafting table in the game and 1 coal plus 1 stick gave me 2 torches.",
+              "received_at": 1791681438250
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t07",
+          "wrongKey": "bed-recipe",
+          "answer": "You need **3 wool and 3 planks** for one bed. This matches what your crafting grid did, since it refused to craft with only 2 planks.\n\nThe wiki's bed entry says 2 planks, which is wrong. It's a low-confidence entry. I submitted a correction request, which is still queued, so the entry hasn't changed yet.",
+          "answerOk": true,
+          "costUsd": 0.023841000000000005,
+          "turns": 4,
+          "startedAt": 1791681439650,
+          "wallMs": 11189,
+          "submissions": [
+            {
+              "id": "01M4M8JJE8P7ES28YVC0QGQ1BC",
+              "kind": "submission",
+              "change": "Bed recipe is 3 wool and 3 planks, not 2 planks.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG2F\"]",
+              "justification": "In the game, the crafting grid accepted 3 wool and 3 planks for a bed and would not craft with only 2 planks.",
+              "received_at": 1791681448392
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t08",
+          "wrongKey": "bed-recipe",
+          "answer": "No, you can't. A bed needs 3 wool and 3 planks, so you need one more plank. The wiki said 2 planks, which didn't match what you saw in the game. I've submitted a correction request, but it hasn't been applied yet.",
+          "answerOk": true,
+          "costUsd": 0.0241073,
+          "turns": 4,
+          "startedAt": 1791681439924,
+          "wallMs": 11492,
+          "submissions": [
+            {
+              "id": "01M4M8JK6JM3228GS0EH6P9Q8J",
+              "kind": "submission",
+              "change": "Bed recipe is wrong: a bed needs 3 wool and 3 planks, not 2 planks.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG2F\"]",
+              "justification": "I tried crafting with 3 wool and 2 planks and no bed appeared. Crafting with 3 wool and 3 planks produced a bed.",
+              "received_at": 1791681449170
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t09",
+          "wrongKey": "wood-pick",
+          "answer": "I mined 120 blocks with a wooden pickaxe before it broke. The wiki says it breaks after 60 uses, which doesn't match what I saw, so I submitted a correction request. It was still queued when I checked, so the wiki entry hasn't been updated yet.",
+          "answerOk": true,
+          "costUsd": 0.0248026,
+          "turns": 4,
+          "startedAt": 1791681440272,
+          "wallMs": 11242,
+          "submissions": [
+            {
+              "id": "01M4M8JKFFZBVY6MB1W2P9AF9Y",
+              "kind": "submission",
+              "change": "Wooden pickaxe durability: in my game a wooden pickaxe broke after I mined 120 blocks, not 60.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG2R\"]",
+              "justification": "I mined 120 blocks with one wooden pickaxe in the game, and then it broke.",
+              "received_at": 1791681449455
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t10",
+          "wrongKey": "wood-pick",
+          "answer": "Yes. In your world a wooden pickaxe lasted exactly 120 uses, so one is enough for 100 blocks, with about 20 uses left over.\n\nThe wiki says 60 uses, which would not be enough. That disagrees with what you saw, so I've asked the wiki to correct it to 120. The request is queued, and I haven't confirmed it has been applied.",
+          "answerOk": true,
+          "costUsd": 0.024506999999999998,
+          "turns": 4,
+          "startedAt": 1791681440501,
+          "wallMs": 13097,
+          "submissions": [
+            {
+              "id": "01M4M8JKXHCZA8PHXM4ZVHPWJN",
+              "kind": "submission",
+              "change": "Wooden pickaxe durability: in my world a wooden pickaxe lasted exactly 120 uses, not 60.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG2R\"]",
+              "justification": "I observed in the game that a wooden pickaxe lasted exactly 120 uses before breaking.",
+              "received_at": 1791681449905
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t11",
+          "wrongKey": "skeleton-arrow",
+          "answer": "One skeleton arrow took 4 health from you while unarmored. That's what you observed in the game.\n\nThe wiki says 2, so I think its entry is wrong. I've submitted a correction request, but it hadn't been processed when I finished, so the wiki may still say 2.\n\n**Answer: 4 health**",
+          "answerOk": true,
+          "costUsd": 0.025796600000000003,
+          "turns": 4,
+          "startedAt": 1791681440976,
+          "wallMs": 11509,
+          "submissions": [
+            {
+              "id": "01M4M8JKYZXFQ77F5KZCQYW8SG",
+              "kind": "submission",
+              "change": "Skeleton arrow damage to an unarmored player is 4 health, not 2.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG23\"]",
+              "justification": "In game, a single skeleton arrow hit me while I was unarmored and I lost 4 health.",
+              "received_at": 1791681449951
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t12",
+          "wrongKey": "skeleton-arrow",
+          "answer": "With 20 health and 4 damage per arrow, 5 arrows would bring you to 0, so you can survive **4 arrows**. The fifth kills you.",
+          "answerOk": true,
+          "costUsd": 0.0180624,
+          "turns": 3,
+          "startedAt": 1791681441446,
+          "wallMs": 8754,
+          "submissions": [],
+          "namesOwn": false,
+          "namesAny": false,
+          "namedBy": []
+        },
+        {
+          "taskId": "t13",
+          "wrongKey": "bread-food",
+          "answer": "**5 hunger points.** That's what I saw when I ate bread in the game. The wiki says 3, so I submitted a correction. It was still queued when I finished, so the wiki may not have changed yet.",
+          "answerOk": true,
+          "costUsd": 0.023608700000000003,
+          "turns": 4,
+          "startedAt": 1791681450200,
+          "wallMs": 10252,
+          "submissions": [
+            {
+              "id": "01M4M8JW90RRE04A5S882HASNH",
+              "kind": "submission",
+              "change": "Bread restores 5 hunger points, not 3.",
+              "targets": "[\"01M4M8HYMBX1B09HAR9D58DKG9\"]",
+              "justification": "I ate one piece of bread in the game and my hunger bar rose by 5 points.",
+              "received_at": 1791681458464
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t14",
+          "wrongKey": "bread-food",
+          "answer": "**2 pieces of bread.** Each bread restored 5 hunger in my game, so 10 missing points takes 10 ÷ 5 = 2.\n\nThe wiki says bread restores 3, which doesn't match what I saw. I used my observed value and sent a correction request for that fact. It was still queued when I last checked.",
+          "answerOk": true,
+          "costUsd": 0.024514700000000004,
+          "turns": 4,
+          "startedAt": 1791681450839,
+          "wallMs": 11051,
+          "submissions": [
+            {
+              "id": "01M4M8JX9MMFDKXCFBCRRS6R22",
+              "kind": "submission",
+              "change": "Bread hunger fact says bread restores 3 hunger points, but in my game one bread raised the hunger bar by 5. Correct it to 5.",
+              "targets": "[\"01M4M8HYMBX1B09HAR9D58DKG9\"]",
+              "justification": "I ate one bread in the game and watched my hunger bar rise by 5.",
+              "received_at": 1791681459508
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t15",
+          "wrongKey": "wheat-growth",
+          "answer": "Wait about 20 minutes. The wiki says 8 minutes, but my wheat wasn't ripe until 20 minutes after planting. I've sent the wiki a correction request. It was still queued when I finished, so I don't know if the wiki has changed.",
+          "answerOk": true,
+          "costUsd": 0.023251,
+          "turns": 4,
+          "startedAt": 1791681451416,
+          "wallMs": 11116,
+          "submissions": [
+            {
+              "id": "01M4M8JY3MB0M2QZP4GNDFNKKV",
+              "kind": "submission",
+              "change": "Wheat growth time is wrong: wheat was ripe 20 minutes after planting, not earlier (not 8 minutes).",
+              "targets": "[\"01M4M8HYMBX1B09HAR9D58DKGD\"]",
+              "justification": "I planted wheat in the game and observed it was not ripe before 20 minutes; it was ripe at 20 minutes after planting.",
+              "received_at": 1791681460339
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t16",
+          "wrongKey": "wheat-growth",
+          "answer": "**No.** In your world wheat took 20 minutes to ripen, so it won't be ready in 10 minutes, and you can't make bread by then.\n\nThe wiki says 8 minutes, which doesn't match what you saw. I submitted a correction request, but it was still queued when I finished.",
+          "answerOk": true,
+          "costUsd": 0.022950400000000003,
+          "turns": 4,
+          "startedAt": 1791681451514,
+          "wallMs": 10992,
+          "submissions": [
+            {
+              "id": "01M4M8JY4QWQV0R8HBCK2AGA4W",
+              "kind": "submission",
+              "change": "Wheat growth time: in my world wheat took 20 minutes to ripen after planting, not 8 minutes.",
+              "targets": "[\"01M4M8HYMBX1B09HAR9D58DKGD\"]",
+              "justification": "I planted wheat in my game world and observed it took 20 minutes to ripen.",
+              "received_at": 1791681460375
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t17",
+          "wrongKey": "furnace-time",
+          "answer": "**About 50 seconds.** I saw one iron ore take 10 seconds, so 5 ore take 5 × 10 s, assuming they smelt one after another.\n\nThe wiki says a furnace smelts one item in 5 seconds, which doesn't match what I saw. I trusted my own result and submitted a correction request for that fact. It was still queued when I finished, so the wiki hasn't changed yet.",
+          "answerOk": true,
+          "costUsd": 0.024736400000000002,
+          "turns": 4,
+          "startedAt": 1791681452485,
+          "wallMs": 11308,
+          "submissions": [
+            {
+              "id": "01M4M8JZ0NZEYD314D5B9EPPVV",
+              "kind": "submission",
+              "change": "Furnace smelting time is 10 seconds per item (smelting one iron ore took 10 seconds), not 5 seconds.",
+              "targets": "[\"01M4M8HYMBX1B09HAR9D58DKGK\"]",
+              "justification": "I smelted one iron ore in a furnace in the game and observed that it took 10 seconds.",
+              "received_at": 1791681461269
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t18",
+          "wrongKey": "furnace-time",
+          "answer": "**10 seconds per item.** I timed it in the game. The wiki said 5 seconds, so I submitted a correction. It was still queued when I finished, so the wiki may not have changed yet.",
+          "answerOk": true,
+          "costUsd": 0.024205600000000004,
+          "turns": 4,
+          "startedAt": 1791681453598,
+          "wallMs": 9940,
+          "submissions": [
+            {
+              "id": "01M4M8JZCBZ89SR88EJEJNET8E",
+              "kind": "submission",
+              "change": "Furnace smelting time is 10 seconds per item, not 5 seconds.",
+              "targets": "[\"01M4M8HYMBX1B09HAR9D58DKGK\"]",
+              "justification": "I timed the furnace in the game and it took 10 seconds per item.",
+              "received_at": 1791681461643
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t19",
+          "wrongKey": "golem-health",
+          "answer": "You need to deal **100 damage** to kill an iron golem.\n\nThe wiki says 50 health, but that disagrees with what I saw: a golem took 100 damage before it died. I sent a correction request for the wiki entry. It's still queued, so the wiki may still show 50.",
+          "answerOk": true,
+          "costUsd": 0.024623299999999997,
+          "turns": 4,
+          "startedAt": 1791681460452,
+          "wallMs": 9982,
+          "submissions": [
+            {
+              "id": "01M4M8K5WZABSK710VQRGVKH7X",
+              "kind": "submission",
+              "change": "Iron golem health is 100, not 50. An iron golem needs 100 damage to kill.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG29\"]",
+              "justification": "I saw an iron golem take 100 damage in my world before it died. That conflicts with the wiki's 50 health.",
+              "received_at": 1791681468319
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        },
+        {
+          "taskId": "t20",
+          "wrongKey": "golem-health",
+          "answer": "**17 hits.** The golem had 100 health, and 100 ÷ 6 ≈ 16.7, which rounds up to 17.\n\nThe wiki said 50 health, which would be 9 hits. That doesn't match what I saw, so I used the 100 from my fight. I also submitted a correction request for the wiki entry. It's queued, and the tool warned that no worker has run on this database yet, so it may not have been applied.",
+          "answerOk": true,
+          "costUsd": 0.0229698,
+          "turns": 4,
+          "startedAt": 1791681461890,
+          "wallMs": 9759,
+          "submissions": [
+            {
+              "id": "01M4M8K6VNA8MC2EAE0PWA8QQK",
+              "kind": "submission",
+              "change": "Iron golem health is 100, not 50. The golem I fought had 100 health.",
+              "targets": "[\"01M4M8HYMABEB90C49S3KRBG29\"]",
+              "justification": "I fought an iron golem in the game and observed that it had 100 health.",
+              "received_at": 1791681469301
+            }
+          ],
+          "namesOwn": true,
+          "namesAny": true,
+          "namedBy": [
+            "target"
+          ]
+        }
+      ],
+      "seconds": 48.102,
+      "taskWall": {
+        "sumMs": 225128,
+        "p50Ms": 11242,
+        "p95Ms": 13097
+      }
+    }
+  ]
+}

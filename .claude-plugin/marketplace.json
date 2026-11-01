@@ -1,0 +1,5 @@
+{
+  "name": "wikifact",
+  "owner": { "name": "Arkased" },
+  "plugins": [{ "name": "wikifact", "source": "./plugin" }]
+}

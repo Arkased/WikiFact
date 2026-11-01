@@ -1,0 +1,1886 @@
+{
+  "startedAt": "2026-10-13T06:56:49.213Z",
+  "complete": true,
+  "candidatesOnly": false,
+  "from": "game.sqlite",
+  "to": "target.sqlite",
+  "subject": "The WikiFact code base: a wiki that AI agents read and maintain over MCP, with a SQLite store, an update worker that judges submissions with narrow model questions, and its design decisions.",
+  "quality": "standard",
+  "claimsTotal": 92,
+  "claimsInRun": 92,
+  "skippedDerived": [],
+  "claims": [
+    {
+      "index": 0,
+      "sourceFactId": "01M4M4C1QZC2QAF8Y7K8WCXR1W",
+      "header": "Wiki MCP tools",
+      "change": "Every rejection of a WikiFact MCP tool call is returned as a tool error.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 4 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T0PKXG280NVNNNVTGR8ASJ",
+      "resumed": true,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0PYZPXGRCF072XCP3DP3X"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 1,
+      "sourceFactId": "01M4M4CWPXFJYSGFA6ANW2ZXN5",
+      "header": "Standard quality preset model assignments",
+      "change": "The default quality preset of WikiFact is the standard preset, which runs Q1 and Q4 on claude-sonnet-5-5 and other questions on claude-haiku-5-5.",
+      "justification": "docs/open-points.md lists it as decided on October 9, 2026 after the label review and the reruns; docs/technical-design.md section 13 row O6 and section 11.2 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T0Q46GEA1GADE6PPJ5P2QT",
+      "resumed": true,
+      "outcome": "rejected",
+      "factIds": [],
+      "tags": [],
+      "errors": [
+        "The change makes two claims (which preset is the default, and which models the standard preset assigns to Q1/Q4 versus other questions), and either could be wrong while the other stands. The justification only says the docs state it and that the code was not checked, which is second-hand."
+      ]
+    },
+    {
+      "index": 2,
+      "sourceFactId": "01M4M4DZK01S7XBWYTMD42VTTG",
+      "header": "Wiki config file location",
+      "change": "wikifact.json is looked up in the same folder as the wiki's SQLite database.",
+      "justification": "Section 11 of docs/technical-design.md states the layout, and configPath in src/config/index.ts joins the database folder with wikifact.json.",
+      "requestId": "01M4T0QAG50HGAC30FXKEXCB5X",
+      "resumed": true,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0QNMZD32W9SZZ2BBZ8MGC"
+      ],
+      "tags": [
+        "wikifact.json config file"
+      ],
+      "errors": []
+    },
+    {
+      "index": 3,
+      "sourceFactId": "01M4M4DHYNKQ8Y8VETMTE34429",
+      "header": "Wiki folder layout",
+      "change": "A wiki is a folder under wikis/ that holds wikifact.json and the SQLite database file.",
+      "justification": "Section 11 of docs/technical-design.md states the layout, and configPath in src/config/index.ts joins the database folder with wikifact.json.",
+      "requestId": "01M4T0QTFK6Q5PEN5YQHZBC53T",
+      "resumed": true,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0R9QZK5S5H2KR3EMXZ861"
+      ],
+      "tags": [
+        "wiki",
+        "wikifact.json config file"
+      ],
+      "errors": []
+    },
+    {
+      "index": 4,
+      "sourceFactId": "01M4M4EQVND29EQDBV1K0NRETE",
+      "header": "Update worker lock takeover",
+      "change": "The update worker takes over its lock file when the pid recorded in that lock file is dead.",
+      "justification": "Section 7.1 of docs/technical-design.md states it, and src/updates/lock.ts implements acquireLock with the pid check and an onTakeover callback that logs a lock_takeover line.",
+      "requestId": "01M4T0RFPGCFZ6PBF8HTK0Z6E6",
+      "resumed": true,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0RV9194W14SCGM9WVCZD5"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 5,
+      "sourceFactId": "01M4M4EF7GAH8R3FDYG4VR9QWT",
+      "header": "Update worker request concurrency",
+      "change": "The update worker processes one request at a time, guarded by an exclusive lock file beside the database.",
+      "justification": "Section 7.1 of docs/technical-design.md states it, and src/updates/lock.ts implements acquireLock with the pid check and an onTakeover callback that logs a lock_takeover line.",
+      "requestId": "01M4T0SC27G1ACQQAK9JCT1SXZ",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0TG09SQ8V7DGHV4F0X42S"
+      ],
+      "tags": [
+        "update worker",
+        "wiki"
+      ],
+      "errors": [
+        "Q4 output invalid: rejectReason is required when supported is false"
+      ]
+    },
+    {
+      "index": 6,
+      "sourceFactId": "01M4M4FNQBVCX26V6ZY3HDDXN7",
+      "header": "Update worker failed request final state",
+      "change": "After 3 failed attempts, the update worker marks the request failed and stores the error text.",
+      "justification": "Section 7.1 of docs/technical-design.md states the rule, MAX_ATTEMPTS is 3 in src/store/types, and failAttempt in src/store/queue.ts returns queued or failed accordingly.",
+      "requestId": "01M4T0TMMA140T4RSPHY7SVME8",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0V0VYW1ED5FXKVKGYZ07R"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 7,
+      "sourceFactId": "01M4M4F6E4N7QWV6GTKYN8HQKF",
+      "header": "Update worker failed request requeue",
+      "change": "After a failed model call, the update worker requeues the request and waits attempts times 10 seconds.",
+      "justification": "Section 7.1 of docs/technical-design.md states the rule, MAX_ATTEMPTS is 3 in src/store/types, and failAttempt in src/store/queue.ts returns queued or failed accordingly.",
+      "requestId": "01M4T0V4TAE37SCD8VMGH20RB4",
+      "resumed": false,
+      "outcome": "rejected",
+      "factIds": [],
+      "tags": [],
+      "errors": []
+    },
+    {
+      "index": 8,
+      "sourceFactId": "01M4M4GR17EBX810BZETK7JECD",
+      "header": "Service mode management endpoint",
+      "change": "In service mode, a management MCP endpoint at /mcp has wiki tools that take a wiki argument.",
+      "justification": "Section 11.3 and 4.6 of docs/technical-design.md state it, and src/service/routes.ts implements the route table; I used the management endpoint to submit this request.",
+      "requestId": "01M4T0VR9N6ZMMW2HCWBFFETC7",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0W5ZDKAMM3JN6VT89G0NA"
+      ],
+      "tags": [
+        "WikiFact MCP",
+        "management MCP endpoint"
+      ],
+      "errors": []
+    },
+    {
+      "index": 9,
+      "sourceFactId": "01M4M4GR17EBX810BZETK7JECC",
+      "header": "Service mode wiki endpoint",
+      "change": "In service mode, each wiki is served by its own MCP endpoint at /wikis/<name>/mcp.",
+      "justification": "Section 11.3 and 4.6 of docs/technical-design.md state it, and src/service/routes.ts implements the route table; I used the management endpoint to submit this request.",
+      "requestId": "01M4T0WB44GEB8W54GXDJ36AAG",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0WTG2PFDGHFPVW9NGBK2S"
+      ],
+      "tags": [
+        "wiki",
+        "wiki MCP endpoint"
+      ],
+      "errors": []
+    },
+    {
+      "index": 10,
+      "sourceFactId": "01M4M4MYHX76XR536K0BVKN0V7",
+      "header": "Default embedding model",
+      "change": "The default embedding model is Xenova/bge-small-en-v1.5.",
+      "justification": "Section 3.2 of docs/technical-design.md states both, and src/embed/index.ts defines EMBEDDING_MODEL and EMBEDDING_DIM with those values.",
+      "requestId": "01M4T0WZSBB5R120QZ3V735AZR",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0XBERPE3R8D6EB2DR3SH6"
+      ],
+      "tags": [
+        "embedding model"
+      ],
+      "errors": []
+    },
+    {
+      "index": 11,
+      "sourceFactId": "01M4M4P1Z6BPDZEMA99T5PZY1D",
+      "header": "Embedding vector dimensions",
+      "change": "Embedding vectors from the default embedding model have 384 dimensions.",
+      "justification": "Section 3.2 of docs/technical-design.md states both, and src/embed/index.ts defines EMBEDDING_MODEL and EMBEDDING_DIM with those values.",
+      "requestId": "01M4T0XH2GQR9QXDXAM3DP44GT",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0XXK564QTDR97WXM7S102"
+      ],
+      "tags": [
+        "embedding model"
+      ],
+      "errors": []
+    },
+    {
+      "index": 12,
+      "sourceFactId": "01M4M4PGVDW2ZATQEA6DGGT087",
+      "header": "Usefulness rank weight W_USE",
+      "change": "The usefulness rank weight W_USE in search ranking is 0.01.",
+      "justification": "docs/open-points.md lists O2 as keeping its default after the correction test; docs/technical-design.md section 6 and row O2 of section 13 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T0Y1X4EMXHB12WP11M3WJ7",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0YFY2CM00J590A7746TYR"
+      ],
+      "tags": [
+        "search ranking"
+      ],
+      "errors": []
+    },
+    {
+      "index": 13,
+      "sourceFactId": "01M4M4Q28T56B6JTCQQSZ8KE5T",
+      "header": "Wiki name uniqueness",
+      "change": "createWiki rejects a wiki name whose normal form (lower case, hyphens removed, one final s removed) equals an existing wiki's normal form.",
+      "justification": "Section 4.6 of docs/technical-design.md states the rule, and normalForm and findTwin in src/service/names.ts implement it with unit tests for creepers against creeper.",
+      "requestId": "01M4T0YN7X405721SBQ81ABR5R",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T0Z1E7KQ1FRQVB9REFGJCP"
+      ],
+      "tags": [
+        "wiki"
+      ],
+      "errors": []
+    },
+    {
+      "index": 14,
+      "sourceFactId": "01M4M4QKMRFD982EZVPP9FBYN1",
+      "header": "Application enum location",
+      "change": "Every enum used by the application code lives in src/domain/enums.ts.",
+      "justification": "Section 1 of docs/code-standard.md states the rule, and both files exist with 27 and 9 enums.",
+      "requestId": "01M4T0Z6YEQKTYNNETGQBQ2KJV",
+      "resumed": false,
+      "outcome": "rejected",
+      "factIds": [],
+      "tags": [],
+      "errors": []
+    },
+    {
+      "index": 15,
+      "sourceFactId": "01M4M4R15Q4ECG3H660QJNF2NA",
+      "header": "Eval enum location",
+      "change": "Enums used only by the evals live in eval/lib/enums.ts.",
+      "justification": "Section 1 of docs/code-standard.md states the rule, and both files exist with 27 and 9 enums.",
+      "requestId": "01M4T0ZNDNGQBY0NX0W1H4WDY5",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T102EKJRB24HR03Q95XNDT"
+      ],
+      "tags": [
+        "evals"
+      ],
+      "errors": []
+    },
+    {
+      "index": 16,
+      "sourceFactId": "01M4M4RG9EZK65APKK1PAFSS1C",
+      "header": "Replay test case isolation",
+      "change": "The replay test runs each of its cases on a fresh copy of the seed wiki.",
+      "justification": "Section 10 of docs/technical-design.md states it, eval/replay/run.ts copies the seed per case, and eval/replay/check.ts separates criticalMisses from misses.",
+      "requestId": "01M4T108BQ5BHBBP5540R3DS8M",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T10MZJF724G2CQQC5GWZPQ"
+      ],
+      "tags": [
+        "evals",
+        "replay test"
+      ],
+      "errors": []
+    },
+    {
+      "index": 17,
+      "sourceFactId": "01M4M4S4VJZDJHQ250RX02B9F0",
+      "header": "Replay test failure criteria",
+      "change": "The replay test fails a case only when the case produces a duplicate fact or a compound fact.",
+      "justification": "Section 10 of docs/technical-design.md states it, eval/replay/run.ts copies the seed per case, and eval/replay/check.ts separates criticalMisses from misses.",
+      "requestId": "01M4T10T2XRXGGMYSRGK9658D5",
+      "resumed": false,
+      "outcome": "rejected",
+      "factIds": [],
+      "tags": [],
+      "errors": []
+    },
+    {
+      "index": 18,
+      "sourceFactId": "01M4M4SNKJW3CC224MB6CGBDR6",
+      "header": "applyChange function signature",
+      "change": "The applyChange function in the WikiFact update worker is async.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.4 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T11A7QPETYSRYXXK33YYQN",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T11RDM64RAHSR0C39BDSM3"
+      ],
+      "tags": [
+        "applyChange function",
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 19,
+      "sourceFactId": "01M4M4T5SE31ZNWDTP3G6D0XZF",
+      "header": "Update worker question Q4",
+      "change": "In the WikiFact update pipeline, question Q4 classifies each submission into an outcome.",
+      "justification": "docs/open-points.md lists \"Q4 classifies and Q2 drafts\" as decided; docs/technical-design.md section 7.3 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T11ZA7TNC4YVPAZ0NEYWHS",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T12HEXZM4AP9DE971XQ321"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 20,
+      "sourceFactId": "01M4M4VQ3F87AY5DNHHBPN23PQ",
+      "header": "W_READ initial value",
+      "change": "The confidence weight W_READ, which weights a read of a fact, starts at 0.",
+      "justification": "docs/open-points.md lists it as decided (O1) and says it stays open until a correction run whose tasks carry no observation; docs/technical-design.md section 13 row O1 and section 6 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T12NKX70VKYCKCWJMKFV36",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T132RWYJCG5EGA0Z9N3GY6"
+      ],
+      "tags": [
+        "search ranking"
+      ],
+      "errors": []
+    },
+    {
+      "index": 21,
+      "sourceFactId": "01M4M4ZQMSNVHPYQNQAPN7PH4C",
+      "header": "Update worker question Q2",
+      "change": "In the WikiFact update pipeline, question Q2 answers from the gathered material alone, without calling any tool.",
+      "justification": "docs/open-points.md lists it as decided after the step reports; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T137M7WPT6VMPZGH8T0GRE",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T13MQEFJG9TFQ0F66CWQ55"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 22,
+      "sourceFactId": "01M4M4ZQMSNVHPYQNQAPN7PH4D",
+      "header": "Update worker question tools",
+      "change": "No question in the WikiFact update pipeline has a tool.",
+      "justification": "docs/open-points.md lists it as decided after the step reports; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T13SDNJQXVPPK33RSQG4MH",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T149547S8SN6V5MFW2MX8W"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 23,
+      "sourceFactId": "01M4M51511459F4EMM1GECRJ9T",
+      "header": "requestChange priorQuery field",
+      "change": "The priorQuery field of the requestChange MCP tool holds search text only.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T14FE1D11Q1N4S3K471YEC",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T15231YQCRX8N2Z04Y9QZ9"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 24,
+      "sourceFactId": "01M4M57GV0M3MA1BRGPTYM6WK1",
+      "header": "Update pipeline step types",
+      "change": "The WikiFact update pipeline asks 10 model questions in total across all of its steps.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T156J5X4QK6KX7FR2YZBNC",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T15MN4N8CK8FYWV6913PND"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 25,
+      "sourceFactId": "01M4M57GV0M3MA1BRGPTYM6WK2",
+      "header": "Update worker question Q1 skipping",
+      "change": "The WikiFact update worker's question Q1 matches only claims that concern a single scope.",
+      "justification": "docs/open-points.md lists it as decided after the step 5 report; docs/technical-design.md section 7.2 step 2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T15RNC60Z255EK6NNE8NKM",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T165P9XTAA19Q2FRMFNHNC"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 26,
+      "sourceFactId": "01M4M5803E4KHT1MBQJKGXY479",
+      "header": "Submitted version justification",
+      "change": "WikiFact stores each submitted fact version's justification exactly as the submitter sent it.",
+      "justification": "docs/open-points.md lists it as decided; docs/data-model.md and docs/technical-design.md section 7.2 (Q3 targets) state it. Read from the docs, code not checked.",
+      "requestId": "01M4T16AC4WQ3KTX9NR1YT626V",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T16Q9V8VK469PJA3NTW49X"
+      ],
+      "tags": [
+        "fact version"
+      ],
+      "errors": []
+    },
+    {
+      "index": 27,
+      "sourceFactId": "01M4M5CTXBAD2S64CFBS8D4HSF",
+      "header": "Update worker database lock",
+      "change": "The WikiFact update worker allows only one worker per database, guarded by a lock file.",
+      "justification": "docs/open-points.md lists it as decided (A3); docs/technical-design.md sections 3 and 11 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T16WZG0RQDSN03TZXT5JAE",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T17AR8DW18V924R6PX85BK"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 28,
+      "sourceFactId": "01M4M5CDN3AQNK88KPYWR7DJWE",
+      "header": "Update worker process model",
+      "change": "The WikiFact update worker runs as its own separate process, not as part of the server.",
+      "justification": "docs/open-points.md lists it as decided (A3); docs/technical-design.md sections 3 and 11 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T17F5R2R0FAW5H467MEEXP",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T17WB71P963RAVZRS731P8"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 29,
+      "sourceFactId": "01M4M5DBEH5VEB592EW34RBF4J",
+      "header": "MCP server database access",
+      "change": "The WikiFact MCP server's write connection inserts the FTS and vector retrieval rows of each submission.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 3 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1800YGSNB2ECM7YZDPSK9",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T18DHJ9WZGN1FWSNVG9BRE"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 30,
+      "sourceFactId": "01M4M5DS7CCJTCXYH1A0QZYF2M",
+      "header": "Update worker fact writes",
+      "change": "Splitting a new compound fact writes two new facts to the database.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T18JQE67WEJGMDGK2WTQ1T",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T18ZP81GPCBCNPK9W3H0WH"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 31,
+      "sourceFactId": "01M4M5EHRVTVFH2HFHGRG7PXN8",
+      "header": "Tag deletion in the WikiFact MVP",
+      "change": "The operator console can delete a tag with no live facts, keeping its row with is_deleted set to 1.",
+      "justification": "I read src/updates/operator-edit.ts: the delete edit refuses a tag with live facts and otherwise writes the tag with isDeleted true. src/store/write.ts runs UPDATE tags SET is_deleted = 1. Schema 3 in technical design 3.1 adds tags.is_deleted.",
+      "requestId": "01M4T194GV3N6XAN1ERQN9TEAD",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T19J7MBEYYCWRR1ZT4GNQS"
+      ],
+      "tags": [
+        "operator console"
+      ],
+      "errors": []
+    },
+    {
+      "index": 32,
+      "sourceFactId": "01M4M5F1EMZ134207GEH43X5PX",
+      "header": "Consumer search vector table",
+      "change": "The WikiFact consumer search reads vectors from the current_vec table.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md sections 3.2 and 5 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T19R1DJK2MRE9BD8MJ6022",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1A5WWKJW5DV1ZQQ6C3QCY"
+      ],
+      "tags": [
+        "consumer search",
+        "current_vec table"
+      ],
+      "errors": []
+    },
+    {
+      "index": 33,
+      "sourceFactId": "01M4M5FGJZ9YP68NJKMVZC9NGA",
+      "header": "current_vec table contents",
+      "change": "The current_vec table holds only the live current version of each fact.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md sections 3.2 and 5 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T1AC6MKXGCA5XA3YAH9C64",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1ATAEJE6MVZTZS6E694R9"
+      ],
+      "tags": [
+        "current_vec table"
+      ],
+      "errors": []
+    },
+    {
+      "index": 34,
+      "sourceFactId": "01M4M5FZKRPKPYNXKHHEDSGHKH",
+      "header": "Deletion version contents",
+      "change": "A deletion version of a fact copies the header and content of the prior version of that fact.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 3.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1AYGE9MYYR0TR2MTB6VAC",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1BBZTNXTTTD86PCR2ZZGK"
+      ],
+      "tags": [
+        "fact version"
+      ],
+      "errors": []
+    },
+    {
+      "index": 35,
+      "sourceFactId": "01M4M5H1846AW6AKC9BY97BJQE",
+      "header": "Update worker queue poll interval",
+      "change": "The WikiFact update worker polls the request queue every 1000 milliseconds.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 3 and 11 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T1BG1WKZEX3NVRHQMMRHGB",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1BX2HHX2HXVG089BZQRFE"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 36,
+      "sourceFactId": "01M4M5HFV9NERPKXNT0EC9MNQH",
+      "header": "SQLite access library",
+      "change": "WikiFact accesses its SQLite database through the better-sqlite3 binding.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1C17CD4HQCS4KMNPZHB46",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1CEA6HP81P1QBBSEKDNMY"
+      ],
+      "tags": [
+        "better-sqlite3 binding"
+      ],
+      "errors": []
+    },
+    {
+      "index": 37,
+      "sourceFactId": "01M4M5KR3QBRXKZB3YX8JSGVXN",
+      "header": "Merged fact version confidence events",
+      "change": "A merged fact version counts as an update event for confidence.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md sections 6.1 and 7.2 step 3 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T1CMDKS1P9RKKFBGW3HT24",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1D1RM48V14A1N6W9VGE1B"
+      ],
+      "tags": [
+        "fact version"
+      ],
+      "errors": []
+    },
+    {
+      "index": 38,
+      "sourceFactId": "01M4M5KR3QBRXKZB3YX8JSGVXM",
+      "header": "Merged fact version justifications",
+      "change": "A merged fact version keeps the justifications of the facts that were merged.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md sections 6.1 and 7.2 step 3 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T1D76SN2G6M7WR13B23WZR",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1DPWEH47EZX70PJS1J09W"
+      ],
+      "tags": [
+        "fact version"
+      ],
+      "errors": []
+    },
+    {
+      "index": 39,
+      "sourceFactId": "01M4M5M7N4NYDMDHFPDJ2P7DKZ",
+      "header": "Confidence of facts without an observed version",
+      "change": "A fact with no observed version and no references has confidence 0.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 6.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1DV77CW6FWB3XQH2QTEC4",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1E9V8PSGKQRHEM3S1ZW22"
+      ],
+      "tags": [
+        "fact confidence"
+      ],
+      "errors": []
+    },
+    {
+      "index": 40,
+      "sourceFactId": "01M4M5MQZJY8CQNX9ETYDC7YWB",
+      "header": "Tag-targeted change fact gathering",
+      "change": "When a change targets a tag, the update worker gathers at most agentSearchCap facts from that tag.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 7.2 step 1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1EFF3VYHFNRQ9JVCVQQ03",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1EY8MVP2X0P8ZPRMF7MPJ"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 41,
+      "sourceFactId": "01M4M5P4X975YX64BCKNP9Y87X",
+      "header": "Repair request change column",
+      "change": "The change column of a repair row in the WikiFact request table is NULL.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 3.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1F3SJFA7GBP0H8ERGRK2G",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1FQQYQY0DH9YG2CY1W4PK"
+      ],
+      "tags": [
+        "request table"
+      ],
+      "errors": []
+    },
+    {
+      "index": 42,
+      "sourceFactId": "01M4M5PJ1RYC8Q29GQ3BDDDZVV",
+      "header": "Repair request justification column",
+      "change": "The justification column of a repair row in the WikiFact request table is NULL.",
+      "justification": "docs/open-points.md lists it as decided; docs/technical-design.md section 3.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1G26ZKH2MFD7KAGVETMFZ",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1GQV7QDD40HD55SMFJ1DK"
+      ],
+      "tags": [
+        "request table"
+      ],
+      "errors": []
+    },
+    {
+      "index": 43,
+      "sourceFactId": "01M4M5Q8YZD2H0MSE16M4ZKCND",
+      "header": "New fact ID assignment",
+      "change": "The WikiFact update worker assigns a ULID to each new fact before writing the fact's drafts.",
+      "justification": "docs/open-points.md lists it as decided after the build reports of steps 1 to 4 (October 8, 2026); docs/technical-design.md section 7.2 step 5 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1GWGB3VX3GHKK4F0F712D",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1HABEGGFESPCJADHYKYYX"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 44,
+      "sourceFactId": "01M4M5Q8YZD2H0MSE16M4ZKCNE",
+      "header": "Update worker factId lookup",
+      "change": "A factId in a change request that matches no existing fact makes the update worker create a new fact.",
+      "justification": "docs/open-points.md lists it as decided after the build reports of steps 1 to 4 (October 8, 2026); docs/technical-design.md section 7.2 step 5 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1HEP3F40H46CVTJH6X2B7",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1HX09A1QMRVC25ZBAG3VD"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 45,
+      "sourceFactId": "01M4M5QTBWKM59KFJWD62R7EB0",
+      "header": "First version observed status",
+      "change": "The first version of a fact counts as observed when its justification is not empty.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 6.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1J1G8YZVAAJX6D5FYCGH7",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1JPTESY585G8YVQCB3TV1"
+      ],
+      "tags": [
+        "fact version"
+      ],
+      "errors": []
+    },
+    {
+      "index": 46,
+      "sourceFactId": "01M4M5RAKV00E1S53031DBGRTP",
+      "header": "Confidence of a deleted reference",
+      "change": "A deleted reference counts as confidence 0 when WikiFact computes the confidence of a fact.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 6.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1JY5A5ADTGPQ3CEFTJCCW",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1KFYG31B4VYAGAZ7S6KS3"
+      ],
+      "tags": [
+        "fact confidence"
+      ],
+      "errors": []
+    },
+    {
+      "index": 47,
+      "sourceFactId": "01M4M5TFKEXDJXSKDYKQ6GAVQ7",
+      "header": "Update worker crash repeat of request",
+      "change": "If the WikiFact update worker crashes between a change commit and marking its request done, the request repeats, adding one extra confirm row.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1KKYJ005CXR9463Y14P1A",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1M1T3DTWZNYJHJ21PS10B"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 48,
+      "sourceFactId": "01M4M5TFKEXDJXSKDYKQ6GAVQ6",
+      "header": "Update worker request done write",
+      "change": "The WikiFact update worker marks a request done in a database write separate from the change commit.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1M7YVDR6214C82RKX0FRD",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1MNE296TBYF130ER5ZEWD"
+      ],
+      "tags": [
+        "request table",
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 49,
+      "sourceFactId": "01M4M5WXBQNJS2PFA9V2NYH4K0",
+      "header": "Lookup repair failure logging",
+      "change": "When step 9 (the lookup repair) of the WikiFact update worker fails, the worker logs the failure.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1MTAZEQJSAP6DGJR8VB3W",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1N7P51ZBPWCWEFMGQ8465"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 50,
+      "sourceFactId": "01M4M5WXBQNJS2PFA9V2NYH4K1",
+      "header": "Lookup repair failure request status",
+      "change": "When step 9 (the lookup repair) of the WikiFact update worker fails, the request is still marked done.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.1 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1NC7MGDJSREY0TJ0XM8SJ",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1NVYS6TX6EG1P7K60MADE"
+      ],
+      "tags": [
+        "request table",
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 51,
+      "sourceFactId": "01M4M5Y705B99AGK0KMJW4D1W9",
+      "header": "applyChange database transaction",
+      "change": "The database transaction inside the applyChange function is synchronous.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.4 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1P13QX007VPMD39PCCPGX",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1PFEMXAQHR7MP9HT93574"
+      ],
+      "tags": [
+        "applyChange function"
+      ],
+      "errors": []
+    },
+    {
+      "index": 52,
+      "sourceFactId": "01M4M5YN9JKQQR8RF52GCX7PBZ",
+      "header": "getDependents return order",
+      "change": "The WikiFact getDependents function returns the ids of dependent facts in sorted order.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 4.5 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1PKQYEYZFQDZFNEH9REME",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1Q22EWCFCQN28MX0XH4CZ"
+      ],
+      "tags": [
+        "getDependents function"
+      ],
+      "errors": []
+    },
+    {
+      "index": 53,
+      "sourceFactId": "01M4M5Z5F5Q3ADV8805SHF0H5E",
+      "header": "getTag fact ranking",
+      "change": "The agent-facing getTag tool ranks the facts of a tag by usefulness.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 4.5 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1Q6JZF3D4TK7AJMD63SRD",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1QM1EPS31VRHNQGHTSEJD"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 54,
+      "sourceFactId": "01M4M5ZGXN8QVT8KBX26P897S2",
+      "header": "getTag limit argument",
+      "change": "The agent-facing getTag tool takes a limit argument that caps the number of facts returned.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 4.5 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1QSA7VJAT3RRX607Z0CMF",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1R7AJECAWD786VSQXTKN2"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 55,
+      "sourceFactId": "01M4M60NFQRR36Y45HTT5KF3BP",
+      "header": "History search result collapsing",
+      "change": "The history search collapses its results to one entry per fact.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 5 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1RC4D5J0S2W0J81GSAT5P",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1RSC2HGGSM0AGMX3ZTMF7"
+      ],
+      "tags": [
+        "history search"
+      ],
+      "errors": []
+    },
+    {
+      "index": 56,
+      "sourceFactId": "01M4M619PXW78XXTDQ92TGEZY2",
+      "header": "Search query embedding prefix",
+      "change": "Search queries are embedded without an instruction prefix before vector retrieval.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md sections 4.1 and 5 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T1RYRWAVA9J0SYGWC3TBZZ",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1SDF7VGB52C288R2E7QJ6"
+      ],
+      "tags": [
+        "consumer search",
+        "embedding model"
+      ],
+      "errors": []
+    },
+    {
+      "index": 57,
+      "sourceFactId": "01M4M614XV0EVYEVFWDX2Q1XE2",
+      "header": "Search query token limit",
+      "change": "The MCP server checks that a search query is at most 512 tokens long.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md sections 4.1 and 5 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T1SM6J0K0GAC07DZ27SWXH",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1T1D7ZEDKSXQE542GX3C5"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 58,
+      "sourceFactId": "01M4M61R9AY25H9MJ42SMMQKAX",
+      "header": "getFact read counting",
+      "change": "A getFact call does not count its own read toward the fact's usefulness or confidence.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 4 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1T5GNF9PMWJCGPNYFQXFG",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1TQEB91W228G8PCGY6Y60"
+      ],
+      "tags": [
+        "WikiFact MCP",
+        "fact confidence"
+      ],
+      "errors": []
+    },
+    {
+      "index": 59,
+      "sourceFactId": "01M4M632V87YWR97T5WF1S99D6",
+      "header": "WikiFact MCP tool input validation",
+      "change": "In WikiFact MCP tool input validation, a blank string counts as empty.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 4 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1TWFBX5JRA64PH5F92K9R",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1VB2SHBK1VT23H81KYYCF"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 60,
+      "sourceFactId": "01M4M63J2DSAE1JTW1KZDWHW7Y",
+      "header": "requestChange targets id check",
+      "change": "The requestChange MCP tool rejects at submission with a tool error any target id that matches no fact or tag.",
+      "justification": "I read src/mcp/tools.ts lines 353-354: the requestChange handler loops over targets and throws ToolError \"targets: no fact or tag with id\" before enqueueRequest. The technical design section 4.4 says the same.",
+      "requestId": "01M4T1VFDZ9RFBRSN2F00JSVS7",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1VYD50F0CGVJFQ2TTMC0H"
+      ],
+      "tags": [
+        "WikiFact MCP",
+        "requestChange MCP tool"
+      ],
+      "errors": []
+    },
+    {
+      "index": 61,
+      "sourceFactId": "01M4M643RBY5X8KYPBQQWQ8H10",
+      "header": "Update worker question context argument",
+      "change": "Every model question in the WikiFact update pipeline takes a ctx object containing the wiki subject and the tags.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1W4YQWFMJF1Z6K10SMAKM",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1WKNSRSPNHM02HSD7HFTT"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 62,
+      "sourceFactId": "01M4M64MG2NX3S2YGYH0J6YBXA",
+      "header": "Update worker drafting question output",
+      "change": "Each Update worker drafting question returns its result in a drafts array.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1WR7N7YTREB8ZNTE59XKE",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1X5ZX37G8C3KF3B63XTYF"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 63,
+      "sourceFactId": "01M4M675GB7QFYVG52838DN1P1",
+      "header": "Merge of three or more matching facts",
+      "change": "Merging three or more matching live facts repoints dependents of the deleted facts at the kept fact via a maintenance write.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 7.2 step 3 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1XACKT420TR624DR93X6Q",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1XSC17WZHS05E6QQH4F6A"
+      ],
+      "tags": [
+        "fact version"
+      ],
+      "errors": []
+    },
+    {
+      "index": 64,
+      "sourceFactId": "01M4M67VS2P8BDPTG5VNFJM82H",
+      "header": "wikifact.json unknown key handling",
+      "change": "An unknown key in wikifact.json is treated as an error.",
+      "justification": "docs/open-points.md lists it as decided after the step 1 to 4 reports; docs/technical-design.md section 11 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1XYCKNJ6P865E4YMVJASZ",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1YBWASSM5GDQDHB118Y76"
+      ],
+      "tags": [
+        "wikifact.json config file"
+      ],
+      "errors": []
+    },
+    {
+      "index": 65,
+      "sourceFactId": "01M4M68RYEKVFJEMV0Y1K8AM2T",
+      "header": "Update worker model question timeout",
+      "change": "In the WikiFact update worker, the timeout of a model question applies per API call.",
+      "justification": "docs/open-points.md lists it as decided after the step 5 report; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1YG9CQY75B57XH8MS2BEA",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1YXQAQWTCYMH7Z77Q79V8"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 66,
+      "sourceFactId": "01M4M68RYEKVFJEMV0Y1K8AM2V",
+      "header": "Update worker truncated answer failure",
+      "change": "In the WikiFact update worker, a truncated model answer fails the attempt.",
+      "justification": "docs/open-points.md lists it as decided after the step 5 report; docs/technical-design.md section 7.2 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T1Z23ZH8WBKC0WZ0YA4XMM",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1ZGKPZRHS8KHJWARM6SYD"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 67,
+      "sourceFactId": "01M4M6ECD0TKH6V2RS3N390NQQ",
+      "header": "Search result cap",
+      "change": "The WikiFact search result cap (searchCap) is 10 results per search call.",
+      "justification": "docs/open-points.md lists O7 as staying 10 after the correction test; docs/technical-design.md section 13 row O7 states it (cap 5 hid every new fact, cap 20 gave the same corrections). Read from the docs, code not checked.",
+      "requestId": "01M4T1ZNHPACA941GKV5VB4MTB",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2027Z6RPZJ7N17551NF4P"
+      ],
+      "tags": [
+        "consumer search"
+      ],
+      "errors": []
+    },
+    {
+      "index": 68,
+      "sourceFactId": "01M4M6FHQH1DNKWEF6SJ22DBCD",
+      "header": "Float vector candidate rescoring",
+      "change": "The WikiFact search rescores the KNN candidates from current_vec with float vectors.",
+      "justification": "docs/open-points.md lists it as decided after the step 7 report; docs/technical-design.md section 5 and row O8 of section 13 state it (recall 0.84 at 100k synthetic facts). Read from the docs, code not checked.",
+      "requestId": "01M4T206TYXRPDPYZJSCMY9B4A",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T20M8WEPK4PVJYMX663B9Y"
+      ],
+      "tags": [
+        "consumer search",
+        "current_vec table"
+      ],
+      "errors": []
+    },
+    {
+      "index": 69,
+      "sourceFactId": "01M4M6FHQH1DNKWEF6SJ22DBCC",
+      "header": "Vector KNN candidate count",
+      "change": "The KNN search over current_vec takes 100 candidates (VEC_CANDIDATES) from the 1-bit vectors.",
+      "justification": "docs/open-points.md lists it as decided after the step 7 report; docs/technical-design.md section 5 and row O8 of section 13 state it (recall 0.84 at 100k synthetic facts). Read from the docs, code not checked.",
+      "requestId": "01M4T20YMFNDJCYH95M77VAGZQ",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T21EBERZWJH8JBFBTRJRPR"
+      ],
+      "tags": [
+        "consumer search",
+        "current_vec table"
+      ],
+      "errors": []
+    },
+    {
+      "index": 70,
+      "sourceFactId": "01M4M6GGZFGH6E985SN3RZC8Y6",
+      "header": "Usefulness half-life",
+      "change": "The usefulness half-life in search ranking is 30 days.",
+      "justification": "docs/open-points.md lists O2 as keeping its default after the correction test; docs/technical-design.md section 6 and row O2 of section 13 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T21K2WPV95N3SZT6Y9RHXA",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T221M5YE58GBN7VHJWRJ85"
+      ],
+      "tags": [
+        "search ranking"
+      ],
+      "errors": []
+    },
+    {
+      "index": 71,
+      "sourceFactId": "01M4M6H02D3R6Z7ASXY9DP7A2P",
+      "header": "Consumer harness correction enforcement",
+      "change": "WikiFact enforces corrections in the consumer harness through tool descriptions alone, without a required stop hook.",
+      "justification": "docs/open-points.md lists O5 as tool descriptions alone; docs/technical-design.md row O5 of section 13 states it, and the example stop hook stays in eval/. Read from the docs, code not checked.",
+      "requestId": "01M4T225MG1QVCKXS6F5MPGD68",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T22JXKGVGWHCB19ZYDBN0Z"
+      ],
+      "tags": [
+        "WikiFact MCP"
+      ],
+      "errors": []
+    },
+    {
+      "index": 72,
+      "sourceFactId": "01M4M6J1RVKE67AWCS8P627ZQ3",
+      "header": "Budget quality preset model assignments",
+      "change": "The budget quality preset runs claude-haiku-5-5 at low effort on every question.",
+      "justification": "docs/open-points.md lists the presets as decided on October 9, 2026; docs/technical-design.md section 13 row O6 and section 11.2 state it. Read from the docs, code not checked.",
+      "requestId": "01M4T22R0XR9T6ES98HSAZ5AWH",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2359R6KY77ZAGN12Q5CFR"
+      ],
+      "tags": [
+        "quality preset",
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 73,
+      "sourceFactId": "01M4M6JGM161VTZY3886E3D8MA",
+      "header": "WikiFact evals entry point",
+      "change": "The WikiFact evals have one entry point: the command npm run evals.",
+      "justification": "docs/open-points.md lists it as decided on October 9, 2026; docs/technical-design.md section 10 states it. Read from the docs, code not checked.",
+      "requestId": "01M4T23B6P95FD6H7F8NG8Z7VN",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T23X73B4FMT8YSXEGP6AF3"
+      ],
+      "tags": [
+        "evals"
+      ],
+      "errors": []
+    },
+    {
+      "index": 74,
+      "sourceFactId": "01M4M95XH8RMKCD75N0RAE4R2H",
+      "header": "Service mode log directory",
+      "change": "In service mode, log files are written to the .logs folder under the wikis root by default.",
+      "justification": "I read docs/technical-design.md section 11.4 and src/service/run.ts, where the default log directory is the wikis root joined with .logs, and I saw the files appear in that folder on this machine.",
+      "requestId": "01M4T24177GM4EB4ZW8CSRNCY4",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T24DF5TG0S10STWE7XAHXM"
+      ],
+      "tags": [
+        "log directory"
+      ],
+      "errors": []
+    },
+    {
+      "index": 75,
+      "sourceFactId": "01M4M96FM53N33QPHRPMF4D7WE",
+      "header": "Errors log file retention",
+      "change": "The errors log keeps 10 files in total: the active file and 9 rolled files.",
+      "justification": "I read src/log/file.ts, where ERRORS_ROLLED_FILES is 9 and pino-roll counts rolled files besides the active one, and docs/technical-design.md section 11.4 states 10 files kept.",
+      "requestId": "01M4T24JVCQVB5ET33VY4EDWH5",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T24Z171FV98SAFAZ6BVQDF"
+      ],
+      "tags": [
+        "errors log"
+      ],
+      "errors": []
+    },
+    {
+      "index": 76,
+      "sourceFactId": "01M4MAGYD63NEAKPQ7AZ31GK0N",
+      "header": "Full log file rollover size",
+      "change": "The full log file rolls over to a new file when it reaches 10 MB.",
+      "justification": "I read src/log/file.ts, where LOG_MAX_MB is 10 and is passed to pino-roll as the size option of the full log stream, and docs/technical-design.md section 11.4 states the same.",
+      "requestId": "01M4T254W5JTKKZH5TAXW7J69N",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T25HDSN83Y073ED11ZMQVE"
+      ],
+      "tags": [
+        "full log file"
+      ],
+      "errors": []
+    },
+    {
+      "index": 77,
+      "sourceFactId": "01M4MAHJ1PKTR7JRATYQSZ9AAY",
+      "header": "Full log file retention",
+      "change": "The full log keeps 5 files in total: the active file and 4 rolled files.",
+      "justification": "I read src/log/file.ts, where LOG_ROLLED_FILES is 4 and pino-roll's limit count is the number of rolled files besides the active one, and docs/technical-design.md section 11.4 states 5 files kept for the full log.",
+      "requestId": "01M4T25PMTYDJQ222ZE5W660XS",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T264JC8V3N0PEP09N6GP8R"
+      ],
+      "tags": [
+        "full log file"
+      ],
+      "errors": []
+    },
+    {
+      "index": 78,
+      "sourceFactId": "01M4Q479BMEZFRH3W542KPE6FF",
+      "header": "Service mode operator console",
+      "change": "In service mode, the operator console is mounted at /console/ on the same HTTP port as the MCP endpoints.",
+      "justification": "I read src/service/routes.ts and src/console/routes.ts at commit eccc44d on branch build: the service route composes the MCP route and the console route with firstRoute on one port. A GET of http://127.0.0.1:7777/console/ on the deployed v0.1.12 answered 200.",
+      "requestId": "01M4T2695TGZ17JBDE494XJ96Y",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T26P52134ZG60GQM4KBK7A"
+      ],
+      "tags": [
+        "operator console"
+      ],
+      "errors": []
+    },
+    {
+      "index": 79,
+      "sourceFactId": "01M4Q481TTPD255MVM5BE5B02W",
+      "header": "Operator console retrieval recording",
+      "change": "A read from the operator console records no retrievals row and no tag_retrievals row.",
+      "justification": "I read docs/console.md principle P1 and docs/technical-design.md section 11.5, and the page handlers under src/console/pages/ at commit eccc44d open a read-only store with openStoreFor(config, dbPath, { readonly: true }) and never call recordRetrieval or recordTagRetrieval.",
+      "requestId": "01M4T26TBB4ZNFEJFC4AH81CME",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T278RP32WWR6WCWCN3FSKT"
+      ],
+      "tags": [
+        "operator console"
+      ],
+      "errors": []
+    },
+    {
+      "index": 80,
+      "sourceFactId": "01M4Q48PYT8T6K9KPSZ8SRT6TD",
+      "header": "Operator console request log line",
+      "change": "Each operator console request logs one console_page line with path, status and durationMs; level is error on status 500, else info.",
+      "justification": "I read src/console/routes.ts and the LogEvent.ConsolePage payload in src/log/line.ts at commit eccc44d, and the deployed service log of v0.1.12 holds the line {\"event\":\"console_page\",\"path\":\"/console/\",\"status\":200,\"durationMs\":23}.",
+      "requestId": "01M4T27D1XS6ZSHPYFJBWPYF8K",
+      "resumed": false,
+      "outcome": "rejected",
+      "factIds": [],
+      "tags": [],
+      "errors": [
+        "The change makes two claims, the line's payload fields (path, status, durationMs) and the separate level rule (error on 500, else info), and either could be false while the other stands; the submitter did read the code and a deployed log line first-hand."
+      ]
+    },
+    {
+      "index": 81,
+      "sourceFactId": "01M4Q5MXR8ANSS5QX8P0TSNADB",
+      "header": "Operator console page filters and sorts",
+      "change": "The filters and sorts of an operator console page are query parameters of its URL.",
+      "justification": "I read docs/console.md section 5 and src/console/pages/facts.ts and requests.ts at commit eccc44d: each page parses its filters and its sort from the URLSearchParams of the request with a zod schema, and the filter forms submit with GET.",
+      "requestId": "01M4T27JBBTRHES1472DJZ6YSR",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T27ZG488RZ9PZZCPAF2KC0"
+      ],
+      "tags": [
+        "operator console"
+      ],
+      "errors": []
+    },
+    {
+      "index": 82,
+      "sourceFactId": "01M4Q5NEEWEA11SZDH8K797F61",
+      "header": "HTTP layer Route type",
+      "change": "The Route type in src/mcp/http.ts returns either an MCP server factory or a plain request handler.",
+      "justification": "I read src/mcp/http.ts at commit eccc44d: Route returns RouteTarget, a union of McpRoute and HttpRoute tagged by the RouteKind enum. The design sentence is in docs/technical-design.md section 11.5.",
+      "requestId": "01M4T284DZB9E9WTS2C1SDKBK5",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T28JMMCN0BMQ8HTV4CH3WA"
+      ],
+      "tags": [
+        "Route type"
+      ],
+      "errors": []
+    },
+    {
+      "index": 83,
+      "sourceFactId": "01M4Q5NYK794G73RDDKWH9JCT3",
+      "header": "HTTP layer MCP non-POST status",
+      "change": "The MCP branch of the WikiFact HTTP layer answers any non-POST request with status 405.",
+      "justification": "I read the handleMcp function of src/mcp/http.ts at commit eccc44d, which writes a 405 with an Allow: POST header for any other method, and the end-to-end test in __tests__/console.test.ts asserts that a GET of /mcp is 405.",
+      "requestId": "01M4T28REZC4DT045KPJB6N8EY",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T298PFFGM6V6SR4095VENK"
+      ],
+      "tags": [
+        "WikiFact MCP",
+        "handleMcp function"
+      ],
+      "errors": []
+    },
+    {
+      "index": 84,
+      "sourceFactId": "01M4Q5YVWV9ST9WQ6DK30AJWQB",
+      "header": "Operator console page script elements",
+      "change": "Every operator console page carries one script element that loads /console/console.js.",
+      "justification": "I read src/console/html.ts at commit eb956ba: the layout function writes a script tag with src /console/console.js and defer into the head of every page. On the deployed v0.1.16 service, GET /console/ returned a page with that tag, and GET /console/console.js answered 200 with text/javascript.",
+      "requestId": "01M4T29EZGW4FVJT148WHX6YX7",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T29X06Z1HPEGXPSR5G33JN"
+      ],
+      "tags": [
+        "operator console"
+      ],
+      "errors": []
+    },
+    {
+      "index": 85,
+      "sourceFactId": "01M4Q9PRXVGVBGQECKEVD87ERW",
+      "header": "Wiki database schema version 3",
+      "change": "Schema version 3 of the WikiFact wiki database adds an is_deleted column to the tags table.",
+      "justification": "I read src/store/schema.ts and src/store/migrations.ts at commit 3f4b155: SCHEMA_VERSION is 3 and the migration from 2 rebuilds the tags table with an is_deleted column that defaults to 0. The design sentence is in docs/technical-design.md section 3.1.",
+      "requestId": "01M4T2A0NPTJ6M1VN4W5AJ79Y3",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2ACS1SR93ES4Z858FHHZS"
+      ],
+      "tags": [
+        "tags table"
+      ],
+      "errors": []
+    },
+    {
+      "index": 86,
+      "sourceFactId": "01M4Q9QD6G1CKY2DFX25B73HS5",
+      "header": "Update worker operatorEdit change handling",
+      "change": "The WikiFact update worker applies an operatorEdit change request in queue order without any model question.",
+      "justification": "I read src/updates/operator-edit.ts and the request kind switch in src/updates/agent/index.ts at commit 3f4b155: the operatorEdit path parses the JSON document of the change column, builds the change set in code and applies it through applyChange, and calls no question. The design sentence is in docs/technical-design.md section 7.1.",
+      "requestId": "01M4T2AMCJ9DSTERGAF8VB0SXB",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2B6EEGS6HBP4XKYXDHFWR"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 87,
+      "sourceFactId": "01M4Q9R0078S1DN326T98CHGNX",
+      "header": "Operator console cross-origin POST refusal",
+      "change": "The operator console refuses with status 403 any POST whose Origin header names a different host or port than the service.",
+      "justification": "I read the originRefusal function in src/console/auth.ts at commit 3f4b155, and on the deployed v0.1.14 a POST to /console/w/wikifact/index/reindex with the header Origin: http://evil.example answered 403.",
+      "requestId": "01M4T2BAM0D8WGTR10BY8C9FZ5",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2BRCYD5N4W2JR4J5T5T9W"
+      ],
+      "tags": [
+        "operator console"
+      ],
+      "errors": []
+    },
+    {
+      "index": 88,
+      "sourceFactId": "01M4QAZC521B843VBWNMJB5Q12",
+      "header": "Operator console change requests",
+      "change": "Operator console Correct, Delete and Add forms enqueue submission requests that the update worker judges like any consumer's.",
+      "justification": "I read src/console/fact-edits.ts at commit 3088708: each form enqueues a row through enqueueRequest with the kind submission, the composed change text and the operator's justification, and the test __tests__/updates/console-correct.test.ts shows the worker writes the version. The design is docs/console.md section 9.",
+      "requestId": "01M4T2BWMR760JYXVJY5CK08F2",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2CDJGD8VV3EVYFJB14S68"
+      ],
+      "tags": [
+        "operator console",
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 89,
+      "sourceFactId": "01M4S89MDSVKXB8MMNJAAWXA9Q",
+      "header": "Update worker drafting question draft count",
+      "change": "Every Update worker drafting question, including Q5, returns exactly one draft; any other draft count fails the call.",
+      "justification": "I read src/updates/questions/specs/q5.ts: its check is checkDrafts(o, { max: 1 }), and a grep of src/updates/questions finds no max of 2. Technical design section 7.2 says every drafting question returns exactly 1.",
+      "requestId": "01M4T2CJJ78BV22DZYTMG4YFVG",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T1X5ZX37G8C3KF3B63XTYF"
+      ],
+      "tags": [
+        "update worker"
+      ],
+      "errors": []
+    },
+    {
+      "index": 90,
+      "sourceFactId": "01M4SZTAK0J90BMZ4APTCDJ370",
+      "header": "Operator console first page and left bar",
+      "change": "The operator console opens a wiki on its Structure page at /console/w/<wiki>, with a left bar listing Structure, Pulse and Search, then a More heading with Facts, Tags, Requests, Health, Settings and Export.",
+      "justification": "I read src/console/html.ts and src/console/routes.ts at commit eb956ba: GOAL_SECTIONS holds Structure, Pulse and Search, TOOL_SECTIONS holds Facts, Tags, Requests, Health and Settings, the bar renders an h2 \"More\" between them and an Export link after them, and the route /console/w/:w maps to structurePage. The deployed v0.1.16 console shows this left bar.",
+      "requestId": "01M4T2D6Y0H33B6M038PT3FC1T",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2DQHJWA9AWG2F744XMADF"
+      ],
+      "tags": [
+        "operator console"
+      ],
+      "errors": []
+    },
+    {
+      "index": 91,
+      "sourceFactId": "01M4SZTZ69930FNNEEFNMQ5ETT",
+      "header": "Operator console Pulse window",
+      "change": "The operator console Pulse page takes a 7, 30 or 90 day window and shows counts of added, corrected and deleted facts.",
+      "justification": "I read src/console/pages/pulse.ts and src/store/console/summary-series.ts at commit eb956ba: the page parses days with the SummaryWindow enum (7, 30, 90), and wikiSummary returns writes with added, corrected and deleted totals that the page shows as tiles. GET /console/w/wikifact/pulse answered 200 on the deployed v0.1.16 service.",
+      "requestId": "01M4T2DXKKFDX5XK86WJB13WQ1",
+      "resumed": false,
+      "outcome": "accepted",
+      "factIds": [
+        "01M4T2EAVZPCD1Z7PWGYHKWE0S"
+      ],
+      "tags": [
+        "Pulse page",
+        "operator console"
+      ],
+      "errors": []
+    }
+  ],
+  "outcomes": {
+    "accepted": 87,
+    "rejected": 5
+  },
+  "liveFacts": 86,
+  "tags": [
+    {
+      "name": "update worker",
+      "description": "The WikiFact update worker, the background process that judges submitted claims with narrow model questions and writes accepted facts. Facts about its lock file, takeover, startup, and processing belong under it.",
+      "liveFacts": 27
+    },
+    {
+      "name": "WikiFact MCP",
+      "description": "The WikiFact MCP tool interface that agents call to read, submit, and correct facts in the wiki. Facts about its tool calls, responses, and errors belong under it.",
+      "liveFacts": 12
+    },
+    {
+      "name": "operator console",
+      "description": "The WikiFact operator console, which an operator uses to edit tags and facts directly. Facts about its edit actions, such as deleting a tag, belong under it.",
+      "liveFacts": 9
+    },
+    {
+      "name": "fact version",
+      "description": "One stored revision of a fact in the wiki, including its content, references, and the justification the submitter sent. Facts about how fact versions are stored and what they hold belong under it.",
+      "liveFacts": 6
+    },
+    {
+      "name": "consumer search",
+      "description": "The WikiFact consumer search, the read path that finds facts by similarity search for consumers. Facts about its vector source and how it reads the wiki belong under it.",
+      "liveFacts": 5
+    },
+    {
+      "name": "current_vec table",
+      "description": "The current_vec table in a wiki's SQLite database, which holds the embedding vectors that similarity search reads. Facts about its contents and which readers use it belong under it.",
+      "liveFacts": 4
+    },
+    {
+      "name": "request table",
+      "description": "The request table in a wiki's SQLite database, which holds submitted claims and their queued, failed, or repair rows for the update worker. Facts about its columns and the rows it holds belong under it.",
+      "liveFacts": 4
+    },
+    {
+      "name": "wiki",
+      "description": "A wiki: one folder under wikis/ that holds the wiki's wikifact.json file and its SQLite database file. Facts about a wiki's folder, files, and layout belong under it.",
+      "liveFacts": 4
+    },
+    {
+      "name": "embedding model",
+      "description": "The model that turns text into embedding vectors for similarity search in WikiFact. Facts about its default model name, vector dimension, and how it is configured belong under it.",
+      "liveFacts": 3
+    },
+    {
+      "name": "evals",
+      "description": "The eval code under the eval/ folder of the WikiFact code base. Facts about eval files, eval-only enums, and eval layout belong under it.",
+      "liveFacts": 3
+    },
+    {
+      "name": "fact confidence",
+      "description": "The confidence score of a fact in the wiki, and the inputs that set it, such as observed versions, references, and update events. Facts about how a fact's confidence starts or changes belong under it.",
+      "liveFacts": 3
+    },
+    {
+      "name": "search ranking",
+      "description": "The WikiFact search ranking that orders similarity search results by combined signals and their weights. Facts about ranking signals, weights such as W_USE, and how results are ordered belong under it.",
+      "liveFacts": 3
+    },
+    {
+      "name": "wikifact.json config file",
+      "description": "The wikifact.json configuration file that the WikiFact code reads at startup. Facts about its location, keys, and how the code loads it belong under it.",
+      "liveFacts": 3
+    },
+    {
+      "name": "applyChange function",
+      "description": "The applyChange function of the WikiFact update worker, which applies an accepted claim as a fact in the wiki. Facts about its signature, async behavior, and what it writes belong under it.",
+      "liveFacts": 2
+    },
+    {
+      "name": "full log file",
+      "description": "The full log file that WikiFact writes in the log directory, as distinct from the errors log. Facts about its size limit, rolling, and retention belong under it.",
+      "liveFacts": 2
+    },
+    {
+      "name": "better-sqlite3 binding",
+      "description": "The better-sqlite3 binding, the library through which the WikiFact code accesses a wiki's SQLite database. Facts about how WikiFact opens, reads, or writes SQLite through it belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "errors log",
+      "description": "The WikiFact errors log, the log file that records errors. Facts about its file rolling, rolled file count, and retention belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "getDependents function",
+      "description": "The getDependents function of the WikiFact code, which returns the ids of facts that depend on a given fact. Facts about its signature, return value, and ordering belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "handleMcp function",
+      "description": "The handleMcp function in src/mcp/http.ts of the WikiFact code, which serves the MCP branch of the HTTP layer. Facts about its method handling, responses, and headers belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "history search",
+      "description": "The WikiFact history search, the read path that searches the history of fact versions. Facts about its result shape and how its results are grouped belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "log directory",
+      "description": "The folder where WikiFact writes its log files. Facts about the default log folder, its location under the wikis root, and how it is set belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "management MCP endpoint",
+      "description": "The management MCP endpoint at /mcp in service mode, which serves the WikiFact wiki tools and takes a wiki argument. Facts about its route, tools, and arguments belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "Pulse page",
+      "description": "The Pulse page of the WikiFact operator console, which shows fact write counts over a chosen day window. Facts about its window options, its counts, and its layout belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "quality preset",
+      "description": "A named quality preset of the WikiFact update worker, a set of model and effort settings applied to its questions. Facts about a preset's model, effort level, and the questions it covers belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "replay test",
+      "description": "The WikiFact replay test under eval/replay, which runs eval cases against a copy of the seed wiki and reports critical misses. Facts about how its cases run, its seed copy, and its miss reporting belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "requestChange MCP tool",
+      "description": "The requestChange tool of the WikiFact MCP, which submits a change request against facts or tags. Facts about its arguments, validation of its targets, and its handling of submissions belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "Route type",
+      "description": "The Route type in src/mcp/http.ts of the WikiFact code, which maps an HTTP route to either an MCP server factory or a plain request handler. Facts about what the Route type returns belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "tags table",
+      "description": "The tags table in a wiki's SQLite database, which holds the wiki's tags and their is_deleted flag. Facts about its columns and schema changes to it belong under it.",
+      "liveFacts": 1
+    },
+    {
+      "name": "wiki MCP endpoint",
+      "description": "A per-wiki MCP endpoint in service mode, served at /wikis/<name>/mcp, that exposes one wiki's tools. Facts about its route and how it serves one wiki belong under it.",
+      "liveFacts": 1
+    }
+  ],
+  "tagsPerFact": {
+    "1": 68,
+    "2": 18
+  },
+  "candidates": {
+    "emptyTag": [],
+    "duplicateTag": [
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0WB3YGH34BCH1QYMFMZ74",
+          "01M4T0WZS877YYN452FZTASGWQ"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0Q45WCNR1FBG2H8DG3Z0T",
+          "01M4T1W4YKT88G5AK09JVZ8Q5R"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T254W0KBZ6B2KP5QENTCDS",
+          "01M4T25PMP5781TZP25N3KVCC9"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T24JV7AAR443203M0BKN41",
+          "01M4T25PMP5781TZP25N3KVCC9"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0Q45WCNR1FBG2H8DG3Z0T",
+          "01M4T0WB3YGH34BCH1QYMFMZ74"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0Q45WCNR1FBG2H8DG3Z0T",
+          "01M4T0WZS877YYN452FZTASGWQ"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T1AC6FCWQQXDY54VWG05ZE",
+          "01M4T1RYRR23RVJJB7FA4P1MCJ"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0WB3YGH34BCH1QYMFMZ74",
+          "01M4T1W4YKT88G5AK09JVZ8Q5R"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T16WZCPKC6D3JG3NVC1KXV",
+          "01M4T1EFF08JK7S56VS8EYGFQ4"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0QTFFV013R9TZYCPZBG6V",
+          "01M4T0RFPDJQAAQ46ETTJHJ2AQ"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0RFPDJQAAQ46ETTJHJ2AQ",
+          "01M4T108BK94PNZRSAKFFMH770"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0S009X9MGK6XF8Z5F2AW3",
+          "01M4T11ZA4NJZK2SQZZWW66841"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0RFPDJQAAQ46ETTJHJ2AQ",
+          "01M4T24JV7AAR443203M0BKN41"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0WZS877YYN452FZTASGWQ",
+          "01M4T1W4YKT88G5AK09JVZ8Q5R"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0RFPDJQAAQ46ETTJHJ2AQ",
+          "01M4T1CMDF23N0XDK0356HJPD0"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T1G26FZAPEAK01QPD9D6F2",
+          "01M4T2AMCCDZVYZC2BFKW8SPYY"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T24JV7AAR443203M0BKN41",
+          "01M4T254W0KBZ6B2KP5QENTCDS"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T19R19WRHFVTJKY5Q47YXX",
+          "01M4T2EG9SX66Z1FAQVM5NQ5A4"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T28REVSSV2AC3K680RQT8E",
+          "01M4T29EZBYKXSR2C2YH9Z84FR"
+        ]
+      },
+      {
+        "finder": "duplicateTag",
+        "tagIds": [
+          "01M4T0Q45WCNR1FBG2H8DG3Z0T",
+          "01M4T29EZBYKXSR2C2YH9Z84FR"
+        ]
+      }
+    ],
+    "broadTag": [],
+    "missingTag": []
+  },
+  "finishedAt": "2026-10-13T07:25:50.352Z"
+}

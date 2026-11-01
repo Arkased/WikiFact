@@ -1,0 +1,21 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignoreDependencies": ["npm-run-all2"],
+  "entry": [
+    "src/console/client/console.ts!",
+    "eval/*.ts",
+    "plugin/src/{setup,wiki-context,wiki-submit}.ts",
+    "scripts/*.{ts,mjs}",
+    "__tests__/helpers/fake-claude.mjs",
+    "__tests__/helpers/fake-eval.mjs",
+    "__tests__/helpers/preload-fake-embedder.ts"
+  ],
+  "project": [
+    "src/**/*.ts!",
+    "plugin/src/**/*.ts",
+    "eval/**/*.ts",
+    "scripts/**/*.{ts,mjs}",
+    "fakes/**/*.ts",
+    "__tests__/**/*.{ts,mjs}"
+  ]
+}

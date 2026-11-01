@@ -1,0 +1,3306 @@
+{
+  "startedAt": "2026-10-27T18:02:32.869Z",
+  "complete": true,
+  "source": "bulk.sqlite",
+  "requests": 100,
+  "queuedInSource": 100,
+  "startSeq": 1,
+  "batchSize": 10,
+  "concurrency": 4,
+  "groupCut": 0.215,
+  "stub": false,
+  "secondOnly": true,
+  "batch": {
+    "path": "batch",
+    "complete": true,
+    "startedAtMs": 1793124152947,
+    "wallMs": 1112591,
+    "snapshotMs": 426,
+    "usage": {
+      "calls": 419,
+      "tokens": {
+        "input": 840,
+        "output": 125441,
+        "cacheRead": 862861,
+        "cacheWrite": 1360082
+      },
+      "usd": 8.462443115,
+      "unpricedCalls": 0,
+      "callsByQuestion": {
+        "Q3": 2,
+        "Q1": 168,
+        "Q4": 3,
+        "QG": 102,
+        "Q2": 6,
+        "Q7": 138
+      }
+    },
+    "outcomes": {
+      "rejected": 23,
+      "accepted": 30,
+      "duplicate": 31,
+      "split": 16,
+      "child accepted": 25,
+      "child duplicate": 11,
+      "child rejected": 2
+    },
+    "steps": 10,
+    "batches": [
+      {
+        "status": "done",
+        "size": 13
+      },
+      {
+        "status": "done",
+        "size": 12
+      },
+      {
+        "status": "done",
+        "size": 10
+      },
+      {
+        "status": "done",
+        "size": 15
+      },
+      {
+        "status": "done",
+        "size": 13
+      },
+      {
+        "status": "done",
+        "size": 16
+      },
+      {
+        "status": "done",
+        "size": 15
+      },
+      {
+        "status": "done",
+        "size": 15
+      },
+      {
+        "status": "done",
+        "size": 12
+      },
+      {
+        "status": "done",
+        "size": 17
+      }
+    ],
+    "attemptErrors": [],
+    "requests": [
+      {
+        "requestId": "01M5XE7DY3C51M19QDAP7XZZT9",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "compound",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHP",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "compound",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHQ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8FKP25S2266QNZMDQT8XY"
+        ],
+        "facts": [
+          {
+            "header": "Seed demo command",
+            "content": "The command npm run seed-demo creates the demo wiki with 10 facts and 3 tags."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHR",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX51ABR8WDVWMB5WDHV",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHS",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8FPV9QCXX3TK335VSM9CS"
+        ],
+        "facts": [
+          {
+            "header": "Clean-temp in check",
+            "content": "The command npm run clean-temp is never run by the command npm run check."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHT",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has one subject (WikiFact), one attribute (database migration) and one value (SQLite to Postgres in the next release), and the justification is a vague half-remembered read, so it is inference rather than a checked source.",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHV",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHW",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z8F1D3PTVZ5ZZZAG1XHB80",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8GRWBWG73FBN5S8KZGW2D"
+            ],
+            "facts": [
+              {
+                "header": "listWikis annotation",
+                "content": "The WikiFact tool listWikis is annotated read-only."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8F1D3PTVZ5ZZZAG1XHB81",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8GS0NZWT9MNY5ACBBA0AW"
+            ],
+            "facts": [
+              {
+                "header": "Q12 model and effort",
+                "content": "The question Q12 runs on the sonnet model with low effort."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8F1D3PTVZ5ZZZAG1XHB82",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8GQSP73EDHSDEGWKWAVC3"
+            ],
+            "facts": [
+              {
+                "header": "Clean-temp command",
+                "content": "The command npm run clean-temp deletes only folders older than 1 hour."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DY4SD987FZK9GDSHYHX",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY5V6XXH2MN8AZ6CEVS",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5XE7DX61A65KD017EN4J23J"
+        ],
+        "facts": [
+          {
+            "header": "Search result cap",
+            "content": "The search tool returns at most 10 results by default."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY5V6XXH2MN8AZ6CEVT",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8KVR3W1WHXVBMXJJT0Y5H"
+        ],
+        "facts": [
+          {
+            "header": "Seed demo database deletion",
+            "content": "The command npm run seed-demo deletes an existing database file at its path before it seeds."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY5V6XXH2MN8AZ6CEVV",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX51ABR8WDVWMB5WDHS",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY5V6XXH2MN8AZ6CEVW",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8KRSVX9AA47TEQ91SKEPV"
+        ],
+        "facts": [
+          {
+            "header": "Seed demo config file",
+            "content": "The command npm run seed-demo writes a wikifact.json with the mode local when the database folder has no wikifact.json."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY5V6XXH2MN8AZ6CEVX",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8FPV9QCXX3TK335VSM9CS",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY5V6XXH2MN8AZ6CEVY",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8M2ZRFQC4ER2X16E5MGH2"
+        ],
+        "facts": [
+          {
+            "header": "Test command",
+            "content": "The command npm test runs the unit tests alone."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY5V6XXH2MN8AZ6CEVZ",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX51ABR8WDVWMB5WDHW",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBME",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change is a single claim (subject: most agents, attribute: calling getTag), and the justification \"It seems likely to me\" is an opinion.",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBMF",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8M307NZA0QBCH71BKPFGE"
+        ],
+        "facts": [
+          {
+            "header": "Console browser test command",
+            "content": "The command npm run test:ui runs the browser test of the console alone."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBMG",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z8JZT0ZMW17ECRT11RTC6Y",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8N0DMCZ2Z400E41YASM10"
+            ],
+            "facts": [
+              {
+                "header": "Check typecheck",
+                "content": "The typecheck step of npm run check runs tsc with the incremental option."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8JZT0ZMW17ECRT11RTC6Z",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8N2247W0JX23F792FDKBE"
+            ],
+            "facts": [
+              {
+                "header": "Env file loader",
+                "content": "WikiFact loads .env files through the dotenv library."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBMH",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8FPV9QCXX3TK335VSM9CS",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBMJ",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBMK",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8RMGPYD9BM48NBMDVB5CF"
+        ],
+        "facts": [
+          {
+            "header": "Check format cache",
+            "content": "The format check step of npm run check keeps a content-based cache."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBMM",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX61A65KD017EN4J236",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY6VKJ1JSS0F986DBMN",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8RQHF0AH1XX1W8CQWC9WC"
+        ],
+        "facts": [
+          {
+            "header": "Check test concurrency",
+            "content": "The unit tests and the browser test of npm run check run at the same time."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY7HY5Q223ZFDJP3XMQ",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5XE7DX8CQ9B311QVHBA0DDY"
+        ],
+        "facts": [
+          {
+            "header": "Question timeout",
+            "content": "A question call times out after 120 seconds by default."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY7HY5Q223ZFDJP3XMR",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8RV9V6ZFF7R3RNQQMC32Z"
+        ],
+        "facts": [
+          {
+            "header": "Dead code check: misplaced dependency",
+            "content": "The dead code check (npm run check:dead) reports a dependency that sits in the wrong dependency group."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY7HY5Q223ZFDJP3XMS",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8S0M2PW8VR7CCEFSG2RXY"
+        ],
+        "facts": [
+          {
+            "header": "Check steps record file",
+            "content": "While the steps of npm run check run, the file wikifact-check-steps.json in the common git folder holds their pid."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY7HY5Q223ZFDJP3XMT",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX7DWJS0XZ26V9J82EM",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY7HY5Q223ZFDJP3XMV",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has one subject (WikiFact), one attribute (supports Gemini models for questions), so it is a single claim, and the justification is an assumption (\"It would make sense, so I assume it does\").",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY7HY5Q223ZFDJP3XMW",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8S092PAAR15KT1S7463CP"
+        ],
+        "facts": [
+          {
+            "header": "Dependency lock file",
+            "content": "The file package-lock.json pins the version of each library that WikiFact uses."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY7HY5Q223ZFDJP3XMX",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z8TCTY8SQKZACZCD6N21MW",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8WK6ZR97ZXPB3H0NEY0KK"
+            ],
+            "facts": [
+              {
+                "header": "Future ideas file",
+                "content": "The file docs/future.md holds the ideas that have no plan, each with its trigger."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8TCTY8SQKZACZCD6N21MX",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8WMVYPP9BZ1MYP166BYVG"
+            ],
+            "facts": [
+              {
+                "header": "Research notes folder",
+                "content": "The folder docs/research/ holds the notes of measurements."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8TCTY8SQKZACZCD6N21MY",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8WK4SE6GGG93JC188Y19B"
+            ],
+            "facts": [
+              {
+                "header": "Supported platform",
+                "content": "The WikiFact project runs on Windows only."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DY89AR0FNVKA7CA000E",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8V86RCYYP9TWEACXYEPEJ"
+        ],
+        "facts": [
+          {
+            "header": "Console call rule",
+            "content": "A library module in src/ does not call console."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY89AR0FNVKA7CA000F",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX8CQ9B311QVHBA0DDN",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY89AR0FNVKA7CA000G",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8S0M2PW8VR7CCEFSG2RXY",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY89AR0FNVKA7CA000H",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY89AR0FNVKA7CA000J",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z8TRVBRMD3V4CEYY2ZK14E",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8WH6K10Y3EAEW2RH0GEBS"
+            ],
+            "facts": [
+              {
+                "header": "Index file",
+                "content": "An index file exports the public surface of its folder."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8TRVBRMD3V4CEYY2ZK14F",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z8WPE2GF2TSQWFTR89NG43"
+            ],
+            "facts": [
+              {
+                "header": "Index file logic",
+                "content": "An index file in the WikiFact code base holds no logic."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DY89AR0FNVKA7CA000K",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8VBHXDBNQGQBA6XHV5HG7"
+        ],
+        "facts": [
+          {
+            "header": "Absolute local paths",
+            "content": "No file in the WikiFact repo carries an absolute local path."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY89AR0FNVKA7CA000M",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX7DWJS0XZ26V9J82E3",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY9JZTT7YVECFJAXFHY",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has one subject (the service), one attribute (supported platforms) and a list value (Linux and Windows), and the justification is an inference (\"should work\").",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY9JZTT7YVECFJAXFHZ",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY9JZTT7YVECFJAXFJ0",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z908V6WXT0VHN7RJYH19RZ"
+        ],
+        "facts": [
+          {
+            "header": "Object type rule",
+            "content": "An object type in the WikiFact code is declared as an interface, not as a type alias."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY9JZTT7YVECFJAXFJ1",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z90B4ND1WX6M9F85245X7G"
+        ],
+        "facts": [
+          {
+            "header": "Check lint cache",
+            "content": "The lint step of npm run check runs without a cache."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DY9JZTT7YVECFJAXFJ2",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z8Z4Z5E5M33SWZKX8X06EN",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z8WPE2GF2TSQWFTR89NG43",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8Z4Z5E5M33SWZKX8X06EP",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z91AA9P3W4Z2NNY6W4DBQ8"
+            ],
+            "facts": [
+              {
+                "header": "Typecheck cache",
+                "content": "The typecheck step of npm run check keeps its cache in the .cache/ folder."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z8Z4Z5E5M33SWZKX8X06EQ",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z919X2ZGFBFJG014P6RPKB"
+            ],
+            "facts": [
+              {
+                "header": "archiveWiki annotation",
+                "content": "The WikiFact tool archiveWiki is annotated destructive."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DY9JZTT7YVECFJAXFJ3",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z90D02CTFK2P2DBJXZ8WGJ"
+        ],
+        "facts": [
+          {
+            "header": "Enum switch default branch",
+            "content": "A switch over an enum in the WikiFact code base has no default branch, so the compiler reports a missing case."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYANWRQ308GZ52GW15D",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DXAZW3Q9V7C1MV9CM2Q",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYANWRQ308GZ52GW15E",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5XE7DX997QZN5V86SVNZAT0"
+        ],
+        "facts": [
+          {
+            "header": "Batch concurrency",
+            "content": "The default concurrency of a batch is 4 groups at the same time."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYANWRQ308GZ52GW15F",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z90HHB0VMFHKCWNFAEGXR1"
+        ],
+        "facts": [
+          {
+            "header": "Transport selection variable",
+            "content": "The environment variable WIKIFACT_TRANSPORT selects the transport of the WikiFact question calls."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYANWRQ308GZ52GW15G",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z90B4ND1WX6M9F85245X7G",
+          "01M5Z90H1HY7ASE5N7PBCKMS3D"
+        ],
+        "facts": [
+          {
+            "header": "Check lint cache",
+            "content": "The lint step of npm run check runs without a cache."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYANWRQ308GZ52GW15H",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYANWRQ308GZ52GW15J",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8GRWBWG73FBN5S8KZGW2D",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYANWRQ308GZ52GW15K",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX997QZN5V86SVNZASZ",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYBD1ZVXEX2M4Y50DN9",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has one subject (update worker), one attribute (memory use) and one value (more than 8 GB); the justification \"I guess so, because it runs a model\" is inference.",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYBD1ZVXEX2M4Y50DNA",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z92FYSGE5G4NEVR9M191BH",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z94AHVPE3DW6812AM93PK4"
+            ],
+            "facts": [
+              {
+                "header": "createWiki idempotent annotation",
+                "content": "The WikiFact tool createWiki is annotated idempotent."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z92FYTDN9FWA4E6HH1G4DV",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z94AJ4JE2SPQ0Z9PAM7DSM"
+            ],
+            "facts": [
+              {
+                "header": "createWiki destructive annotation",
+                "content": "The WikiFact tool createWiki is annotated not destructive."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYBD1ZVXEX2M4Y50DNB",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z919X2ZGFBFJG014P6RPKB",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYBD1ZVXEX2M4Y50DNC",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX997QZN5V86SVNZASX",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYBD1ZVXEX2M4Y50DND",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z90B4ND1WX6M9F85245X7G",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYBD1ZVXEX2M4Y50DNE",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z92R8BY874ACHBRSJG42PH",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z8FKP25S2266QNZMDQT8XY",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z92R8CYTCXKGS82AYF201X",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z8M2ZRFQC4ER2X16E5MGH2",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYBD1ZVXEX2M4Y50DNF",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z92WDHKWM9V9HXBQMBSZ5X",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z94AW2CJ55B0KZ6Y1FZQ1C"
+            ],
+            "facts": [
+              {
+                "header": "Unarchive name clash",
+                "content": "When several archives share a name, the WikiFact tool unarchiveWiki restores the newest archive."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z92WDHKWM9V9HXBQMBSZ5Y",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z94AWEHZJ167BFFYNBW8BR"
+            ],
+            "facts": [
+              {
+                "header": "Unarchive name clash notice",
+                "content": "When several archives share a name, the answer of the WikiFact tool unarchiveWiki says that it restored the newest archive."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYCHMSEJ072ZZ7VXKVP",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DXAZW3Q9V7C1MV9CM2B",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYCHMSEJ072ZZ7VXKVQ",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change is one subject, one attribute and one value (high volume mode lowers answer quality), and the justification \"I feel\" is opinion.",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYCHMSEJ072ZZ7VXKVR",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z96KG56TV5XPJN2F6DJNH7"
+        ],
+        "facts": [
+          {
+            "header": "Q4 model and effort",
+            "content": "The question Q4 runs on the opus model with high effort in the question tests."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYCHMSEJ072ZZ7VXKVS",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z95NWWF74WRHYDJY1W2QBE",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z97SX8WF9Q4FF144XDT9SG"
+            ],
+            "facts": [
+              {
+                "header": "Check lock wait message",
+                "content": "A check of npm run check that finds the check lock held prints a waiting message."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z95NWWF74WRHYDJY1W2QBF",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z97SXHJTTR88VZRP23XZ3J"
+            ],
+            "facts": [
+              {
+                "header": "Check lock retry interval",
+                "content": "A check of npm run check that finds the check lock held tries again every 3 seconds."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYCHMSEJ072ZZ7VXKVT",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYCHMSEJ072ZZ7VXKVV",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8GS0NZWT9MNY5ACBBA0AW",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYCHMSEJ072ZZ7VXKVW",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5XE7DXB2SV2ZB1SZKJFA3T0"
+        ],
+        "facts": [
+          {
+            "header": "Cleanup cap",
+            "content": "The cleanup queues at most 20 requests per finder per run."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYD3KV4N3PB7CNWB74H",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX8CQ9B311QVHBA0DD5",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYD3KV4N3PB7CNWB74J",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z8WK6ZR97ZXPB3H0NEY0KK"
+        ],
+        "facts": [
+          {
+            "header": "Future ideas file",
+            "content": "The file docs/future.md holds the ideas that have no plan, each with its trigger."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYD3KV4N3PB7CNWB74K",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z9649KH64PJK4Q6AM525G0",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z97M572RZ79W7JHNBMN742"
+            ],
+            "facts": [
+              {
+                "header": "Model call log",
+                "content": "Each model call writes a row in the model_calls table."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9649MNZNRQ46KQZTTDQKV",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z90HHB0VMFHKCWNFAEGXR1",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9649MNZNRQ46KQZTTDQKW",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z97MCGZ6VHBG502ZCQT757"
+            ],
+            "facts": [
+              {
+                "header": "Q4 model",
+                "content": "The question Q4 runs on the opus model."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYD3KV4N3PB7CNWB74M",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYD3KV4N3PB7CNWB74N",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8WMVYPP9BZ1MYP166BYVG",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYTX4TAEM0ZWTBGWATD",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX8CQ9B311QVHBA0DDK",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYW36GGXEDDHJ9YTVX4",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has one subject (wikis), one attribute (need an API key to be read) and one value, and the justification \"I believe\" is inference.",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYW36GGXEDDHJ9YTVX5",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4R",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z9879AMYY2H0Y94Z1JKVRH",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z99XT1C5RJ4CAT3R46TPQM"
+            ],
+            "facts": [
+              {
+                "header": "Serve first log line",
+                "content": "The first log line of wikifact serve names the mode, the transport and the condition."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9879AMYY2H0Y94Z1JKVRJ",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z99XTEJJM3FSHCHM35ASZC"
+            ],
+            "facts": [
+              {
+                "header": "Worker first log line",
+                "content": "The first log line of wikifact worker names the mode, the transport and the condition."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4S",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8N2247W0JX23F792FDKBE",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4T",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8GQSP73EDHSDEGWKWAVC3",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4V",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4W",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DXAZW3Q9V7C1MV9CM2N",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4X",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z97M572RZ79W7JHNBMN742",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4Y",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z98N2XV5VFX31EPRF7293M",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z90B4ND1WX6M9F85245X7G",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z98N2XV5VFX31EPRF7293N",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z90D02CTFK2P2DBJXZ8WGJ",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z98N2XV5VFX31EPRF7293P",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z908V6WXT0VHN7RJYH19RZ",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP4Z",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z9B0M2S22JTE36MJFZETW3"
+        ],
+        "facts": [
+          {
+            "header": "Step 1",
+            "content": "Step 1 of the update pipeline is the claim check and the gathering of the facts around the claim."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP50",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX997QZN5V86SVNZATB",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYXQS64F3AF0P7RCP51",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has one subject (the console), one attribute (slow) and a condition in the measurement (over a thousand facts); the justification is a suspicion, not tested.",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEX5",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEX6",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8WK4SE6GGG93JC188Y19B",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEX7",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5XE7DXB2SV2ZB1SZKJFA3T4"
+        ],
+        "facts": [
+          {
+            "header": "Broad tag size",
+            "content": "A live tag with more than 15 live facts is a broad tag candidate."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEX8",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5Z8N0DMCZ2Z400E41YASM10",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEX9",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DXDTNZ5Z9Q1ZSAHXP8A",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEXA",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z9B76TP4RFX9RK2YGX5S2N"
+        ],
+        "facts": [
+          {
+            "header": "Clean-temp stopped test run folders",
+            "content": "The command npm run clean-temp deletes the run folders of test runs that were stopped."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEXB",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z9AR5JRF7F4C42R3M1DB7X",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z91AA9P3W4Z2NNY6W4DBQ8",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9AR5JRF7F4C42R3M1DB7Y",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z9C3J4TPVQ55AW5615Z5FH"
+            ],
+            "facts": [
+              {
+                "header": "Format check cache folder",
+                "content": "The format check step of npm run check keeps its cache in the .cache/ folder."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEXC",
+        "status": "done",
+        "outcome": "rejected",
+        "rejectReason": "contradicted",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYYJZY38ETDZ6CJQEXD",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z9CE30EFHWH2ET5WDRSW16",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z99XT1C5RJ4CAT3R46TPQM",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9CE30EFHWH2ET5WDRSW17",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z94AW2CJ55B0KZ6Y1FZQ1C",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9CE30EFHWH2ET5WDRSW18",
+            "status": "done",
+            "outcome": "duplicate",
+            "duplicateOf": "01M5Z8S092PAAR15KT1S7463CP",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP2",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z9CHJQXEKP1G6HTARZZRET",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z9EF17D7VD82Q7AW70S5P9"
+            ],
+            "facts": [
+              {
+                "header": "Application temp folder cleanup",
+                "content": "The WikiFact application code deletes its own temp folders."
+              }
+            ],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9CHJQXEKP1G6HTARZZREV",
+            "status": "done",
+            "outcome": "accepted",
+            "attempts": 0,
+            "factIds": [
+              "01M5Z9EF1JK970TG3HP7S9ZTEG"
+            ],
+            "facts": [
+              {
+                "header": "Eval temp folder cleanup",
+                "content": "The WikiFact evals delete their own temp folders."
+              }
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP3",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DX61A65KD017EN4J234",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP4",
+        "status": "done",
+        "outcome": "rejected",
+        "error": "The change has one subject (deleting a fact), one attribute (effect on versions) and one value (removes its versions), and the justification \"usually works that way\" is an assumption.",
+        "rejectReason": "unsupported",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP5",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z9DBRBW2Q0D96QG0RK6N3T"
+        ],
+        "facts": [
+          {
+            "header": "Check lock name",
+            "content": "The check lock of npm run check is named after the hash of the common git folder."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP6",
+        "status": "done",
+        "outcome": "split",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": [
+          {
+            "requestId": "01M5Z9CRQQ2YPYXBH5D7V1MYA1",
+            "status": "done",
+            "outcome": "rejected",
+            "rejectReason": "contradicted",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          },
+          {
+            "requestId": "01M5Z9CRQQ2YPYXBH5D7V1MYA2",
+            "status": "done",
+            "outcome": "rejected",
+            "rejectReason": "contradicted",
+            "attempts": 0,
+            "factIds": [],
+            "facts": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP7",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z9DD6HBWGTZP8ZWQDRAHC9"
+        ],
+        "facts": [
+          {
+            "header": "Bulk wiki command",
+            "content": "The command npm run bulk-wiki builds the wiki of the bulk test under the .cache folder of the repo."
+          }
+        ],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP8",
+        "status": "done",
+        "outcome": "duplicate",
+        "duplicateOf": "01M5XE7DXB2SV2ZB1SZKJFA3SK",
+        "attempts": 0,
+        "factIds": [],
+        "facts": [],
+        "children": []
+      },
+      {
+        "requestId": "01M5XE7DYZA7FN3GFEN9PW9XP9",
+        "status": "done",
+        "outcome": "accepted",
+        "attempts": 0,
+        "factIds": [
+          "01M5Z9DGTWSSH007R520T3PWBP"
+        ],
+        "facts": [
+          {
+            "header": "Clean-temp output",
+            "content": "The command npm run clean-temp prints the counts of the folders it deleted."
+          }
+        ],
+        "children": []
+      }
+    ],
+    "duplicates": {
+      "complete": true,
+      "checkedFacts": 54,
+      "candidatePairs": 128,
+      "pairs": [
+        {
+          "a": {
+            "factId": "01M5XE7DX61A65KD017EN4J23J",
+            "header": "Search result cap",
+            "content": "The search tool returns at most 10 results by default."
+          },
+          "b": {
+            "factId": "01M5XE7DX997QZN5V86SVNZATR",
+            "header": "Config search cap",
+            "content": "The searchCap key of wikifact.json sets the result cap of search."
+          },
+          "distance": 0.2438668032361615
+        },
+        {
+          "a": {
+            "factId": "01M5Z8GQSP73EDHSDEGWKWAVC3",
+            "header": "Clean-temp command",
+            "content": "The command npm run clean-temp deletes only folders older than 1 hour."
+          },
+          "b": {
+            "factId": "01M5Z9B76TP4RFX9RK2YGX5S2N",
+            "header": "Clean-temp stopped test run folders",
+            "content": "The command npm run clean-temp deletes the run folders of test runs that were stopped."
+          },
+          "distance": 0.09559760901510728
+        },
+        {
+          "a": {
+            "factId": "01M5Z8M307NZA0QBCH71BKPFGE",
+            "header": "Console browser test command",
+            "content": "The command npm run test:ui runs the browser test of the console alone."
+          },
+          "b": {
+            "factId": "01M5XE7DXB2SV2ZB1SZKJFA3SY",
+            "header": "Console browser test",
+            "content": "The browser test of the console runs in a headless Edge or Chrome."
+          },
+          "distance": 0.17513856548375872
+        },
+        {
+          "a": {
+            "factId": "01M5Z8N0DMCZ2Z400E41YASM10",
+            "header": "Check typecheck",
+            "content": "The typecheck step of npm run check runs tsc with the incremental option."
+          },
+          "b": {
+            "factId": "01M5Z91AA9P3W4Z2NNY6W4DBQ8",
+            "header": "Typecheck cache",
+            "content": "The typecheck step of npm run check keeps its cache in the .cache/ folder."
+          },
+          "distance": 0.1875161484679826
+        },
+        {
+          "a": {
+            "factId": "01M5Z8RMGPYD9BM48NBMDVB5CF",
+            "header": "Check format cache",
+            "content": "The format check step of npm run check keeps a content-based cache."
+          },
+          "b": {
+            "factId": "01M5Z9C3J4TPVQ55AW5615Z5FH",
+            "header": "Format check cache folder",
+            "content": "The format check step of npm run check keeps its cache in the .cache/ folder."
+          },
+          "distance": 0.05454187490478324
+        },
+        {
+          "a": {
+            "factId": "01M5Z8V86RCYYP9TWEACXYEPEJ",
+            "header": "Console call rule",
+            "content": "A library module in src/ does not call console."
+          },
+          "b": {
+            "factId": "01M5XE7DXB2SV2ZB1SZKJFA3SP",
+            "header": "Console path",
+            "content": "The operator console is served under /console/ of the service."
+          },
+          "distance": 0.3009843720713047
+        },
+        {
+          "a": {
+            "factId": "01M5Z8WH6K10Y3EAEW2RH0GEBS",
+            "header": "Index file",
+            "content": "An index file exports the public surface of its folder."
+          },
+          "b": {
+            "factId": "01M5Z8WPE2GF2TSQWFTR89NG43",
+            "header": "Index file logic",
+            "content": "An index file in the WikiFact code base holds no logic."
+          },
+          "distance": 0.30160740438095546
+        },
+        {
+          "a": {
+            "factId": "01M5XE7DX8CQ9B311QVHBA0DDN",
+            "header": "Worker count",
+            "content": "One update worker runs for each database."
+          },
+          "b": {
+            "factId": "01M5XE7DX8CQ9B311QVHBA0DDQ",
+            "header": "Second worker",
+            "content": "A second worker on the same file exits with a message."
+          },
+          "distance": 0.33816298661519617
+        },
+        {
+          "a": {
+            "factId": "01M5Z94AW2CJ55B0KZ6Y1FZQ1C",
+            "header": "Unarchive name clash",
+            "content": "When several archives share a name, the WikiFact tool unarchiveWiki restores the newest archive."
+          },
+          "b": {
+            "factId": "01M5Z94AWEHZJ167BFFYNBW8BR",
+            "header": "Unarchive name clash notice",
+            "content": "When several archives share a name, the answer of the WikiFact tool unarchiveWiki says that it restored the newest archive."
+          },
+          "distance": 0.029049456405493168
+        },
+        {
+          "a": {
+            "factId": "01M5Z96KG56TV5XPJN2F6DJNH7",
+            "header": "Q4 model and effort",
+            "content": "The question Q4 runs on the opus model with high effort in the question tests."
+          },
+          "b": {
+            "factId": "01M5Z97MCGZ6VHBG502ZCQT757",
+            "header": "Q4 model",
+            "content": "The question Q4 runs on the opus model."
+          },
+          "distance": 0.07108486201533926
+        },
+        {
+          "a": {
+            "factId": "01M5XE7DXB2SV2ZB1SZKJFA3T4",
+            "header": "Broad tag size",
+            "content": "A live tag with more than 15 live facts is a broad tag candidate."
+          },
+          "b": {
+            "factId": "01M5XE7DXB2SV2ZB1SZKJFA3T2",
+            "header": "Broad tag start",
+            "content": "The broad tag finder starts at an interval of 100 writes, which changes after each run."
+          },
+          "distance": 0.2233579767749997
+        }
+      ],
+      "judge": {
+        "calls": 54,
+        "tokens": {
+          "input": 108,
+          "output": 13707,
+          "cacheRead": 54756,
+          "cacheWrite": 122659
+        }
+      }
+    },
+    "score": {
+      "right": 102,
+      "wrong": 15,
+      "unclear": {
+        "right": 2,
+        "wrong": 3
+      },
+      "ends": [
+        {
+          "position": 0,
+          "end": "rejected compound",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 1,
+          "end": "rejected compound",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 2,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": true,
+          "correction": false
+        },
+        {
+          "position": 3,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 4,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 5,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 6,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 7,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 7,
+          "claim": 1,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 7,
+          "claim": 2,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 7,
+          "claim": 3,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 8,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 9,
+          "end": "accepted",
+          "accepted": [
+            "correction accepted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": true
+        },
+        {
+          "position": 10,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 11,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 12,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 13,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of an earlier submission",
+            "merged with another submission"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 14,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 15,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 16,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 17,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 18,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 18,
+          "claim": 1,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 18,
+          "claim": 2,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 19,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of an earlier submission",
+            "merged with another submission"
+          ],
+          "right": true,
+          "unclear": true,
+          "correction": false
+        },
+        {
+          "position": 20,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 21,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 22,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 23,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 24,
+          "end": "accepted",
+          "accepted": [
+            "correction accepted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": true
+        },
+        {
+          "position": 25,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 26,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 27,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 28,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 29,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 30,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 30,
+          "claim": 1,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 30,
+          "claim": 2,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 30,
+          "claim": 3,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 31,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 32,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 33,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of an earlier submission",
+            "merged with another submission"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 34,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 35,
+          "end": "split",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": false,
+          "unclear": true,
+          "correction": false
+        },
+        {
+          "position": 36,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 37,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 38,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 39,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 40,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 41,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 42,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 42,
+          "claim": 1,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 42,
+          "claim": 2,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 42,
+          "claim": 3,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 43,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 44,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 45,
+          "end": "accepted",
+          "accepted": [
+            "correction accepted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": true
+        },
+        {
+          "position": 46,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 47,
+          "end": "accepted",
+          "accepted": [
+            "duplicate of an earlier submission",
+            "merged with another submission"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 48,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 49,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 50,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 51,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 52,
+          "end": "split",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": false,
+          "unclear": true,
+          "correction": false
+        },
+        {
+          "position": 53,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 54,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 55,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of an earlier submission",
+            "merged with another submission"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 56,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 56,
+          "claim": 1,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 56,
+          "claim": 2,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 57,
+          "end": "split",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 58,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 59,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 60,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 61,
+          "end": "split",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 62,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 63,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 64,
+          "end": "accepted",
+          "accepted": [
+            "correction accepted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": true
+        },
+        {
+          "position": 65,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 66,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 67,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 67,
+          "claim": 1,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 67,
+          "claim": 2,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 67,
+          "claim": 3,
+          "end": "accepted",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 68,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected contradicted",
+            "loses in the reconciliation"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 69,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 70,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 71,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 72,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 73,
+          "end": "split",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": false,
+          "unclear": true,
+          "correction": false
+        },
+        {
+          "position": 74,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 75,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 76,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 77,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 78,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 79,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 79,
+          "claim": 1,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 79,
+          "claim": 2,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 79,
+          "claim": 3,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 80,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 81,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 82,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 83,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted",
+            "loses in the reconciliation"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 84,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 85,
+          "end": "accepted",
+          "accepted": [
+            "correction accepted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": true
+        },
+        {
+          "position": 86,
+          "end": "duplicate",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 87,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 88,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 89,
+          "end": "split",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 90,
+          "end": "rejected contradicted",
+          "accepted": [
+            "rejected contradicted"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 91,
+          "end": "split",
+          "accepted": [
+            "split into single claims"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 91,
+          "claim": 1,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 91,
+          "claim": 2,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 91,
+          "claim": 3,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 92,
+          "end": "split",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 93,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 94,
+          "end": "rejected unsupported",
+          "accepted": [
+            "rejected unsupported"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 95,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 96,
+          "end": "split",
+          "accepted": [
+            "rejected contradicted",
+            "loses in the reconciliation"
+          ],
+          "right": false,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 97,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 98,
+          "end": "duplicate",
+          "accepted": [
+            "duplicate of a seed fact"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        },
+        {
+          "position": 99,
+          "end": "accepted",
+          "accepted": [
+            "accepted as new"
+          ],
+          "right": true,
+          "unclear": false,
+          "correction": false
+        }
+      ],
+      "endState": [
+        {
+          "name": "new facts",
+          "expected": "41 to 46",
+          "actual": "50",
+          "ok": false,
+          "positions": [
+            0,
+            7,
+            18,
+            30,
+            42,
+            47,
+            49,
+            53,
+            57,
+            61,
+            63,
+            67,
+            69,
+            74,
+            75,
+            78,
+            84,
+            86,
+            92
+          ]
+        },
+        {
+          "name": "corrected seed facts",
+          "expected": "5",
+          "actual": "5",
+          "ok": true,
+          "positions": []
+        },
+        {
+          "name": "false value in a conflict group",
+          "expected": "0",
+          "actual": "0",
+          "ok": true,
+          "positions": []
+        },
+        {
+          "name": "duplicate pairs",
+          "expected": "0",
+          "actual": "11",
+          "ok": false,
+          "positions": [
+            7,
+            9,
+            17,
+            18,
+            21,
+            31,
+            35,
+            42,
+            57,
+            60,
+            67,
+            85,
+            88,
+            89
+          ]
+        },
+        {
+          "name": "compound facts",
+          "expected": "0",
+          "actual": "0",
+          "ok": true,
+          "positions": []
+        }
+      ],
+      "line": "batch: 102 right, 15 wrong (at 0, 1, 6, 30.1, 39, 42.2, 47, 57 and 7 more); unclear 2 right, 3 wrong; failed: new facts 50 (expected 41 to 46) at 0, 7, 18, 30, 42, 47, 49, 53 and 11 more; duplicate pairs 11 (expected 0) at 7, 9, 17, 18, 21, 31, 35, 42 and 6 more"
+    }
+  }
+}

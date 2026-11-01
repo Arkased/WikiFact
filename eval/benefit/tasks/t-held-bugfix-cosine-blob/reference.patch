@@ -1,0 +1,14 @@
+diff --git b/src/store/search/candidates.ts a/src/store/search/candidates.ts
+index 5d996cf..7ad18bf 100644
+--- b/src/store/search/candidates.ts
++++ a/src/store/search/candidates.ts
+@@ -119,7 +119,8 @@ function termsOf(row: Highlighted): number {
+  * @sideEffects none
+  */
+ export function cosineDistance(q: Float32Array, blob: Buffer): number {
+-  const v = new Float32Array(blob.buffer, blob.byteOffset, blob.byteLength / Float32Array.BYTES_PER_ELEMENT);
++  // The blob may not sit on a 4-byte boundary, so copy it.
++  const v = new Float32Array(blob.buffer.slice(blob.byteOffset, blob.byteOffset + blob.byteLength));
+   let dot = 0;
+   for (let i = 0; i < q.length; i++) dot += (q[i] ?? 0) * (v[i] ?? 0);
+   return 1 - dot;

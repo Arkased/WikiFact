@@ -1,0 +1,37 @@
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { closeStore, enqueueRequest, queuePosition, takeNextRequest, type Store } from "../index.js";
+import { T0, makeStore } from "../../../__tests__/helpers/store.js";
+
+let store: Store;
+beforeEach(() => {
+  store = makeStore();
+});
+afterEach(() => closeStore(store));
+
+const submit = (change: string, at: number) => enqueueRequest(store, { change, justification: "j", targets: ["x"] }, at);
+
+describe("the place of a request in the line, when requests arrive in the same millisecond", () => {
+  it("numbers requests with the same received time in the order the worker takes them", () => {
+    const a = submit("a", T0);
+    const b = submit("b", T0);
+    const c = submit("c", T0);
+    expect([a, b, c].map((id) => queuePosition(store, id))).toEqual([1, 2, 3]);
+  });
+
+  it("agrees with the order of takeNextRequest", () => {
+    const ids = [submit("a", T0), submit("b", T0), submit("c", T0 + 1), submit("d", T0 + 1)];
+    const taken: string[] = [];
+    for (let r = takeNextRequest(store); r; r = takeNextRequest(store)) taken.push(r.id);
+    expect(taken).toEqual(ids);
+    expect(ids.map((id) => queuePosition(store, id))).toEqual([0, 0, 0, 0]);
+  });
+
+  it("counts the requests before it, itself included, for a mix of equal and later times", () => {
+    const a = submit("a", T0);
+    const b = submit("b", T0);
+    const c = submit("c", T0 + 5);
+    expect(queuePosition(store, a)).toBe(1);
+    expect(queuePosition(store, b)).toBe(2);
+    expect(queuePosition(store, c)).toBe(3);
+  });
+});

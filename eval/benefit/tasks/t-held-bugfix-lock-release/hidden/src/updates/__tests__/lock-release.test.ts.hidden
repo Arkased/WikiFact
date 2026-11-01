@@ -1,0 +1,45 @@
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { afterEach, describe, expect, it } from "vitest";
+import { acquireLock } from "../lock.js";
+
+const dirs: string[] = [];
+afterEach(() => {
+  for (const d of dirs.splice(0)) rmSync(d, { recursive: true, force: true });
+});
+
+function dbPath(): string {
+  const dir = mkdtempSync(join(tmpdir(), "wikifact-lock-release-"));
+  dirs.push(dir);
+  return join(dir, "game.sqlite");
+}
+
+describe("releasing the worker lock", () => {
+  it("removes the lock file that holds this process's pid", () => {
+    const db = dbPath();
+    const release = acquireLock(db);
+    expect(existsSync(`${db}.lock`)).toBe(true);
+    release();
+    expect(existsSync(`${db}.lock`)).toBe(false);
+  });
+
+  it("leaves a lock file that another worker took over in the meantime", () => {
+    const db = dbPath();
+    const release = acquireLock(db);
+    // Another worker took the lock over after this process was judged dead.
+    writeFileSync(`${db}.lock`, String(process.pid + 100000));
+    release();
+    expect(existsSync(`${db}.lock`)).toBe(true);
+    expect(readFileSync(`${db}.lock`, "utf8")).toBe(String(process.pid + 100000));
+  });
+
+  it("is safe to call twice, and the second call does not remove a newer lock", () => {
+    const db = dbPath();
+    const release = acquireLock(db);
+    release();
+    writeFileSync(`${db}.lock`, String(process.pid + 100000));
+    release();
+    expect(existsSync(`${db}.lock`)).toBe(true);
+  });
+});
